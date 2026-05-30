@@ -105,5 +105,13 @@
   }
   .hero-heading {
     font-size: clamp(28px, 7.5vw, 42px) !important;
+    line-height: 1.0 !important;
+    letter-spacing: -0.02em;
+  }
+  .rotator-wrapper {
+    margin-top: 4px !important; /* Hug the lines tightly together */
+  }
+  .slide-progress {
+    display: none !important; /* Hide the slide progress bar on mobile entirely */
   }
 }
