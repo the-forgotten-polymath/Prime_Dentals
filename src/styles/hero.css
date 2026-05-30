@@ -32,9 +32,11 @@
 
 
 .rotator-wrapper {
-  display: flex;
+  display: block;
   color: var(--color-primary);
-  flex-wrap: wrap;
+  margin-top: 8px;
+  min-height: 1.2em;
+  position: relative;
 }
 
 .slide-progress {
