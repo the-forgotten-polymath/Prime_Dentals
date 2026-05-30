@@ -95,51 +95,50 @@
 
 @media (max-width: 768px) {
   .hero {
-    height: 100vh;
-    min-height: 600px;
-    background-color: #0b0b12; /* Clean dark premium base */
+    height: auto;
+    min-height: 0;
+    position: relative;
+    background-color: transparent;
   }
   .hero picture {
-    position: absolute;
-    top: auto; /* Override top: 0 from desktop style */
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 50%; /* Covers the bottom half of the screen */
+    position: relative;
     display: block;
+    width: 100%;
+    height: auto;
     z-index: 1;
   }
   .hero-bg {
     width: 100%;
-    height: 100%;
-    object-fit: contain; /* Exact size, no zoom, no stretch */
-    object-position: center bottom;
+    height: auto; /* Natural aspect ratio, absolutely no stretch or zoom */
+    display: block;
+    object-fit: contain;
+    object-position: center;
   }
   .hero-overlay {
     position: absolute;
-    top: auto; /* Override top: 0 from desktop style */
-    bottom: 0;
+    top: 0;
     left: 0;
     width: 100%;
-    height: 50%;
+    height: 100%;
     z-index: 2;
-    background: linear-gradient(to top, rgba(11, 11, 18, 0.3) 0%, rgba(11, 11, 18, 0.95) 90%, #0b0b12 100%);
+    background: rgba(10, 10, 20, 0.55); /* Perfect text readability overlay */
   }
   .hero-headline {
     position: absolute;
-    top: 15%; /* Positioned beautifully in the upper half of the screen */
-    left: 24px;
-    right: 24px;
-    max-width: calc(100% - 48px);
+    top: 45%;
+    transform: translateY(-50%);
+    left: 20px;
+    right: 20px;
+    max-width: calc(100% - 40px);
     z-index: 5;
   }
   .hero-heading {
-    font-size: clamp(24px, 6.8vw, 36px) !important; /* Elegant, adjusted text size */
-    line-height: 1.15 !important;
+    font-size: clamp(24px, 7vw, 38px) !important;
+    line-height: 1.1 !important;
     letter-spacing: -0.01em;
   }
   .rotator-wrapper {
-    margin-top: 6px !important; /* Perfect line spacing */
+    margin-top: 4px !important;
   }
   .slide-progress {
     display: none !important;
