@@ -41,6 +41,7 @@ export async function POST(req: Request) {
           { role: "system", content: SYSTEM_PROMPT },
           ...messages
         ],
+        stream: true
       })
     });
 
@@ -49,10 +50,78 @@ export async function POST(req: Request) {
       throw new Error(`API error: ${errorText}`);
     }
 
-    const data = await response.json();
-    const replyText = data.choices[0].message.content;
+    const encoder = new TextEncoder();
+    const decoder = new TextDecoder();
 
-    return NextResponse.json({ reply: replyText });
+    const stream = new ReadableStream({
+      async start(controller) {
+        const reader = response.body?.getReader();
+        if (!reader) {
+          controller.close();
+          return;
+        }
+
+        let buffer = "";
+        try {
+          while (true) {
+            const { done, value } = await reader.read();
+            if (done) break;
+
+            buffer += decoder.decode(value, { stream: true });
+            const lines = buffer.split("\n");
+            
+            // Keep last element (which might be partial) in buffer
+            buffer = lines.pop() || "";
+
+            for (const line of lines) {
+              const cleanedLine = line.trim();
+              if (!cleanedLine) continue;
+              if (cleanedLine === "data: [DONE]") continue;
+
+              if (cleanedLine.startsWith("data: ")) {
+                try {
+                  const dataStr = cleanedLine.slice(6);
+                  const parsed = JSON.parse(dataStr);
+                  const content = parsed.choices?.[0]?.delta?.content || "";
+                  if (content) {
+                    controller.enqueue(encoder.encode(content));
+                  }
+                } catch (e) {
+                  // Ignore JSON parse errors for incomplete/control chunks
+                }
+              }
+            }
+          }
+          
+          // Handle any remaining buffer
+          if (buffer && buffer.startsWith("data: ")) {
+            try {
+              const dataStr = buffer.slice(6).trim();
+              if (dataStr !== "[DONE]") {
+                const parsed = JSON.parse(dataStr);
+                const content = parsed.choices?.[0]?.delta?.content || "";
+                if (content) {
+                  controller.enqueue(encoder.encode(content));
+                }
+              }
+            } catch (e) {}
+          }
+        } catch (err) {
+          controller.error(err);
+        } finally {
+          controller.close();
+        }
+      }
+    });
+
+    return new Response(stream, {
+      headers: {
+        "Content-Type": "text/plain; charset=utf-8",
+        "Cache-Control": "no-cache",
+        "Connection": "keep-alive"
+      }
+    });
+
   } catch (error: any) {
     console.error("Chat API Error:", error);
     return NextResponse.json({ error: error.message }, { status: 500 });

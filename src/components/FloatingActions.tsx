@@ -36,16 +36,44 @@ export default function FloatingActions() {
         body: JSON.stringify({ messages: newMessages })
       });
       
-      const data = await res.json();
-      
-      if (res.ok) {
-        setMessages([...newMessages, { role: "assistant", content: data.reply }]);
-      } else {
-        setMessages([...newMessages, { role: "assistant", content: data.error || "Sorry, I encountered an error." }]);
+      if (!res.ok) {
+        const errorData = await res.json().catch(() => ({}));
+        setMessages([...newMessages, { role: "assistant", content: errorData.error || "Sorry, I encountered an error." }]);
+        setIsLoading(false);
+        return;
+      }
+
+      const reader = res.body?.getReader();
+      const decoder = new TextDecoder();
+      if (!reader) {
+        throw new Error("No reader available");
+      }
+
+      // Add placeholder message for assistant response that we will stream into
+      const initialAssistantMsg = { role: "assistant", content: "" };
+      setMessages([...newMessages, initialAssistantMsg]);
+      setIsLoading(false); // Stop typing indicator, start showing actual stream
+
+      let streamingText = "";
+      while (true) {
+        const { done, value } = await reader.read();
+        if (done) break;
+        streamingText += decoder.decode(value, { stream: true });
+        
+        // Update the last message (the placeholder) in the array
+        setMessages((prevMessages) => {
+          const updated = [...prevMessages];
+          if (updated.length > 0) {
+            updated[updated.length - 1] = {
+              role: "assistant",
+              content: streamingText
+            };
+          }
+          return updated;
+        });
       }
     } catch (error) {
       setMessages([...newMessages, { role: "assistant", content: "Network error. Please try again later." }]);
-    } finally {
       setIsLoading(false);
     }
   };
