@@ -1,0 +1,31 @@
+/* variables.css */
+:root {
+  --color-bg-page: #EAF4F8;
+  --color-bg-white: #FFFFFF;
+  --color-bg-dark: #1A1A2E;
+  --color-primary: #1E90D6;
+  --color-text-heading: #0D0D0D;
+  --color-text-body: #4A4A5A;
+  --color-text-light: #8A8A9A;
+  --color-text-white: #FFFFFF;
+  --color-border: #E0EAF0;
+  --color-tag-bg: rgba(255,255,255,0.18);
+  --color-tag-active: rgba(255,255,255,0.95);
+  --color-stat-number: #0D0D0D;
+  --color-gold-star: #F5A623;
+  --shadow-card: 0 8px 32px rgba(0,0,0,0.10);
+  --shadow-hero-card: 0 12px 40px rgba(0,0,0,0.25);
+  
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 40px;
+  --space-2xl: 64px;
+  --space-3xl: 96px;
+  
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-full: 999px;
+}

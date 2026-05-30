@@ -1,0 +1,113 @@
+/* navbar.css */
+.navbar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 32px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 10;
+}
+
+.logo {
+  font-family: "Sora", sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  color: var(--color-text-white);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+}
+
+.nav-menu-wrapper {
+  position: relative;
+  display: flex;
+  width: fit-content;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.15);
+  background: rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  padding: 6px;
+  margin: 0 auto;
+}
+
+.nav-tab {
+  position: relative;
+  z-index: 10;
+  display: block;
+  cursor: pointer;
+  padding: 8px 24px;
+  font-family: "DM Sans", sans-serif;
+  font-size: 14px;
+  color: rgba(255,255,255,0.8);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.nav-tab:hover {
+  color: #fff;
+}
+
+.nav-cursor {
+  position: absolute;
+  z-index: 0;
+  height: calc(100% - 12px);
+  top: 6px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255,255,255,0.3);
+}
+
+.nav-cta {
+  background: var(--color-bg-white);
+  color: #0D0D0D;
+  font-family: "DM Sans", sans-serif;
+  font-weight: 700;
+  font-size: 12px;
+  padding: 12px 24px;
+  border-radius: 999px;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  text-decoration: none;
+  transition: transform 0.2s;
+}
+
+.nav-cta:hover {
+  transform: scale(1.05);
+}
+
+.cta-arrow {
+  background: #0D0D0D;
+  color: #fff;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (max-width: 1024px) {
+  .nav-menu-wrapper {
+    display: none; /* Hide complex menu on mobile for simplicity */
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    padding: 20px;
+  }
+  .nav-cta {
+    display: none;
+  }
+}
