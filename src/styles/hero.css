@@ -101,6 +101,7 @@
   }
   .hero picture {
     position: absolute;
+    top: auto; /* Override top: 0 from desktop style */
     bottom: 0;
     left: 0;
     width: 100%;
@@ -116,6 +117,7 @@
   }
   .hero-overlay {
     position: absolute;
+    top: auto; /* Override top: 0 from desktop style */
     bottom: 0;
     left: 0;
     width: 100%;
