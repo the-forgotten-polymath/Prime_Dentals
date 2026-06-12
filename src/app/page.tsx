@@ -3,6 +3,7 @@ import Hero from "../components/Hero";
 import Marquee from "../components/Marquee";
 import Services from "../components/Services";
 import BeforeAfterSlider from "../components/BeforeAfterSlider";
+import Equipments from "../components/Equipments";
 import About from "../components/About";
 import Testimonials from "../components/Testimonials";
 import Articles from "../components/Articles";
@@ -17,6 +18,7 @@ export default function Home() {
       <Marquee />
       <Services />
       <BeforeAfterSlider />
+      <Equipments />
       <About />
       <Testimonials />
       <Articles />

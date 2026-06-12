@@ -1,0 +1,123 @@
+/* equipments.css */
+.equipments-section {
+  background-color: var(--color-bg-page);
+  padding: 80px 0;
+}
+
+.equipments-header {
+  text-align: center;
+  margin-bottom: 56px;
+}
+
+.equipments-header h2 {
+  font-family: "Sora", sans-serif;
+  font-size: clamp(32px, 4vw, 48px);
+  font-weight: 800;
+  color: var(--color-text-heading);
+  margin-bottom: 16px;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+}
+
+.equipments-header p {
+  font-family: "DM Sans", sans-serif;
+  font-size: clamp(14px, 1.5vw, 18px);
+  color: var(--color-text-body);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.equipments-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 32px;
+}
+
+.equipment-card {
+  background-color: var(--color-bg-white);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--color-border);
+}
+
+.equipment-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.08);
+}
+
+.equipment-img-wrapper {
+  width: 100%;
+  height: 260px;
+  background-color: #f8fafc;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.equipment-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.equipment-card:hover .equipment-img {
+  transform: scale(1.03);
+}
+
+.equipment-content {
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.equipment-title {
+  font-family: "Sora", sans-serif;
+  font-size: clamp(18px, 2vw, 21px);
+  font-weight: 700;
+  color: var(--color-text-heading);
+  margin-bottom: 12px;
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+}
+
+.equipment-desc {
+  font-family: "DM Sans", sans-serif;
+  font-size: 14.5px;
+  color: var(--color-text-body);
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.equipment-benefit {
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--color-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+@media (max-width: 768px) {
+  .equipments-section {
+    padding: 60px 0;
+  }
+  .equipments-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  .equipment-img-wrapper {
+    height: 220px;
+  }
+}
