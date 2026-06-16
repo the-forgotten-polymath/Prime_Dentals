@@ -1,47 +1,129 @@
+"use client";
+
+import Image from "next/image";
+
+const doctors = [
+  {
+    id: 1,
+    name: "Dr. Sahil Dhingra",
+    prefix: "CLINIC DIRECTOR /",
+    image: "/images/attending_patient.png",
+    layout: "normal-layout",
+    desc: "Dr. Sahil Dhingra is a highly skilled Endodontist and associate professor in the department of Conservative Dentistry and Endodontics, bringing over 10 years of clinical and academic expertise.",
+    stats: [
+      { value: "98%", label: "SATISFACTION RATE" },
+      { value: "1K+", label: "HAPPY PATIENTS" },
+      { value: "4.9", label: "CUSTOMERS RATING" }
+    ],
+    points: [
+      "BDS from Teerthankar Mahaveer Dental College",
+      "MDS in Conservative Dentistry & Endodontics from Teerthankar Mahaveer Dental College",
+      "Lifetime Member of the Indian Dental Association (IDA)",
+      "Lifetime Member of the Indian Association of Conservative Dentistry and Endodontics (IACDE)",
+      "Presently working as Associate Professor in Kalka Dental College, Meerut"
+    ]
+  },
+  {
+    id: 2,
+    name: "Dr. Ila Sharma",
+    prefix: "PERIODONTICS SPECIALIST /",
+    image: "/images/doctor-2.jpeg",
+    layout: "reverse-layout",
+    desc: "Dr. Ila Sharma is a dedicated and accomplished Periodontist and Gold Medalist, recognized nationally for her outstanding academic record, clinical skill, and research contributions.",
+    stats: [
+      { value: "GOLD", label: "MEDALIST (PERIODONTICS)" },
+      { value: "2021", label: "STUDENT OF THE YEAR" },
+      { value: "BEST", label: "PAPER AWARD (NAT. CONF)" }
+    ],
+    points: [
+      "Completed Bachelor of Dental Surgery (BDS) in 2018",
+      "MDS in Periodontics (2022) from the prestigious Seema Dental College & Hospital, Rishikesh",
+      "Honored with the Student of the Year Award by Cynodent in 2021",
+      "Received the Best Paper Award at the National Conference in 2022",
+      "Specializes in periodontal therapy, regenerative surgery, and gum health management"
+    ]
+  },
+  {
+    id: 3,
+    name: "Dr. Tarun Kumar Rana",
+    prefix: "ORTHODONTICS SPECIALIST /",
+    image: "/images/doctor-3.jpeg",
+    layout: "normal-layout",
+    desc: "Dr. Tarun Kumar Rana is a senior Professor of Orthodontics with over 19 years of teaching and research experience. He has published 64 articles and 17 books in renowned journals.",
+    stats: [
+      { value: "19+", label: "YEARS OF EXPERIENCE" },
+      { value: "64", label: "ARTICLES PUBLISHED" },
+      { value: "17", label: "BOOKS PUBLISHED" }
+    ],
+    points: [
+      "Presently working as Professor of Orthodontics at SGT University, Gurugram",
+      "Active lifetime member of the Indian Orthodontic Society (IOS)",
+      "Has served as External Examiner for several prestigious dental universities across India",
+      "Specializes in adult orthodontics, Aligners, Self-ligation systems, and Cleft Lip/Palate care",
+      "Represented the Dental Council of India (DCI) as inspector for MDS/BDS renewal inspections"
+    ]
+  }
+];
+
 export default function About() {
   return (
     <section className="about-section" id="about">
       <div className="section-container">
-        <div className="about-grid">
-          {/* LEFT COLUMN */}
-          <div className="about-left">
-            <div className="about-image-wrapper">
-              <img className="about-image" src="/images/attending_patient.png" alt="Dentist at work" />
-            </div>
-            
-            <div className="stats-row">
-              <div className="stat-block">
-                <span className="number">98%</span>
-                <span className="label">SATISFACTION RATE</span>
-              </div>
-              <div className="stat-block">
-                <span className="number">1K+</span>
-                <span className="label">HAPPY PATIENTS</span>
-              </div>
-              <div className="stat-block">
-                <span className="number">4.9</span>
-                <span className="label">CUSTOMERS RATING</span>
-              </div>
-            </div>
-          </div>
-
-          {/* RIGHT COLUMN */}
-          <div className="about-content">
-            <div className="section-label-prefix">KNOW YOUR DENTIST /</div>
-            <h2 className="section-heading">Dr. Sahil Dhingra</h2>
-            
-            <div className="about-desc">
-              <p style={{ marginBottom: "20px" }}>Dr Sahil Dhingra is an associate professor in department of conservative dentistry and Endodontics with more than 10 years of experience.</p>
-              
-              <ul style={{ display: 'flex', flexDirection: 'column', gap: '16px', listStyleType: 'disc', paddingLeft: '20px' }}>
-                <li>BDS from Teerthankar Mahaveer dental college</li>
-                <li>MDS from Teerthankar Mahaveer dental college</li>
-                <li>Lifetime member of Indian Dental Association and Indian Association of conservative dentistry and Endodontics</li>
-                <li>Presently working as an associate professor in department of conservative dentistry and Endodontics in Kalka Dental College Meerut</li>
-              </ul>
-            </div>
-          </div>
+        
+        {/* HEADER */}
+        <div className="about-header">
+          <h2>Meet Our Doctors</h2>
+          <p>
+            Our team of highly qualified specialists and professors is committed to providing ethical, comfortable, and world-class dental care.
+          </p>
         </div>
+
+        {/* LIST OF DOCTORS */}
+        {doctors.map((doc) => (
+          <div className={`about-grid ${doc.layout}`} key={doc.id}>
+            
+            {/* IMAGE COLUMN */}
+            <div className="about-left">
+              <div className="about-image-wrapper">
+                <Image 
+                  className="about-image" 
+                  src={doc.image} 
+                  alt={doc.name} 
+                  width={500} 
+                  height={440} 
+                  priority={doc.id === 1}
+                />
+              </div>
+              
+              {/* STATS */}
+              <div className="stats-row">
+                {doc.stats.map((stat, idx) => (
+                  <div className="stat-block" key={idx}>
+                    <span className="number">{stat.value}</span>
+                    <span className="label">{stat.label}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* CONTENT COLUMN */}
+            <div className="about-content">
+              <div className="section-label-prefix">{doc.prefix}</div>
+              <h3 className="section-heading">{doc.name}</h3>
+              
+              <div className="about-desc">
+                <p style={{ marginBottom: "20px" }}>{doc.desc}</p>
+                <ul>
+                  {doc.points.map((pt, idx) => (
+                    <li key={idx}>{pt}</li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+
+          </div>
+        ))}
+
       </div>
     </section>
   );
