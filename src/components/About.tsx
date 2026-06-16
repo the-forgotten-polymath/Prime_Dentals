@@ -9,17 +9,18 @@ const doctors = [
     prefix: "CLINIC DIRECTOR /",
     image: "/images/attending_patient.png",
     layout: "normal-layout",
-    desc: "Dr. Sahil Dhingra is a highly skilled Endodontist and associate professor in the department of Conservative Dentistry and Endodontics, bringing over 10 years of clinical and academic expertise.",
+    desc: "Dr. Sahil Dhingra is a highly skilled Endodontist and associate professor in Conservative Dentistry and Endodontics, bringing 12 years of total clinical experience (10 years running Prime Dental since its establishment on October 6, 2016, and 2 years of prior hospital practice).",
     stats: [
-      { value: "98%", label: "SATISFACTION RATE" },
-      { value: "1K+", label: "HAPPY PATIENTS" },
-      { value: "4.9", label: "CUSTOMERS RATING" }
+      { value: "12 Yrs", label: "CLINICAL EXPERIENCE" },
+      { value: "10K+", label: "SUCCESSFUL ROOT CANALS" },
+      { value: "1 Hr", label: "PAINLESS ROOT CANAL" }
     ],
     points: [
       "BDS from Teerthankar Mahaveer Dental College",
       "MDS in Conservative Dentistry & Endodontics from Teerthankar Mahaveer Dental College",
-      "Lifetime Member of the Indian Dental Association (IDA)",
-      "Lifetime Member of the Indian Association of Conservative Dentistry and Endodontics (IACDE)",
+      "Established Prime Dental & RCT Center on October 6, 2016",
+      "Specializes in painless 1-hour root canals, complex surgeries, and cosmetic operations",
+      "Lifetime Member of the Indian Dental Association (IDA) & Indian Association of Conservative Dentistry and Endodontics (IACDE)",
       "Presently working as Associate Professor in Kalka Dental College, Meerut"
     ]
   },
