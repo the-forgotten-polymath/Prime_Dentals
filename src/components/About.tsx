@@ -62,6 +62,26 @@ const doctors = [
       "Specializes in adult orthodontics, Aligners, Self-ligation systems, and Cleft Lip/Palate care",
       "Represented the Dental Council of India (DCI) as inspector for MDS/BDS renewal inspections"
     ]
+  },
+  {
+    id: 4,
+    name: "Dr. Aditya Singh",
+    prefix: "MAXILLOFACIAL SURGEON /",
+    image: "/images/doctor-4.png",
+    layout: "reverse-layout",
+    desc: "Dr. Aditya Singh is a distinguished, board-certified Cranio-Maxillofacial Surgeon with over 10 years of specialized experience in high-precision facial and jaw reconstructive procedures. He is globally recognized for his mastery in minimally invasive Cranio and Maxillofacial techniques.",
+    stats: [
+      { value: "10+", label: "YEARS OF EXPERIENCE" },
+      { value: "1ST", label: "TMJ REPLACEMENT (U.K.)" },
+      { value: "1ST", label: "JAW REPLACEMENT (U.K.)" }
+    ],
+    points: [
+      "First Temporomandibular Joint (TMJ) Replacement Surgery in Uttarakhand",
+      "First Aggressive Tumor Resection & Reconstruction (Congenital) Surgery in Uttarakhand",
+      "First Jaw Replacement Surgery in Uttarakhand",
+      "Successfully treated thousands of patients, restoring both function and aesthetics in complex facial trauma and jaw disorders",
+      "Maintains the highest standards of ethical and professional conduct in patient care"
+    ]
   }
 ];
 
