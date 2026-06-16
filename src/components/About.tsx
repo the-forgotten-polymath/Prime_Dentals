@@ -26,7 +26,7 @@ const doctors = [
   {
     id: 2,
     name: "Dr. Ila Sharma",
-    prefix: "PERIODONTICS SPECIALIST /",
+    prefix: "VISITING CONSULTANT - PERIODONTICS /",
     image: "/images/doctor-2.jpeg",
     layout: "reverse-layout",
     desc: "Dr. Ila Sharma is a dedicated and accomplished Periodontist and Gold Medalist, recognized nationally for her outstanding academic record, clinical skill, and research contributions.",
@@ -46,7 +46,7 @@ const doctors = [
   {
     id: 3,
     name: "Dr. Tarun Kumar Rana",
-    prefix: "ORTHODONTICS SPECIALIST /",
+    prefix: "VISITING CONSULTANT - ORTHODONTICS /",
     image: "/images/doctor-3.jpeg",
     layout: "normal-layout",
     desc: "Dr. Tarun Kumar Rana is a senior Professor of Orthodontics with over 19 years of teaching and research experience. He has published 64 articles and 17 books in renowned journals.",
@@ -66,7 +66,7 @@ const doctors = [
   {
     id: 4,
     name: "Dr. Aditya Singh",
-    prefix: "MAXILLOFACIAL SURGEON /",
+    prefix: "VISITING CONSULTANT - CRANIO-MAXILLOFACIAL SURGEON /",
     image: "/images/doctor-4.png",
     layout: "reverse-layout",
     desc: "Dr. Aditya Singh is a distinguished, board-certified Cranio-Maxillofacial Surgeon with over 10 years of specialized experience in high-precision facial and jaw reconstructive procedures. He is globally recognized for his mastery in minimally invasive Cranio and Maxillofacial techniques.",
