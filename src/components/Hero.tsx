@@ -22,11 +22,6 @@ export default function Hero() {
 
   return (
     <section className="hero" id="home">
-      {/* Background using responsive picture element */}
-      <picture>
-        <source media="(max-width: 768px)" srcSet="/images/hero-mobile.png" />
-        <img className="hero-bg" src="/images/hero.png" alt="Dental procedure" />
-      </picture>
       <div className="hero-overlay"></div>
 
       {/* NAVBAR */}
