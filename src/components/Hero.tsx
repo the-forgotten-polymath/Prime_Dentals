@@ -74,50 +74,37 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* Right Side: Hero Card with breakout Tooth image & Progress */}
-        <div className="hero-visual-side">
-          <div className="hero-image-wrapper">
-            <Image 
-              src="/images/new_hero_tooth.png" 
-              alt="Modern Dentistry 3D Tooth" 
-              width={800} 
-              height={800} 
-              className="hero-main-image"
-              priority
-            />
+      </div>
+      
+      {/* Floating Services Card at Bottom Center */}
+      <div className="hero-services-card">
+        <div className="service-item">
+          <div className="service-icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M10 21V19C10 17.8954 10.8954 17 12 17C13.1046 17 14 17.8954 14 19V21"/><path d="M6 9C6 5.68629 8.68629 3 12 3C15.3137 3 18 5.68629 18 9C18 11.2338 16.716 13.1678 14.9392 14.1685L14 14.7V19C14 20.1046 13.1046 21 12 21C10.8954 21 10 20.1046 10 19V14.7L9.0608 14.1685C7.28399 13.1678 6 11.2338 6 9Z"/></svg>
           </div>
-          
-          <div className="hero-services-card">
-            <div className="service-item">
-              <div className="service-icon">
-                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M10 21V19C10 17.8954 10.8954 17 12 17C13.1046 17 14 17.8954 14 19V21"/><path d="M6 9C6 5.68629 8.68629 3 12 3C15.3137 3 18 5.68629 18 9C18 11.2338 16.716 13.1678 14.9392 14.1685L14 14.7V19C14 20.1046 13.1046 21 12 21C10.8954 21 10 20.1046 10 19V14.7L9.0608 14.1685C7.28399 13.1678 6 11.2338 6 9Z"/></svg>
-              </div>
-              <span className="service-name">General<br/>Dentistry</span>
-            </div>
-            <div className="service-divider"></div>
-            <div className="service-item">
-              <div className="service-icon">
-                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M7 5l5 4 5-4"/><path d="M12 9v12"/><path d="M7 21h10"/></svg>
-              </div>
-              <span className="service-name">Dental<br/>Implants</span>
-            </div>
-            <div className="service-divider"></div>
-            <div className="service-item">
-              <div className="service-icon">
-                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M4 12h16"/><path d="M4 8h16"/><path d="M8 8v8"/><path d="M16 8v8"/><circle cx="8" cy="12" r="1"/><circle cx="16" cy="12" r="1"/></svg>
-              </div>
-              <span className="service-name">Orthodontic<br/>Care</span>
-            </div>
-            <div className="service-divider"></div>
-            <div className="service-item">
-              <div className="service-icon">
-                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M12 2l2 4 4 2-4 2-2 4-2-4-4-2 4-2 2-4z"/><path d="M19 14l1 2 2 1-2 1-1 2-1-2-2-1 2-1 1-2z"/></svg>
-              </div>
-              <span className="service-name">Cosmetic<br/>Dentistry</span>
-            </div>
-          </div>
+          <span className="service-name">General<br/>Dentistry</span>
         </div>
-
+        <div className="service-divider"></div>
+        <div className="service-item">
+          <div className="service-icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M7 5l5 4 5-4"/><path d="M12 9v12"/><path d="M7 21h10"/></svg>
+          </div>
+          <span className="service-name">Dental<br/>Implants</span>
+        </div>
+        <div className="service-divider"></div>
+        <div className="service-item">
+          <div className="service-icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M4 12h16"/><path d="M4 8h16"/><path d="M8 8v8"/><path d="M16 8v8"/><circle cx="8" cy="12" r="1"/><circle cx="16" cy="12" r="1"/></svg>
+          </div>
+          <span className="service-name">Orthodontic<br/>Care</span>
+        </div>
+        <div className="service-divider"></div>
+        <div className="service-item">
+          <div className="service-icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M12 2l2 4 4 2-4 2-2 4-2-4-4-2 4-2 2-4z"/><path d="M19 14l1 2 2 1-2 1-1 2-1-2-2-1 2-1 1-2z"/></svg>
+          </div>
+          <span className="service-name">Cosmetic<br/>Dentistry</span>
+        </div>
       </div>
     </section>
   );

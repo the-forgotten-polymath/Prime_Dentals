@@ -15,7 +15,17 @@ export default function Booking() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // In a real app we'd send data to API
+    
+    // Format the message
+    const messageText = `*New Appointment Request*%0A%0A*Name:* ${formData.name}%0A*Phone:* ${formData.phone}%0A*Date:* ${formData.date}%0A*Time:* ${formData.time}%0A*Treatment:* ${formData.treatment}%0A*Message:* ${formData.message || "None"}`;
+    
+    // Clinic WhatsApp number (with country code, without '+' or leading '0')
+    const whatsappNumber = "919997801777";
+    const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${messageText}`;
+    
+    // Open WhatsApp in a new tab
+    window.open(whatsappUrl, "_blank");
+    
     setSubmitted(true);
   };
 
@@ -34,15 +44,15 @@ export default function Booking() {
           <div className="contact-details">
             <div className="contact-item">
               <span className="contact-label label">HOURS</span>
-              <span className="contact-value body-md">Mon–Sat 10:00 AM – 7:00 PM</span>
+              <span className="contact-value body-md">Mon-Wed, Fri-Sat: 10am - 8pm<br/>Thu: 10am - 8:30pm<br/>Sun: 10:30am - 2pm</span>
             </div>
             <div className="contact-item">
               <span className="contact-label label">PHONE</span>
-              <a href="tel:+448001234567" className="contact-value body-md tel-link">+44 800 123 4567</a>
+              <a href="tel:09997801777" className="contact-value body-md tel-link">099978 01777</a>
             </div>
             <div className="contact-item">
               <span className="contact-label label">ADDRESS</span>
-              <span className="contact-value body-md">42 Harley Street, London, UK</span>
+              <span className="contact-value body-md">Ranipur More, G3-6 super complex, Haridwar, Uttarakhand 249401</span>
             </div>
           </div>
         </div>

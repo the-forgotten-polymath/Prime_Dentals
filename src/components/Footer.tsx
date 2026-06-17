@@ -51,7 +51,7 @@ export default function Footer() {
                   rel="noreferrer"
                   className="contact-address"
                 >
-                  Ranipur More, G3-6 super complex, Haridwar, Uttarakhand 249401
+                  Ranipur More, G3-6 super complex, behind aastha medical, near city hospital, Haridwar, Uttarakhand 249401
                 </a>
               </div>
 
@@ -67,8 +67,9 @@ export default function Footer() {
                   <path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zm3.3 14.3L11 12.9V7h1.5v5.15l3.5 2.1-.7 1.05z" />
                 </svg>
                 <div className="contact-hours">
-                  <strong>Mon - Sat:</strong> 10:30 AM onwards<br />
-                  <strong>Sunday:</strong> Closed
+                  <strong>Mon-Wed, Fri-Sat:</strong> 10:00 AM – 8:00 PM<br />
+                  <strong>Thursday:</strong> 10:00 AM – 8:30 PM<br />
+                  <strong>Sunday:</strong> 10:30 AM – 2:00 PM
                 </div>
               </div>
 
@@ -80,7 +81,7 @@ export default function Footer() {
             <h4 className="footer-col-title">Locate Us</h4>
             <div className="footer-map-container">
               <iframe 
-                src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=Prime%20Dental%20%26%20Root%20Canal%20treatment%20Center,%20Haridwar+(Prime%20Dental)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
+                src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=G3-6%20super%20complex,%20Ranipur%20More,%20Haridwar&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
                 allowFullScreen={false}
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
