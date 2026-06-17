@@ -246,6 +246,78 @@
   background: rgba(0, 0, 0, 0.08);
 }
 
+/* Animated Background Particles */
+.hero-visual-side {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  min-height: 500px;
+}
+
+.tooth-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0) 70%);
+  border-radius: 50%;
+  animation: pulseGlow 4s ease-in-out infinite alternate;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.glow-particle {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255,160,80,1) 0%, rgba(255,92,40,0.4) 40%, rgba(255,92,40,0) 80%);
+  filter: blur(2px);
+  animation: floatParticle 6s ease-in-out infinite alternate;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.particle-1 {
+  width: 50px; height: 50px;
+  top: 10%; right: 20%;
+  animation-delay: 0s;
+}
+
+.particle-2 {
+  width: 80px; height: 80px;
+  top: 60%; right: 40%;
+  animation-delay: -2s;
+  animation-duration: 8s;
+}
+
+.particle-3 {
+  width: 40px; height: 40px;
+  top: 40%; right: 10%;
+  animation-delay: -4s;
+  animation-duration: 5s;
+}
+
+.particle-4 {
+  width: 100px; height: 100px;
+  top: 20%; right: -10%;
+  background: radial-gradient(circle, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.2) 40%, rgba(255,255,255,0) 80%);
+  animation-delay: -1s;
+  animation-duration: 7s;
+}
+
+@keyframes floatParticle {
+  0% { transform: translateY(0) translateX(0) scale(1); opacity: 0.6; }
+  50% { transform: translateY(-25px) translateX(15px) scale(1.2); opacity: 1; }
+  100% { transform: translateY(15px) translateX(-20px) scale(0.9); opacity: 0.5; }
+}
+
+@keyframes pulseGlow {
+  0% { transform: translate(-50%, -50%) scale(1); opacity: 0.3; }
+  100% { transform: translate(-50%, -50%) scale(1.2); opacity: 0.8; }
+}
+
 /* Animations */
 .hero-content, .hero-visual-side {
   animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;

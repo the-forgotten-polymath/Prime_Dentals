@@ -74,6 +74,14 @@ export default function Hero() {
           </div>
         </div>
 
+        {/* Right Side: Animated Floating Particles & Glow */}
+        <div className="hero-visual-side">
+          <div className="tooth-glow"></div>
+          <div className="glow-particle particle-1"></div>
+          <div className="glow-particle particle-2"></div>
+          <div className="glow-particle particle-3"></div>
+          <div className="glow-particle particle-4"></div>
+        </div>
       </div>
     </section>
   );

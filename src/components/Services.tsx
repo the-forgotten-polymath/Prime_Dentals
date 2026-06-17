@@ -63,49 +63,64 @@ export default function Services() {
             
             {/* Card 1 */}
             <div className="service-card-new">
-              <Image 
-                src="/images/root-canal.png" 
-                alt="Root Canal Treatment" 
-                width={280} 
-                height={320} 
-                className="service-card-img"
-              />
-              <div className="card-overlay"></div>
+              <div className="service-card-img-wrapper">
+                <Image 
+                  src="/images/root_canal_graphic.png" 
+                  alt="Root Canal Treatment" 
+                  width={280} 
+                  height={200} 
+                  className="service-card-img"
+                />
+              </div>
               <div className="card-info">
-                <h3 className="card-title heading-md">Root Canal<br/>Treatment</h3>
-                <button className="card-arrow" aria-label="Learn more">→</button>
+                <h3 className="card-title heading-md">Root Canal</h3>
+                <p className="card-description body-sm">Painless and precise therapy to save your natural tooth and relieve severe pain instantly.</p>
+                <div className="card-action">
+                  <span className="action-text">Learn more</span>
+                  <button className="card-arrow" aria-label="Learn more">→</button>
+                </div>
               </div>
             </div>
             
             {/* Card 2 */}
             <div className="service-card-new">
-              <Image 
-                src="/images/dental-implants.png" 
-                alt="Dental Implants" 
-                width={280} 
-                height={320} 
-                className="service-card-img"
-              />
-              <div className="card-overlay"></div>
+              <div className="service-card-img-wrapper">
+                <Image 
+                  src="/images/dental_implant_graphic.png" 
+                  alt="Dental Implants" 
+                  width={280} 
+                  height={200} 
+                  className="service-card-img"
+                />
+              </div>
               <div className="card-info">
-                <h3 className="card-title heading-md">Dental<br/>Implants</h3>
-                <button className="card-arrow" aria-label="Learn more">→</button>
+                <h3 className="card-title heading-md">Dental Implants</h3>
+                <p className="card-description body-sm">Permanent, natural-looking replacements for missing teeth that restore full function and confidence.</p>
+                <div className="card-action">
+                  <span className="action-text">Learn more</span>
+                  <button className="card-arrow" aria-label="Learn more">→</button>
+                </div>
               </div>
             </div>
             
             {/* Card 3 */}
             <div className="service-card-new">
-              <Image 
-                src="/images/painless_extraction.png" 
-                alt="Painless Extraction" 
-                width={280} 
-                height={320} 
-                className="service-card-img"
-              />
-              <div className="card-overlay"></div>
+              <div className="service-card-img-wrapper">
+                <Image 
+                  src="/images/extraction_graphic.png" 
+                  alt="Painless Extraction" 
+                  width={280} 
+                  height={200} 
+                  className="service-card-img"
+                />
+              </div>
               <div className="card-info">
-                <h3 className="card-title heading-md">Painless<br/>Extraction</h3>
-                <button className="card-arrow" aria-label="Learn more">→</button>
+                <h3 className="card-title heading-md">Painless Extraction</h3>
+                <p className="card-description body-sm">Gentle, safe, and stress-free tooth removal, including complex wisdom teeth extractions.</p>
+                <div className="card-action">
+                  <span className="action-text">Learn more</span>
+                  <button className="card-arrow" aria-label="Learn more">→</button>
+                </div>
               </div>
             </div>
 
