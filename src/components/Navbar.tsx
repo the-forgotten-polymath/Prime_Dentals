@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import { motion } from "motion/react";
 
 export default function Navbar() {
@@ -9,35 +9,65 @@ export default function Navbar() {
     width: 0,
     opacity: 0,
   });
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 40) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
-    <nav className="navbar">
-      <a href="#" className="logo">
-        <svg viewBox="0 0 24 24" fill="currentColor" style={{ width: "24px", height: "24px" }}>
-          <path d="M12 2L14.39 8.26L21 9.27L16.21 13.97L17.33 20.5L12 17.27L6.67 20.5L7.79 13.97L3 9.27L9.61 8.26L12 2Z" />
-        </svg>
-        Prime Dental & RCT Center
-      </a>
+    <header className={`navbar-header ${isScrolled ? "scrolled" : ""}`}>
+      <div className="navbar-container">
+        <a href="#" className="logo">
+          <span className="logo-brand">Prime <span className="logo-highlight">Dental</span></span>
+          <span className="logo-sub">& RCT Center</span>
+        </a>
 
-      <ul
-        className="nav-menu-wrapper"
-        onMouseLeave={() => setPosition((pv) => ({ ...pv, opacity: 0 }))}
-      >
-        <Tab setPosition={setPosition} href="#home">Home</Tab>
-        <Tab setPosition={setPosition} href="#services">Services</Tab>
-        <Tab setPosition={setPosition} href="#about">About us</Tab>
-        <Tab setPosition={setPosition} href="#testimonials">Testimonials</Tab>
-        <Tab setPosition={setPosition} href="#blog">Blog</Tab>
-        <Tab setPosition={setPosition} href="#contact">Contact</Tab>
+        {/* Hamburger menu button */}
+        <button 
+          className={`hamburger ${isMobileMenuOpen ? "active" : ""}`} 
+          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          aria-label="Toggle menu"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
 
-        <Cursor position={position} />
-      </ul>
+        <nav className={`nav-menu-container ${isMobileMenuOpen ? "mobile-open" : ""}`}>
+          <ul
+            className="nav-menu-wrapper"
+            onMouseLeave={() => setPosition((pv) => ({ ...pv, opacity: 0 }))}
+          >
+            <Tab setPosition={setPosition} href="#home">Home</Tab>
+            <Tab setPosition={setPosition} href="#services">Services</Tab>
+            <Tab setPosition={setPosition} href="#about">About us</Tab>
+            <Tab setPosition={setPosition} href="#testimonials">Testimonials</Tab>
+            <Tab setPosition={setPosition} href="#blog">Blog</Tab>
+            <Tab setPosition={setPosition} href="#contact">Contact</Tab>
 
-      <a href="#contact" className="nav-cta">
-        Book a call
-        <span className="cta-arrow">→</span>
-      </a>
-    </nav>
+            <Cursor position={position} />
+          </ul>
+        </nav>
+
+        <a href="#contact" className="nav-cta-button">
+          Book Now
+          <svg className="cta-arrow-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ width: "16px", height: "16px", transform: "rotate(45deg)" }}>
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </a>
+      </div>
+    </header>
   );
 }
 
@@ -81,3 +111,4 @@ const Cursor = ({ position }: { position: any }) => {
     />
   );
 };
+

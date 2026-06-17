@@ -28,10 +28,10 @@ export default function BeforeAfterSlider() {
   const current = images[activeTab as keyof typeof images];
 
   return (
-    <section className="before-after-section" id="results">
+    <section className="before-after-section section-padding" id="results">
       <div className="section-container">
         <div className="ba-header">
-          <h2 className="ba-heading">REAL RESULTS, REAL SMILES</h2>
+          <h2 className="ba-heading display-md">REAL RESULTS, REAL <i>SMILES</i></h2>
           <p className="ba-desc">
             Slide to see the incredible transformations our patients experience with our expert dental treatments.
           </p>

@@ -7,25 +7,20 @@ export default function Marquee() {
     "Root Canal Specialist",
     "Dental Implants",
     "Teeth Whitening",
-    "Wisdom Tooth Extraction",
-    "Painless Treatment",
-    "Advanced Technology",
-    "Expert Care",
-    "Hygienic Environment",
-    "Root Canal Specialist",
-    "Dental Implants",
-    "Teeth Whitening",
     "Wisdom Tooth Extraction"
-  ]; // Duplicated for seamless infinite scrolling
+  ];
+  
+  // Triplicate the list to ensure it spans across the screen nicely for infinite scroll
+  const repeatedItems = [...marqueeItems, ...marqueeItems, ...marqueeItems];
 
   return (
     <section className="marquee-section">
       <div className="marquee-container">
-        <div className="marquee-track marquee-layer-1">
-          {marqueeItems.map((item, index) => (
-            <div key={index} className="marquee-item">
-              {item} <span className="marquee-dot">•</span>
-            </div>
+        <div className="marquee-track">
+          {repeatedItems.map((item, index) => (
+            <span key={index} className="marquee-item">
+              {item} <span className="marquee-plus">•</span>
+            </span>
           ))}
         </div>
       </div>

@@ -7,7 +7,7 @@ const doctors = [
     id: 1,
     name: "Dr. Sahil Dhingra",
     prefix: "CLINIC DIRECTOR /",
-    image: "/images/attending_patient.png",
+    image: "/images/dhingra.png",
     layout: "normal-layout",
     desc: "Dr. Sahil Dhingra is a highly skilled Endodontist and associate professor in Conservative Dentistry and Endodontics, bringing 12 years of total clinical experience (10 years running Prime Dental since its establishment on October 6, 2016, and 2 years of prior hospital practice).",
     stats: [
@@ -88,62 +88,86 @@ const doctors = [
 
 export default function About() {
   return (
-    <section className="about-section" id="about">
+    <section className="about-section section-padding" id="about">
       <div className="section-container">
         
-        {/* HEADER */}
-        <div className="about-header">
-          <h2>Meet Our Doctors</h2>
-          <p>
+        {/* SPEC-BASED ABOUT & VISION */}
+        <div className="about-vision-grid">
+          <div className="about-vision-left">
+            <span className="about-eyebrow body-lg">About</span>
+            <h2 className="about-title display-md">Denta <i>Care</i></h2>
+            
+            {/* Single Image Layout */}
+            <div className="about-single-image-container">
+              <Image src="/images/attending_patient.png" alt="Dental Care" width={500} height={400} className="about-single-img" />
+              <span className="about-single-chip">DENTURES</span>
+            </div>
+          </div>
+          
+          <div className="about-vision-right">
+            <span className="vision-label label">OUR VISION</span>
+            <p className="vision-body">
+              At Prime Dental & RCT Center, our vision goes beyond just treating teeth; we are dedicated to redefining the dental experience. By seamlessly blending state-of-the-art technology with compassionate, patient-first care, we strive to create a sanctuary of comfort and trust. Our ultimate goal is to inspire lifelong confidence and radiant, healthy smiles through precision, innovation, and truly personalized treatment plans.
+            </p>
+          </div>
+        </div>
+
+        {/* MEET OUR DOCTORS */}
+        <div className="doctors-header-wrapper">
+          <span className="doctors-eyebrow label">EXPERIENCED TEAM</span>
+          <h2 className="doctors-section-title display-md">Meet Our <i>Doctors</i></h2>
+          <p className="doctors-section-desc body-md">
             Our team of highly qualified specialists and professors is committed to providing ethical, comfortable, and world-class dental care.
           </p>
         </div>
 
         {/* LIST OF DOCTORS */}
-        {doctors.map((doc) => (
-          <div className={`about-grid ${doc.layout}`} key={doc.id}>
-            
-            {/* IMAGE COLUMN */}
-            <div className="about-left">
-              <div className="about-image-wrapper">
-                <Image 
-                  className="about-image" 
-                  src={doc.image} 
-                  alt={doc.name} 
-                  width={500} 
-                  height={440} 
-                  priority={doc.id === 1}
-                />
-              </div>
+        <div className="doctors-list">
+          {doctors.map((doc) => (
+            <div className={`doctor-card-grid ${doc.layout}`} key={doc.id}>
               
-              {/* STATS */}
-              <div className="stats-row">
-                {doc.stats.map((stat, idx) => (
-                  <div className="stat-block" key={idx}>
-                    <span className="number">{stat.value}</span>
-                    <span className="label">{stat.label}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* CONTENT COLUMN */}
-            <div className="about-content">
-              <div className="section-label-prefix">{doc.prefix}</div>
-              <h3 className="section-heading">{doc.name}</h3>
-              
-              <div className="about-desc">
-                <p style={{ marginBottom: "20px" }}>{doc.desc}</p>
-                <ul>
-                  {doc.points.map((pt, idx) => (
-                    <li key={idx}>{pt}</li>
+              {/* IMAGE & STATS COLUMN */}
+              <div className="doctor-card-left">
+                <div className="doctor-image-wrapper">
+                  <Image 
+                    className="doctor-image" 
+                    src={doc.image} 
+                    alt={doc.name} 
+                    width={500} 
+                    height={400} 
+                    priority={doc.id === 1}
+                  />
+                </div>
+                
+                {/* STATS */}
+                <div className="doctor-stats-row">
+                  {doc.stats.map((stat, idx) => (
+                    <div className="doctor-stat-block" key={idx}>
+                      <span className="doctor-stat-number display-md">{stat.value}</span>
+                      <span className="doctor-stat-label label">{stat.label}</span>
+                    </div>
                   ))}
-                </ul>
+                </div>
               </div>
-            </div>
 
-          </div>
-        ))}
+              {/* CONTENT COLUMN */}
+              <div className="doctor-card-content">
+                <div className="doctor-prefix label">{doc.prefix}</div>
+                <h3 className="doctor-name heading-lg">{doc.name}</h3>
+                
+                <div className="doctor-description-text body-md">
+                  <p style={{ marginBottom: "20px" }}>{doc.desc}</p>
+                  <ul className="doctor-bullets">
+                    {doc.points.map((pt, idx) => (
+                      <li key={idx} className="body-sm">{pt}</li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+
+            </div>
+          ))}
+        </div>
 
       </div>
     </section>

@@ -63,15 +63,15 @@ const thirdColumn = testimonials.slice(6, 9);
 
 export default function Testimonials() {
   return (
-    <section className="testimonials-section" id="testimonials">
+    <section className="testimonials-section section-padding" id="testimonials">
       <div className="section-container">
         <div className="testimonials-header">
-          <div className="testimonials-label">Patient Stories</div>
-          <h2 className="testimonials-heading">
-            What our patients say
+          <span className="testimonials-eyebrow label">TESTIMONIALS</span>
+          <h2 className="testimonials-heading display-md">
+            Voices of <i>Appreciation</i>
           </h2>
-          <p className="testimonials-desc">
-            Discover why hundreds of people trust Prime Dental with their smiles.
+          <p className="testimonials-desc body-md">
+            Discover why hundreds of patients trust Denta Care with their smiles.
           </p>
         </div>
 
@@ -84,3 +84,4 @@ export default function Testimonials() {
     </section>
   );
 }
+

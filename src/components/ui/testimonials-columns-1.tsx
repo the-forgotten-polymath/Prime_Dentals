@@ -23,8 +23,8 @@ export const TestimonialsColumn = (props: {
         transition={{
           duration: props.duration || 10,
           repeat: Infinity,
-          ease: "linear",
           repeatType: "loop",
+          ease: "linear",
         }}
         className="testimonials-motion-div"
       >
@@ -33,18 +33,23 @@ export const TestimonialsColumn = (props: {
             <React.Fragment key={index}>
               {props.testimonials.map(({ text, image, name, role }, i) => (
                 <div className="testimonial-card" key={i}>
-                  <div className="testimonial-text">"{text}"</div>
+                  <div className="testimonial-stars">
+                    {[...Array(5)].map((_, starIdx) => (
+                      <span key={starIdx} className="star">★</span>
+                    ))}
+                  </div>
+                  <div className="testimonial-text body-md italic">"{text}"</div>
                   <div className="testimonial-author">
                     <img
-                      width={40}
-                      height={40}
+                      width={48}
+                      height={48}
                       src={image}
                       alt={name}
                       className="testimonial-avatar"
                     />
                     <div className="testimonial-author-info">
                       <div className="testimonial-name">{name}</div>
-                      <div className="testimonial-role">{role}</div>
+                      <div className="testimonial-role body-sm">{role}</div>
                     </div>
                   </div>
                 </div>
@@ -56,3 +61,4 @@ export const TestimonialsColumn = (props: {
     </div>
   );
 };
+

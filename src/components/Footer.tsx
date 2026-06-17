@@ -9,9 +9,6 @@ export default function Footer() {
           {/* COLUMN 1: Brand Info */}
           <div className="footer-col brand-col">
             <div className="footer-logo">
-              <svg className="logo-icon" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M12 2L14.39 8.26L21 9.27L16.21 13.97L17.33 20.5L12 17.27L6.67 20.5L7.79 13.97L3 9.27L9.61 8.26L12 2Z" />
-              </svg>
               <span>Prime Dental</span>
             </div>
             <p className="footer-desc">
@@ -35,7 +32,7 @@ export default function Footer() {
               <li><a href="#equipments">Technology</a></li>
               <li><a href="#about">About Dr. Sahil</a></li>
               <li><a href="#testimonials">Testimonials</a></li>
-              <li><a href="/booking" className="highlight-link">Book Appointment</a></li>
+              <li><a href="#contact" className="highlight-link">Book Appointment</a></li>
             </ul>
           </div>
 

@@ -1,11 +1,31 @@
+"use client";
+
+import React, { useRef } from "react";
+import Image from "next/image";
+
 export default function Services() {
+  const cardsRowRef = useRef<HTMLDivElement>(null);
+
+  const scroll = (direction: "left" | "right") => {
+    if (cardsRowRef.current) {
+      const scrollAmount = 300;
+      cardsRowRef.current.scrollBy({
+        left: direction === "left" ? -scrollAmount : scrollAmount,
+        behavior: "smooth"
+      });
+    }
+  };
+
   return (
-    <section className="services-section" id="services">
+    <section className="services-section section-padding" id="services">
       <div className="section-container">
-        <div className="services-header">
+        
+        {/* Header */}
+        <div className="services-header-grid">
           <div className="services-header-left">
-            <div className="section-label-prefix">Our Features /</div>
-            <h2 className="section-heading">DISCOVER OUR SIGNATURE DENTAL SERVICES</h2>
+            <span className="services-eyebrow label">Our Features /</span>
+            <h2 className="services-title display-md">DISCOVER OUR SIGNATURE <i>SERVICES</i></h2>
+            
             <div className="reviews-badge">
               <div className="avatar-stack">
                 <img className="avatar" src="https://picsum.photos/seed/patient1/32/32" alt="Patient review" />
@@ -18,51 +38,80 @@ export default function Services() {
               </div>
             </div>
           </div>
+          
           <div className="services-header-right">
-            <p>
+            <p className="body-md">
               Experience modern dental care delivered with comfort, precision, and attention to detail. 
               Our clinic provides a calm, welcoming environment designed to make every visit stress-free.
             </p>
           </div>
         </div>
 
+        {/* Card slider wrapper */}
         <div className="services-cards-wrapper">
           <div className="carousel-sidebar">
-            <p className="carousel-desc">
+            <p className="carousel-desc body-sm">
               Discover delighted patient reviews about their comforting and satisfying dental care experience.
             </p>
-            <button className="carousel-arrow">&#8249;</button>
+            <div className="carousel-arrows-container">
+              <button className="carousel-arrow" onClick={() => scroll("left")} aria-label="Previous service">‹</button>
+              <button className="carousel-arrow" onClick={() => scroll("right")} aria-label="Next service">›</button>
+            </div>
           </div>
           
-          <div className="cards-row" id="cardsRow">
-            <div className="service-card">
-              <img src="/images/root-canal.png" alt="Root Canal Treatment" />
+          <div className="cards-row" ref={cardsRowRef}>
+            
+            {/* Card 1 */}
+            <div className="service-card-new">
+              <Image 
+                src="/images/root-canal.png" 
+                alt="Root Canal Treatment" 
+                width={280} 
+                height={320} 
+                className="service-card-img"
+              />
               <div className="card-overlay"></div>
               <div className="card-info">
-                <span className="card-title">Root Canal<br/>Treatment</span>
-                <button className="card-arrow">→</button>
+                <h3 className="card-title heading-md">Root Canal<br/>Treatment</h3>
+                <button className="card-arrow" aria-label="Learn more">→</button>
               </div>
             </div>
             
-            <div className="service-card">
-              <img src="/images/dental-implants.png" alt="Dental Implants" />
+            {/* Card 2 */}
+            <div className="service-card-new">
+              <Image 
+                src="/images/dental-implants.png" 
+                alt="Dental Implants" 
+                width={280} 
+                height={320} 
+                className="service-card-img"
+              />
               <div className="card-overlay"></div>
               <div className="card-info">
-                <span className="card-title">Dental<br/>Implants</span>
-                <button className="card-arrow">→</button>
+                <h3 className="card-title heading-md">Dental<br/>Implants</h3>
+                <button className="card-arrow" aria-label="Learn more">→</button>
               </div>
             </div>
             
-            <div className="service-card">
-              <img src="/images/painless_extraction.png" alt="Painless Extraction" />
+            {/* Card 3 */}
+            <div className="service-card-new">
+              <Image 
+                src="/images/painless_extraction.png" 
+                alt="Painless Extraction" 
+                width={280} 
+                height={320} 
+                className="service-card-img"
+              />
               <div className="card-overlay"></div>
               <div className="card-info">
-                <span className="card-title">Painless<br/>Extraction</span>
-                <button className="card-arrow">→</button>
+                <h3 className="card-title heading-md">Painless<br/>Extraction</h3>
+                <button className="card-arrow" aria-label="Learn more">→</button>
               </div>
             </div>
+
           </div>
         </div>
+
       </div>
     </section>
   );

@@ -1,41 +1,32 @@
+/* services.css */
 .services-section {
-  background-color: var(--color-bg-page);
-  padding: 80px 0;
+  background-color: var(--color-bg);
 }
 
-.services-header {
-  display: flex;
-  gap: 40px;
+.services-header-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: var(--space-8);
   align-items: flex-start;
-  margin-bottom: 40px;
+  margin-bottom: var(--space-8);
 }
 
-.services-header-left {
-  flex: 0 0 45%;
+.services-eyebrow {
+  color: var(--color-primary);
+  margin-bottom: var(--space-2);
+  letter-spacing: 0.1em;
 }
 
-.section-label-prefix {
-  font-family: "DM Sans", sans-serif;
-  font-weight: 400;
-  font-size: 13px;
-  color: var(--color-text-light);
-  font-style: italic;
-  margin-bottom: 8px;
-}
-
-.section-heading {
-  font-family: "Sora", sans-serif;
-  font-weight: 700;
-  font-size: clamp(26px, 3.5vw, 40px);
-  color: var(--color-text-heading);
-  line-height: 1.2;
-  margin-bottom: 24px;
+.services-title {
+  color: var(--color-text-dark);
+  margin-bottom: var(--space-4);
 }
 
 .reviews-badge {
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: var(--space-3);
+  margin-top: var(--space-4);
 }
 
 .avatar-stack {
@@ -46,7 +37,7 @@
   width: 32px;
   height: 32px;
   border-radius: 50%;
-  border: 2px solid white;
+  border: 2px solid var(--color-white);
   margin-left: -8px;
   object-fit: cover;
 }
@@ -61,81 +52,75 @@
 }
 
 .review-count {
-  font-family: "Sora", sans-serif;
+  font-family: 'DM Sans', sans-serif;
   font-weight: 700;
-  font-size: 20px;
-  color: var(--color-text-heading);
+  font-size: 18px;
+  color: var(--color-text-dark);
   line-height: 1;
 }
 
 .review-label {
-  font-family: "DM Sans", sans-serif;
-  font-weight: 400;
   font-size: 12px;
-  color: var(--color-text-light);
-}
-
-.services-header-right {
-  flex: 0 0 55%;
+  color: var(--color-text-gray);
 }
 
 .services-header-right p {
-  font-family: "DM Sans", sans-serif;
-  font-weight: 400;
-  font-size: 15px;
-  color: var(--color-text-body);
-  line-height: 1.65;
-  max-width: 380px;
+  color: var(--color-text-gray);
 }
 
+/* Sidebar & Cards row layout */
 .services-cards-wrapper {
   display: grid;
   grid-template-columns: 260px 1fr;
-  gap: 40px;
+  gap: var(--space-7);
   align-items: center;
 }
 
 .carousel-sidebar {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: var(--space-4);
 }
 
 .carousel-desc {
-  font-family: "DM Sans", sans-serif;
-  font-weight: 400;
-  font-size: 13px;
-  color: var(--color-text-body);
-  max-width: 180px;
+  color: var(--color-text-gray);
+  max-width: 200px;
+}
+
+.carousel-arrows-container {
+  display: flex;
+  gap: var(--space-2);
 }
 
 .carousel-arrow {
   width: 44px;
   height: 44px;
-  background: var(--color-bg-dark);
+  background: var(--color-bg-card);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--color-text-white);
-  font-size: 18px;
+  color: var(--color-text-dark);
+  font-size: 20px;
   cursor: pointer;
-  flex-shrink: 0;
-  border: none;
-  transition: transform 0.2s, background 0.2s;
+  border: 1px solid var(--color-border);
+  transition: transform 0.2s, background 0.2s, color 0.2s;
 }
 
 .carousel-arrow:hover {
-  background: #2a2a4e;
+  background: var(--color-primary);
+  color: var(--color-white);
+  border-color: var(--color-primary);
   transform: scale(1.05);
 }
 
+/* Horizontal card scrolling row */
 .cards-row {
   display: flex;
-  gap: 12px;
+  gap: var(--space-4);
   overflow-x: auto;
   scroll-snap-type: x mandatory;
-  padding-bottom: 20px;
+  padding: var(--space-2) 0 var(--space-4);
   scroll-behavior: smooth;
   scrollbar-width: none;
 }
@@ -144,26 +129,33 @@
   display: none;
 }
 
-.service-card {
-  min-width: 240px;
-  height: 280px;
-  border-radius: 16px;
+.service-card-new {
+  min-width: 280px;
+  height: 320px;
+  border-radius: var(--radius-lg); /* design.md: 12px cards */
   overflow: hidden;
   position: relative;
   scroll-snap-align: start;
   cursor: pointer;
-  transition: transform 0.3s, box-shadow 0.3s;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid var(--color-border);
+  background: var(--color-bg-card);
 }
 
-.service-card:hover {
-  transform: scale(1.03);
-  box-shadow: var(--shadow-hero-card);
+.service-card-new:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-card-hover);
 }
 
-.service-card img {
+.service-card-img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.service-card-new:hover .service-card-img {
+  transform: scale(1.05);
 }
 
 .card-overlay {
@@ -172,49 +164,66 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(to top, rgba(0,0,0,0.65) 0%, transparent 55%);
+  background: linear-gradient(to top, rgba(26, 26, 26, 0.75) 0%, transparent 60%);
+  z-index: 2;
 }
 
 .card-info {
   position: absolute;
-  bottom: 20px;
-  left: 20px;
-  right: 20px;
+  bottom: var(--space-4);
+  left: var(--space-4);
+  right: var(--space-4);
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
+  z-index: 3;
 }
 
 .card-title {
-  font-family: "DM Sans", sans-serif;
-  font-weight: 600;
-  font-size: 18px;
-  color: var(--color-text-white);
+  color: var(--color-white);
   line-height: 1.2;
+  font-weight: 700;
+  margin: 0;
 }
 
 .card-arrow {
-  width: 32px;
-  height: 32px;
-  background: rgba(255,255,255,0.2);
+  width: 36px;
+  height: 36px;
+  background: rgba(255, 255, 255, 0.2);
   backdrop-filter: blur(4px);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--color-text-white);
+  color: var(--color-white);
   font-size: 16px;
-  border: 1px solid rgba(255,255,255,0.3);
+  border: 1px solid rgba(255, 255, 255, 0.3);
   cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
 }
 
+.service-card-new:hover .card-arrow {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+  transform: scale(1.05);
+}
+
+/* Responsiveness */
 @media (max-width: 768px) {
-  .services-header {
-    flex-direction: column;
-    gap: 20px;
+  .services-header-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-4);
   }
   .services-cards-wrapper {
     grid-template-columns: 1fr;
-    gap: 20px;
+    gap: var(--space-4);
+  }
+  .carousel-sidebar {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .carousel-desc {
+    max-width: 60%;
   }
 }

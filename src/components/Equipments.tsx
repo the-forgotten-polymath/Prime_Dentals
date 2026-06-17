@@ -61,12 +61,12 @@ const equipments = [
 
 export default function Equipments() {
   return (
-    <section className="equipments-section" id="equipments">
+    <section className="equipments-section section-padding" id="equipments">
       <div className="section-container">
         
         {/* HEADER */}
         <div className="equipments-header">
-          <h2>State-Of-The-Art Equipment</h2>
+          <h2 className="display-md">State-Of-The-Art <i>Equipment</i></h2>
           <p>
             We invest in the world's most advanced dental technologies to ensure your treatments are completely safe, highly accurate, and virtually pain-free.
           </p>
@@ -81,8 +81,8 @@ export default function Equipments() {
                   src={eq.image} 
                   alt={eq.name} 
                   className="equipment-img"
-                  width={400}
-                  height={260}
+                  width={600}
+                  height={600}
                   priority={index < 3}
                 />
               </div>

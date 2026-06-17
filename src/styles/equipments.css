@@ -1,102 +1,90 @@
 /* equipments.css */
 .equipments-section {
-  background-color: var(--color-bg-page);
-  padding: 80px 0;
+  background-color: var(--color-bg);
 }
 
 .equipments-header {
   text-align: center;
-  margin-bottom: 56px;
+  margin-bottom: var(--space-8);
 }
 
 .equipments-header h2 {
-  font-family: "Sora", sans-serif;
-  font-size: clamp(32px, 4vw, 48px);
-  font-weight: 800;
-  color: var(--color-text-heading);
-  margin-bottom: 16px;
+  color: var(--color-text-dark);
+  margin-bottom: var(--space-3);
   text-transform: uppercase;
-  letter-spacing: -0.02em;
 }
 
 .equipments-header p {
-  font-family: "DM Sans", sans-serif;
-  font-size: clamp(14px, 1.5vw, 18px);
-  color: var(--color-text-body);
+  color: var(--color-text-gray);
   max-width: 600px;
   margin: 0 auto;
 }
 
 .equipments-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-  gap: 32px;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: var(--space-6);
 }
 
 .equipment-card {
-  background-color: var(--color-bg-white);
-  border-radius: var(--radius-md);
+  background-color: var(--color-white);
+  border-radius: var(--radius-lg); /* design.md: 12px cards */
   overflow: hidden;
   box-shadow: var(--shadow-card);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
   display: flex;
   flex-direction: column;
   border: 1px solid var(--color-border);
 }
 
 .equipment-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.08);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-card-hover);
 }
 
 .equipment-img-wrapper {
   width: 100%;
-  height: 260px;
-  background-color: #f8fafc;
+  aspect-ratio: 1 / 1;
+  background-color: #ffffff;
   overflow: hidden;
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
   border-bottom: 1px solid var(--color-border);
-  padding: 20px;
+  padding: 0;
   box-sizing: border-box;
 }
 
 .equipment-img {
   width: 100%;
   height: 100%;
-  object-fit: contain; /* Zoom out by fitting entire image without crop */
-  transition: transform 0.5s ease;
+  object-fit: contain;
+  padding: var(--space-4); /* Add some padding so the image doesn't touch the edges */
+  transition: transform 0.3s ease;
 }
 
 .equipment-card:hover .equipment-img {
-  transform: scale(1.03);
+  transform: scale(1.04);
 }
 
 .equipment-content {
-  padding: 28px;
+  padding: var(--space-6);
   display: flex;
   flex-direction: column;
   flex-grow: 1;
 }
 
 .equipment-title {
-  font-family: "Sora", sans-serif;
-  font-size: clamp(18px, 2vw, 21px);
-  font-weight: 700;
-  color: var(--color-text-heading);
-  margin-bottom: 12px;
+  color: var(--color-text-dark);
+  margin-bottom: var(--space-2);
   text-transform: uppercase;
-  letter-spacing: -0.01em;
 }
 
 .equipment-desc {
-  font-family: "DM Sans", sans-serif;
-  font-size: 14.5px;
-  color: var(--color-text-body);
-  line-height: 1.6;
-  margin-bottom: 20px;
+  color: var(--color-text-gray);
+  margin-bottom: var(--space-5);
+  flex-grow: 1;
 }
 
 .equipment-benefit {
@@ -104,22 +92,15 @@
   display: flex;
   align-items: center;
   gap: 8px;
-  font-size: 12px;
-  font-weight: 700;
-  color: var(--color-primary);
+  color: var(--color-primary); /* design.md: terracotta */
   text-transform: uppercase;
   letter-spacing: 0.05em;
+  font-weight: 600;
 }
 
 @media (max-width: 768px) {
-  .equipments-section {
-    padding: 60px 0;
-  }
   .equipments-grid {
     grid-template-columns: 1fr;
-    gap: 24px;
-  }
-  .equipment-img-wrapper {
-    height: 220px;
+    gap: var(--space-4);
   }
 }

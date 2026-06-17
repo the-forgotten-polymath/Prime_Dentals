@@ -1,1155 +1,470 @@
-# Dental Website — Complete Design Specification
-
-> **Purpose:** This document is a pixel-faithful blueprint to recreate the dental clinic landing page shown in the inspiration screenshot. Follow every section in order. No guesswork — every colour, font, spacing, component, and interaction is specified here.
-
+# Hutch — Interior Design Website
+## UI/UX Design Specification Document
+ 
 ---
-
-## 1. Global Design Language
-
-### 1.1 Aesthetic Direction
-- **Style:** Modern medical — clean, trustworthy, premium yet approachable
-- **Feel:** Soft light backgrounds with full-bleed photography, rounded cards, gentle shadows
-- **Layout philosophy:** Left-heavy text blocks paired with right-side photography; asymmetric but balanced
-
-### 1.2 Colour Palette
-
-| Token | Hex | Usage |
-|---|---|---|
-| `--color-bg-page` | `#EAF4F8` | Outermost page background (light powder blue) |
-| `--color-bg-white` | `#FFFFFF` | Cards, navbar fill, CTA pill background |
-| `--color-bg-dark` | `#1A1A2E` | Dark overlay on hero, doctor card background |
-| `--color-primary` | `#1E90D6` | Accent — progress bar, icon tints, active pill borders |
-| `--color-text-heading` | `#0D0D0D` | All large display headings |
-| `--color-text-body` | `#4A4A5A` | Paragraphs, labels, small descriptions |
-| `--color-text-light` | `#8A8A9A` | Sub-labels, caption text, "Our Features /" prefix |
-| `--color-text-white` | `#FFFFFF` | Text on dark backgrounds (hero, dark cards) |
-| `--color-border` | `#E0EAF0` | Subtle borders on cards and inputs |
-| `--color-tag-bg` | `rgba(255,255,255,0.18)` | Pill/tag background on hero (frosted) |
-| `--color-tag-active` | `rgba(255,255,255,0.95)` | Active pill on hero |
-| `--color-stat-number` | `#0D0D0D` | Large stat numerals (98%, 50K, 4.9) |
-| `--color-gold-star` | `#F5A623` | Star rating dots / stars |
-| `--shadow-card` | `0 8px 32px rgba(0,0,0,0.10)` | Floating card shadows |
-| `--shadow-hero-card` | `0 12px 40px rgba(0,0,0,0.25)` | Doctor profile card in hero |
-
-### 1.3 Typography
-
-| Role | Font Family | Weight | Size (desktop) | Notes |
-|---|---|---|---|---|
-| Logo wordmark | `"DM Sans"` | 600 | `18px` | Paired with a snowflake/asterisk SVG icon |
-| Nav links | `"DM Sans"` | 400 | `14px` | Letter-spacing: `0.02em` |
-| CTA button | `"DM Sans"` | 600 | `14px` | UPPERCASE or Title Case |
-| Hero heading | `"Playfair Display"` or `"Sora"` | 800 | `clamp(40px, 6vw, 72px)` | All caps, white, line-height 1.05 |
-| Hero subtext | `"DM Sans"` | 400 | `15px` | White, max-width 260px, line-height 1.6 |
-| Section label prefix | `"DM Sans"` | 400 | `13px` | Italic or normal, `--color-text-light`, e.g. `"Our Features /"` |
-| Section heading | `"Sora"` or `"Playfair Display"` | 700 | `clamp(28px, 4vw, 44px)` | Dark, tight letter-spacing |
-| Section body | `"DM Sans"` | 400 | `15px` | `--color-text-body`, line-height 1.65 |
-| Card label | `"DM Sans"` | 600 | `18px` | White, on service card image overlays |
-| Stat number | `"Sora"` | 800 | `48px` | `--color-stat-number` |
-| Stat label | `"DM Sans"` | 400 | `12px` | `--color-text-light`, uppercase, letter-spacing `0.08em` |
-| Doctor name | `"DM Sans"` | 700 | `15px` | |
-| Doctor title | `"DM Sans"` | 400 | `12px` | `--color-text-light` |
-
-**Google Fonts import:**
-```html
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Sora:wght@400;600;700;800&display=swap" rel="stylesheet">
+ 
+## 1. Brand Overview
+ 
+| Property | Value |
+|----------|-------|
+| **Brand Name** | Hutch |
+| **Tagline** | *Creating Interiors That Inspire Living* |
+| **Industry** | Interior Design Studio |
+| **Tone** | Warm, Sophisticated, Modern, Professional |
+| **Target Audience** | Homeowners, Real Estate Developers, Commercial Clients |
+ 
+---
+ 
+## 2. Color Palette
+ 
+| Role | Color Name | Hex Code | Usage |
+|------|-----------|----------|-------|
+| **Primary Brand** | Burnt Orange / Terracotta | `#C9540A` | Logo, CTAs, accent headings |
+| **Dark Heading** | Charcoal Black | `#1A1A1A` | Main headings, body text |
+| **Background** | Off-White / Warm White | `#FAF8F5` | Page background |
+| **Accent Italic** | Deep Amber Orange | `#D4600C` | Italic highlights in headings |
+| **Card Background** | Light Warm Gray | `#F4F1ED` | Service cards, feature blocks |
+| **CTA Button** | Terracotta Orange | `#C9540A` | Primary buttons |
+| **CTA Text** | White | `#FFFFFF` | Button labels |
+| **Secondary Text** | Medium Gray | `#6B6B6B` | Subheadings, paragraph text |
+| **Footer Background** | Deep Charcoal | `#1C1C1C` | Footer section |
+| **Border/Divider** | Soft Warm Gray | `#E8E4DF` | Card borders, dividers |
+| **Testimonial BG** | Rich Dark Brown | `#2C1F14` | Testimonials section overlay |
+ 
+---
+ 
+## 3. Typography
+ 
+### Font Families
+ 
+| Role | Font | Style | Weight |
+|------|------|-------|--------|
+| **Logo** | Custom Sans-Serif (lowercase) | Regular | 600 |
+| **Hero Display** | Bold Sans-Serif (e.g., Bebas Neue / Oswald) | Uppercase | 900 |
+| **Section Headings** | Serif or Semi-Serif (e.g., Playfair Display) | Mixed Italic | 700 |
+| **Body Text** | Clean Sans-Serif (e.g., DM Sans / Nunito) | Regular | 400 |
+| **Navigation** | Clean Sans-Serif | Regular | 400–500 |
+| **CTA / Labels** | Sans-Serif | Medium | 500–600 |
+ 
+### Type Scale
+ 
+| Element | Size | Weight | Notes |
+|---------|------|--------|-------|
+| Hero Headline | `80–100px` | 900 | Uppercase, full-width display |
+| Section Title | `32–40px` | 700 | Mixed Roman + Italic words |
+| Card Title | `18–20px` | 600 | — |
+| Body Paragraph | `15–16px` | 400 | Line-height: 1.7 |
+| Navigation | `14px` | 400 | Letter-spacing: 0.02em |
+| Buttons | `13–14px` | 600 | Uppercase or Sentence case |
+| Stats / Numbers | `36–40px` | 800 | Bold, brand color |
+| Caption/Meta | `12px` | 400 | Muted gray |
+ 
+### Typographic Style Rule
+> Headings combine **roman** (regular weight) and ***italic + colored*** words for visual emphasis.
+> Example: *"We are a* **interior** *design studio* functional, *and timeless spaces designed to* **look** *beautiful..."*
+ 
+---
+ 
+## 4. Layout & Grid System
+ 
 ```
-
-### 1.4 Spacing Scale
-
-| Token | Value |
-|---|---|
-| `--space-xs` | `4px` |
-| `--space-sm` | `8px` |
-| `--space-md` | `16px` |
-| `--space-lg` | `24px` |
-| `--space-xl` | `40px` |
-| `--space-2xl` | `64px` |
-| `--space-3xl` | `96px` |
-
-### 1.5 Border Radius
-
+Max Content Width : 1280px
+Gutters           : 24px (desktop), 16px (mobile)
+Column System     : 12-column grid
+Section Padding   : 80px top/bottom (desktop), 48px (mobile)
+Card Gaps         : 20–24px
+Border Radius     : 12px (cards), 8px (buttons), 4px (tags)
+```
+ 
+---
+ 
+## 5. Page Sections — Full Breakdown
+ 
+---
+ 
+### 5.1 Navigation Bar
+ 
+**Layout:** Horizontal, full-width, sticky on scroll
+ 
+| Element | Detail |
+|---------|--------|
+| Logo | `hutch` in lowercase, warm brand color |
+| Nav Links | Home · About us · Project · Blogs · Contact Us |
+| Active State | Pill/capsule highlight on active nav item (terracotta bg, white text) |
+| CTA Button | `Start Project →` — Terracotta background, white text, rounded |
+| Position | Fixed top, white background, subtle bottom border on scroll |
+ 
+---
+ 
+### 5.2 Hero Section
+ 
+**Layout:** Two-column — Left (text + image), Right (unused / full bleed image)
+ 
+| Element | Detail |
+|---------|--------|
+| Eyebrow Text | None — straight to headline |
+| Main Headline | `HUTCH` in giant display type (charcoal) + "Creating **Interiors** That Inspire Living" stacked beside |
+| Sub-headline Style | Word "Interiors" in italic terracotta color |
+| CTA Link | `VIEW PORTFOLIO →` underlined link, small caps |
+| Hero Image | Full-width photo of a modern living room (green feature wall, pendant lights, blue sofa) |
+| Play Button | Circular white play button centered on the image (video preview) |
+| Image Style | Rounded corners (16px), full bleed to edges |
+ 
+---
+ 
+### 5.3 Who We Are — Intro Strip
+ 
+**Layout:** Single full-width paragraph, centered or left-aligned
+ 
+| Element | Detail |
+|---------|--------|
+| Section Label | `Who we are` — small, gray, label style (rotated vertical or inline left) |
+| Paragraph | Large body text: *"We are a **interior** design studio functional, and timeless spaces designed to **look** beautiful and feel inspiring for modern living and work."* |
+| Italic Highlights | Words "interior" and "look" in italic terracotta |
+| Weight Mix | Regular + Bold mixed in one sentence for rhythm |
+ 
+---
+ 
+### 5.4 Our Services Section
+ 
+**Layout:** Section header + 4-column card grid
+ 
+**Section Header:**
+- Left: `Our` (roman) + `Services` (italic, terracotta)
+- Right: Navigation arrows `< >`
+**Service Cards (×4):**
+ 
+| # | Icon | Service Name | Description |
+|---|------|-------------|-------------|
+| 1 | 🏠 Home icon | **Residential Design** | Full-service design for family homes, apartments, and villas tailored to personal style |
+| 2 | 🏢 Building icon | **Commercial Spaces** | Creating impactful environments for retail, hospitality, and public spaces |
+| 3 | 💼 Office icon | **Office Design** | Productive and innovative workspace solutions that enhance employee well-being |
+| 4 | 🛋️ Furniture icon | **Custom Furniture** | Bespoke furniture design and sourcing to ensure unique pieces that perfectly fit your space |
+ 
+**Card Style:**
+- Warm gray background (`#F4F1ED`)
+- Icon at top left (line-style, terracotta color)
+- Title in dark bold
+- Description in gray, small body text
+- `Read More` button — outlined style, small, bottom of card
+- Rounded corners: `12px`
+- Subtle drop shadow on hover
+---
+ 
+### 5.5 Quote + About Us Block
+ 
+**Layout:** Two-column — Left (quote), Right (about us text + stats)
+ 
+**Left — Pull Quote:**
+```
+"Design is not just
+what it looks like
+and feels like.
+Design is how it
+works."
+```
+- Dark background panel (deep charcoal or near-black)
+- White text, large quotation mark
+- Decorative abstract illustration (line art vase/plant)
+**Right — About Us:**
+- Label: `About Us` — small, italic, terracotta
+- Heading: `Designing` (italic terracotta) + `Comfort With Your Modern` + `Home & Office` (italic terracotta)
+- Body: 2-paragraph description of the studio philosophy
+- Stats Row:
+  | Stat | Value |
+  |------|-------|
+  | Projects | `500+` |
+  | Years Exp | `12+` |
+  | Awards | `49+` |
+---
+ 
+### 5.6 Featured Projects Section (Homepage Preview)
+ 
+**Layout:** Tabs + 3-column image grid
+ 
+**Filter Tabs:** `All Project` · `Residential` · `Commercial` · `Hospitality`
+- Active tab: Terracotta background, white text, pill shape
+**Project Cards (×6 in full grid):**
+ 
+| Card Element | Style |
+|-------------|-------|
+| Thumbnail Image | Aspect ratio 4:3, rounded 12px corners |
+| Project Tags | Small pills (bedroom count, type, etc.) |
+| Project Title | e.g., *"Ivory Nest – A Modern Residential Interior Project"* |
+| Stats Row | Floor area · Rooms · Status icons |
+| Hover State | Slight scale + shadow lift |
+ 
+---
+ 
+### 5.7 Testimonials Section
+ 
+**Layout:** Dark overlay section, full-width, asymmetric
+ 
+| Element | Detail |
+|---------|--------|
+| Section BG | Rich dark brown / near-black with warm tones |
+| Label | `Testimonials` — small all-caps, terracotta |
+| Heading | `Voices of Appreciation` — white, serif italic |
+| Stars | 4.5/5 rating with gold star icons |
+| Review Text | Left-aligned testimonial body text in white/light gray |
+| Reviewer Image | Circular avatar, bottom-left |
+| Reviewer Name | Name + Role + "Global Top Interior Clients" |
+| Background Image | Semi-transparent interior photo, right half |
+| Navigation | Arrow buttons for carousel |
+| Counter | `250+` clients in overlay badge |
+ 
+---
+ 
+### 5.8 Our Working Process
+ 
+**Layout:** 4-step horizontal process with numbered steps
+ 
+| Step | # | Title | Brief Description |
+|------|---|-------|-------------------|
+| Discovery | 01 | Discovery | Initial consultation to understand needs, style, and budget |
+| Concept | 02 | Concept | Developing initial moodboards and layout ideas for approval |
+| Design | 03 | Design | Detailed design with consultation on materials, finishes |
+| Execution | 04 | Execution | Managing contractors, procurement, and installation |
+ 
+**Style:**
+- Steps numbered with large `01` `02` `03` `04` in muted gray
+- Active step highlighted in terracotta
+- Horizontal connector line between steps
+- Each step has an icon + title + description below
+---
+ 
+### 5.9 FAQ Section
+ 
+**Layout:** Two-column — Left (heading + image), Right (accordion)
+ 
+**Left:**
+- Label: `FAQ`
+- Heading: `Frequently Asked Questions?`
+- Image: Interior photo (lamp/moody lighting)
+**Right — Accordion Questions:**
+1. Is this skincare suitable for all skin types?
+2. Are your products safe for sensitive skin?
+3. How long does it take to see visible results?
+4. Are your products made with natural ingredients?
+5. Can I use these products every day?
+> *(Note: FAQ content in original appears to be placeholder from a different template; should be replaced with interior design FAQs)*
+ 
+**Suggested Interior Design FAQs:**
+1. How long does a typical interior design project take?
+2. What is included in your design consultation?
+3. Do you work on both residential and commercial projects?
+4. How do you handle project budgets and pricing?
+5. Can I see examples of your completed projects?
+**Accordion Style:**
+- Question row with `+` / `−` toggle icon
+- Expanded answer with smooth CSS transition
+- Bottom border divider between items
+- Active item has terracotta icon color
+---
+ 
+### 5.10 CTA Banner Section
+ 
+**Layout:** Full-width banner, centered content
+ 
+| Element | Detail |
+|---------|--------|
+| Background | Soft blurred lifestyle photo (warm tones) with dark overlay |
+| Heading | `Start` (dark) + `Designing` (italic terracotta) + `Your Perfect Space To Life` |
+| Subtext | "Book a free consultation and explore design solutions tailored specifically to your space, vision, and way of living." |
+| Button | `Book a Free Consultation →` — white background, dark text, rounded pill |
+ 
+---
+ 
+### 5.11 Footer
+ 
+**Layout:** Dark background, multi-column layout
+ 
+| Column | Content |
+|--------|---------|
+| **Brand** | `hutch` logo (white) + short tagline + social icons (Facebook, Twitter, Instagram, LinkedIn) + Privacy/Terms links |
+| **Quick Links** | Home · About · Project · Blogs · FAQ · Contact Us |
+| **Product / Services** | Residential Design · Commercial Spaces · Office Design · Custom Furniture |
+| **Newsletter** | Label + Email input field + `Subscribe` button |
+| **Bottom Bar** | Copyright text |
+ 
+**Footer Style:**
+- Background: Deep charcoal `#1C1C1C`
+- Text: White headers, light gray links
+- Social icons: Circular, outlined
+- Input field: Dark bordered, white text
+---
+ 
+## 6. Interactive Components
+ 
+### Buttons
+ 
+| Type | Style |
+|------|-------|
+| **Primary CTA** | Terracotta bg · White text · Rounded corners (8px) · Arrow icon |
+| **Secondary / Outline** | White bg · Terracotta border · Terracotta text |
+| **Ghost / Link** | Underlined · Terracotta color · Arrow →  |
+| **Nav Active** | Terracotta bg · White text · Pill shape |
+| **Filter Tab Active** | Terracotta bg · White text · Rounded pill |
+| **Filter Tab Inactive** | White/transparent · Dark text · Rounded pill |
+ 
+### Hover States
+- Cards: `transform: translateY(-4px)` + `box-shadow` elevation
+- Buttons: `opacity: 0.9` + subtle scale `1.02`
+- Nav links: Underline slide-in from left
+- Project images: Zoom `scale(1.05)` with overflow hidden
+### Carousel / Slider
+- Featured Projects: Horizontal scroll with arrows
+- Testimonials: Fade + slide transition
+- Services: Arrow-navigated (mobile swipeable)
+---
+ 
+## 7. Iconography
+ 
+| Style | Detail |
+|-------|--------|
+| Type | Line icons (1.5px stroke weight) |
+| Color | Terracotta (`#C9540A`) on cards; White on dark backgrounds |
+| Size | 24×24px (nav/body), 32×32px (service cards) |
+| Library Suggestion | Lucide Icons / Feather Icons / Phosphor Icons |
+ 
+---
+ 
+## 8. Imagery Guidelines
+ 
+| Type | Style |
+|------|-------|
+| **Interior Photos** | High-resolution, warm-toned, natural light preferred |
+| **Aspect Ratios** | Hero: 16:9 · Cards: 4:3 · About: 3:4 (portrait) |
+| **Color Grading** | Warm, slightly desaturated — matches brand palette |
+| **Overlays** | Dark gradient overlay for text readability on photo backgrounds |
+| **Border Radius** | 12–16px on all image containers |
+| **Avoid** | Cold/blue-toned photos, overly bright/white sterile spaces |
+ 
+---
+ 
+## 9. Spacing System (8pt Grid)
+ 
 | Token | Value | Usage |
-|---|---|---|
-| `--radius-sm` | `8px` | Tags, pill buttons, inner cards |
-| `--radius-md` | `16px` | Service image cards, doctor profile cards |
-| `--radius-lg` | `24px` | Hero container, about image |
-| `--radius-full` | `999px` | CTA button, nav pill tags |
-
-### 1.6 Breakpoints
-
-| Name | Width |
-|---|---|
-| Mobile | `< 768px` |
-| Tablet | `768px – 1024px` |
-| Desktop | `> 1024px` |
-
+|-------|-------|-------|
+| `--space-xs` | `4px` | Icon padding, micro gaps |
+| `--space-sm` | `8px` | Tag padding, tight spacing |
+| `--space-md` | `16px` | Card padding, inline gaps |
+| `--space-lg` | `24px` | Card gaps, grid gutters |
+| `--space-xl` | `40px` | Section inner spacing |
+| `--space-2xl` | `64px` | Between sections (mobile) |
+| `--space-3xl` | `96px` | Between sections (desktop) |
+ 
 ---
-
-## 2. Page Structure Overview
-
-```
-<body> (background: --color-bg-page)
-  └── .page-wrapper  (max-width: 1280px, margin: 0 auto, padding: 16px)
-        ├── Section 1: Navbar
-        ├── Section 2: Hero
-        ├── Section 3: Services
-        ├── Section 4: About / Stats
-        └── (implied) Footer
-```
-
-> The entire page content sits inside a rounded-corner "frame" — the outer `--color-bg-page` powder blue is the true page background, and all sections are inside a visually contained layout with `border-radius: 24px` on the hero block and card blocks.
-
+ 
+## 10. Responsive Breakpoints
+ 
+| Breakpoint | Width | Layout Changes |
+|-----------|-------|----------------|
+| **Mobile** | `< 640px` | Single column, stack everything, hamburger menu |
+| **Tablet** | `640px – 1024px` | 2-column grid, collapsible nav |
+| **Desktop** | `1024px – 1280px` | Full layout, 3–4 column grids |
+| **Wide** | `> 1280px` | Max-width container centered, same as desktop |
+ 
 ---
-
-## 3. Section 1 — Navbar
-
-### 3.1 Layout
-- **Position:** Absolute, overlaid on top of the hero image
-- **Width:** 100% of the hero container
-- **Height:** `72px`
-- **Display:** Flex row, `align-items: center`, `justify-content: space-between`
-- **Padding:** `0 32px`
-- **Background:** Transparent (sits on the hero photo)
-
-### 3.2 Left: Logo
-```
-[❄ snowflake SVG icon, ~18px, white]  [Dental]
-```
-- Icon: A 6-pointed asterisk/snowflake, white, `18px`
-- Text: `"Dental"` in `DM Sans 600`, white, `18px`
-- Gap between icon and text: `8px`
-
-### 3.3 Centre: Navigation Links
-- Links: `Home`, `Services`, `About us`, `Testimonials`, `Blog`, `Contact`
-- Font: `DM Sans 400`, `14px`, white
-- Gap between links: `28px`
-- Hover: slight opacity decrease or underline
-- Contained in a lozenge/pill shape? → **No.** Just raw links on the transparent header.
-
-### 3.4 Right: CTA Button
-```
-[ BOOK A CALL  → ]
-```
-- Background: `#FFFFFF`
-- Text colour: `#0D0D0D`
-- Font: `DM Sans 700`, `13px`, uppercase or title case
-- Border-radius: `999px`
-- Padding: `12px 20px`
-- Arrow icon: `→` (Unicode or SVG), same dark colour, `16px`, circle background `#0D0D0D`, arrow `#FFFFFF`, `24px` circle
-- The arrow is inside a dark circle to the right of the text
-
-**Button HTML structure:**
-```html
-<button class="cta-btn">
-  BOOK A CALL
-  <span class="cta-arrow">→</span>
-</button>
-```
-```css
-.cta-btn {
-  display: flex; align-items: center; gap: 10px;
-  background: #fff; border: none; border-radius: 999px;
-  padding: 10px 10px 10px 20px; cursor: pointer;
-  font: 700 13px "DM Sans"; color: #0D0D0D;
-}
-.cta-arrow {
-  width: 32px; height: 32px; background: #0D0D0D;
-  border-radius: 50%; display: flex; align-items: center;
-  justify-content: center; color: #fff; font-size: 16px;
-}
-```
-
+ 
+## 11. Animation & Motion
+ 
+| Element | Animation | Timing |
+|---------|-----------|--------|
+| Page Load Hero | Fade in + slide up | `600ms ease-out` |
+| Section Reveal | Scroll-triggered fade + translateY | `400ms` staggered |
+| Service Cards | Hover lift | `200ms ease` |
+| Project Images | Hover zoom (scale 1.05) | `300ms ease` |
+| Accordion | Height expand/collapse | `300ms cubic-bezier` |
+| Carousel Slides | Horizontal slide | `500ms ease-in-out` |
+| CTA Button | Pulse ring on hover | `600ms infinite` |
+| Navbar | Background appear on scroll | `200ms` |
+ 
 ---
-
-## 4. Section 2 — Hero
-
-### 4.1 Container
-- **Border-radius:** `24px`
-- **Overflow:** `hidden`
-- **Position:** `relative`
-- **Height:** `560px` (desktop)
-- **Background:** Full-bleed photo of a woman receiving dental treatment (warm-toned, bokeh background with doctor's gloved hands and dental tool near her teeth)
-- **Image object-fit:** `cover`, `object-position: center top`
-- A **dark gradient overlay** on the left third:
-  ```css
-  background: linear-gradient(to right, rgba(10,10,20,0.75) 0%, rgba(10,10,20,0.3) 45%, transparent 70%);
-  ```
-
-### 4.2 Hero Headline (Bottom-Left)
-- Position: `absolute`, `bottom: 100px`, `left: 40px`
-- Text: `MODERN DENTISTRY WITH GENTLE CARE.`
-- Split across 3 lines, all caps
-- Font: `Sora 800`, `clamp(40px, 5.5vw, 68px)`, white
-- Line-height: `1.0`
-- Max-width: `480px`
-
-### 4.3 Hero Subtext (Right Centre)
-- Position: `absolute`, right side, vertically centred around middle of image
-- Approximate position: `top: 40%`, `right: 220px` — OR `right: 280px`
-- Text: `"Expert dental care for healthy, confident smiles at every age—delivered with comfort, precision, and trust."`
-- Font: `DM Sans 400`, `14px`, white
-- Max-width: `220px`
-- Line-height: `1.65`
-
-### 4.4 Slide Progress Indicator
-- Position: `absolute`, bottom of hero right area, `bottom: 56px`, `right: 220px`
-- Layout: `< 01 [====progress bar====] 05 >`
-- `< >` are clickable arrow icons, white, `14px`
-- `01` and `05` are white numbers, `DM Sans 400`, `13px`
-- Progress bar between: width ~`140px`, height `2px`, background `rgba(255,255,255,0.3)`, filled portion `--color-primary` ~30% width
-
-```html
-<div class="slide-progress">
-  <span class="prev">&#8249;</span>
-  <span class="slide-num">01</span>
-  <div class="progress-track">
-    <div class="progress-fill" style="width:20%"></div>
-  </div>
-  <span class="slide-num">05</span>
-  <span class="next">&#8250;</span>
-</div>
-```
-
-### 4.5 Doctor Profile Card (Bottom-Right)
-- Position: `absolute`, `bottom: 24px`, `right: 24px`
-- Background: `rgba(20, 20, 35, 0.88)` with `backdrop-filter: blur(12px)`
-- Border-radius: `16px`
-- Padding: `16px 20px`
-- Width: `~220px`
-- Border: `1px solid rgba(255,255,255,0.12)`
-
-**Internal layout (top row):**
-```
-[photo avatar 48x48px, border-radius:50%]  Dr. Jonas Suherman
-                                             Pediatric Dentistry
-```
-- Avatar: circular, `48px` diameter, a photo of a male doctor in white coat
-- Name: `DM Sans 700`, `14px`, white
-- Specialty: `DM Sans 400`, `12px`, `rgba(255,255,255,0.6)`
-
-**Bottom row (rating row):**
-```
-7 year Experience  (4.5 Rating)
-```
-- `"7 year Experience"` in bold white `DM Sans 700 13px`
-- `"(4.5 Rating)"` in `DM Sans 400 12px`, muted white
-- Gap between them: small
-
-### 4.6 Service Tag Pills (Bottom-Left, above bottom edge)
-- Position: `absolute`, `bottom: 24px`, `left: 40px`
-- 2 rows of pill tags:
-  - Row 1: `Dental Checkups` (active/white), `Teeth Cleaning` (ghost)
-  - Row 2: `Tooth Filling`, `Gum Treatment`, `Retainers`
-- **Active pill:** `background: rgba(255,255,255,0.95)`, `color: #0D0D0D`
-- **Inactive pill:** `background: rgba(255,255,255,0.18)`, `color: #fff`, `border: 1px solid rgba(255,255,255,0.3)`
-- All pills: `border-radius: 999px`, `padding: 8px 16px`, `font: DM Sans 500 13px`
-- Row gap: `8px`, pill gap: `8px`
-
-```css
-.service-tag {
-  border-radius: 999px;
-  padding: 7px 16px;
-  font: 500 13px "DM Sans";
-  cursor: pointer;
-  transition: all 0.2s;
-}
-.service-tag.active {
-  background: rgba(255,255,255,0.95);
-  color: #0D0D0D;
-}
-.service-tag.ghost {
-  background: rgba(255,255,255,0.18);
-  color: #fff;
-  border: 1px solid rgba(255,255,255,0.3);
-}
-```
-
----
-
-## 5. Section 3 — Signature Dental Services
-
-### 5.1 Outer Container
-- Background: `--color-bg-page` (the powder blue continues)
-- Padding: `80px 40px`
-- This section has NO card container of its own — it floats on the blue background
-
-### 5.2 Section Header (Two-column layout)
-**Left column (approx 40% width):**
-- Small prefix label: `"Our Features /"` — `DM Sans 400 13px`, `--color-text-light`, italic look, inline with heading
-- Heading: `"DISCOVER OUR SIGNATURE DENTAL SERVICES"` — `Sora 700`, `clamp(26px, 3.5vw, 40px)`, `--color-text-heading`
-- The prefix sits on the same line as the start of the heading or just above it in small grey text
-- Below heading: avatar stack + review count
-  - 3 small overlapping circular avatars (`32px` diameter each, `-8px` overlap) of patient faces
-  - Text `"750+"` in `Sora 700 20px`, `--color-text-heading`
-  - Sub-label `"Reviews"` in `DM Sans 400 12px`, `--color-text-light`
-
-```html
-<div class="reviews-badge">
-  <div class="avatar-stack">
-    <img class="avatar" src="..." />
-    <img class="avatar" src="..." />
-    <img class="avatar" src="..." />
-  </div>
-  <div>
-    <span class="review-count">750+</span>
-    <span class="review-label">Reviews</span>
-  </div>
-</div>
-```
-```css
-.avatar-stack { display: flex; }
-.avatar {
-  width: 32px; height: 32px; border-radius: 50%;
-  border: 2px solid white;
-  margin-left: -8px;
-}
-.avatar:first-child { margin-left: 0; }
-```
-
-**Right column (approx 55% width):**
-- Body text: `"Experience modern dental care delivered with comfort, precision, and attention to detail. Our clinic provides a calm, welcoming environment designed to make every visit stress-free."`
-- Font: `DM Sans 400 15px`, `--color-text-body`, line-height `1.65`
-- Max-width: `380px`
-
-### 5.3 Service Cards Carousel
-- Located below the header, slightly offset to the right (not full width — starts around column 2)
-- Shows 3 cards partially visible, suggesting a scrollable carousel
-- A left arrow `< ` floats at the start of the cards row (dark circle button)
-
-**Left Arrow Button:**
-```css
-.carousel-arrow {
-  width: 44px; height: 44px;
-  background: #1A1A2E;
-  border-radius: 50%;
-  display: flex; align-items: center; justify-content: center;
-  color: white; font-size: 18px;
-  cursor: pointer; flex-shrink: 0;
-}
-```
-
-**Each Service Card:**
-- Width: `~220px` (desktop), height: `~280px`
-- Border-radius: `16px`
-- Overflow: `hidden`
-- Position: `relative`
-- Full-bleed image background (dental procedure photo)
-- Gradient overlay at the bottom:
-  ```css
-  background: linear-gradient(to top, rgba(0,0,0,0.65) 0%, transparent 55%);
-  ```
-- Bottom-left label: card title (e.g., `"Teeth Cleaning"`) in `DM Sans 600 18px`, white
-- Bottom-right arrow button: small white circle `→`, `32px`
-
-**Three cards shown:**
-1. `"Teeth Cleaning"` — image of close-up teeth being cleaned with gloved blue/purple hands
-2. `"Dental Checkups"` — image of woman smiling wide, teeth check
-3. `"Dental Veneers"` — image of dental procedure with teal/green gloves
-
-**Card gap:** `12px`
-
-**Left side text (below avatar stack, below left column):**
-- Small paragraph: `"Discover delighted patient reviews about their comforting and satisfying dental care experience. A"`
-- Font: `DM Sans 400 13px`, `--color-text-body`
-- Max-width: `180px`
-- Positioned left of the carousel
-
-```css
-.services-layout {
-  display: grid;
-  grid-template-columns: 260px 1fr;
-  gap: 40px;
-  align-items: start;
-}
-.cards-row {
-  display: flex;
-  gap: 12px;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-}
-.service-card {
-  min-width: 220px;
-  height: 280px;
-  border-radius: 16px;
-  overflow: hidden;
-  position: relative;
-  scroll-snap-align: start;
-  cursor: pointer;
-}
-```
-
----
-
-## 6. Section 4 — About / Excellence
-
-### 6.1 Two-Column Grid
-- Left column (`~45%`): large image of a dentist working
-- Right column (`~50%`): text content + doctor cards + stats
-- Gap: `40px`
-- Padding: `80px 40px`
-- Background: `--color-bg-page`
-
-### 6.2 Left Column — About Image
-- Large photo: dentist in white coat with magnifying loupes, patient reclined, warm sunset light
-- Border-radius: `20px`
-- Width: `100%`
-- Height: `~400px`
-- Object-fit: `cover`
-
-### 6.3 Right Column — Content
-
-**Prefix label:**
-- `"About Dental /"` — `DM Sans 400 13px`, `--color-text-light`
-
-**Heading:**
-- `"EXCELLENCE IN DENTISTRY WITH COMPASSIONATE CARE"`
-- Font: `Sora 700`, `clamp(28px, 3.5vw, 42px)`, `--color-text-heading`
-- Line-height: `1.1`
-
-**Body text:**
-- `"Discover delighted patient reviews about their comforting and satisfying dental care experience. A"`
-- Font: `DM Sans 400 14px`, `--color-text-body`
-- Margin-top: `16px`
-
-**Read More link:**
-- Right-aligned
-- Text: `"Read more"` + `↗` arrow icon
-- Font: `DM Sans 600 14px`, `--color-text-heading`
-- The `↗` is inside a small square, `24x24px`, background `#0D0D0D`, icon `#fff`, `border-radius: 6px`
-
-**Doctor Cards Row:**
-- 2 small cards side by side
-- Each card: photo + name + title
-- Card width: `~160px`
-- Photo: portrait image, `border-radius: 12px 12px 0 0`, full-width, height `~120px`, `object-fit: cover`
-- Below photo (inside card): name + specialty
-- Background: `#fff`, `border-radius: 12px`, `box-shadow: var(--shadow-card)`
-
-Card 1: Dr. Albert Flores — Pediatric Dentistry
-Card 2: Dr. Theresa Webb — Pediatric Dentistry
-
-```css
-.doctor-mini-card {
-  background: #fff;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 4px 16px rgba(0,0,0,0.08);
-  width: 160px;
-}
-.doctor-mini-card img {
-  width: 100%;
-  height: 120px;
-  object-fit: cover;
-}
-.doctor-mini-card .info {
-  padding: 10px 12px;
-}
-.doctor-mini-card .name {
-  font: 600 13px "DM Sans";
-  color: #0D0D0D;
-}
-.doctor-mini-card .role {
-  font: 400 11px "DM Sans";
-  color: #8A8A9A;
-}
-```
-
-### 6.4 Stats Row (Bottom of Section)
-- Three stat blocks arranged in a row
-- Position: below the about image (left column, below the image)
-- OR: could span below both columns
-
-**Three Stats:**
-
-| Stat | Label |
-|---|---|
-| `98%` | SATISFACTION RATE |
-| `50K` | SMILES TRANSFORMED |
-| `4.9` | CUSTOMERS RATING |
-
-**Each stat block:**
-- Number: `Sora 800 48px`, `--color-stat-number`
-- Label: `DM Sans 400 12px`, `--color-text-light`, uppercase, letter-spacing `0.08em`
-- No background, no card — just text on the page background
-- Separator between stats: thin vertical line `1px solid --color-border` OR just gap `48px`
-
-```css
-.stats-row {
-  display: flex;
-  gap: 48px;
-  align-items: flex-start;
-  margin-top: 32px;
-}
-.stat-block .number {
-  font: 800 48px "Sora";
-  color: #0D0D0D;
-  line-height: 1;
-}
-.stat-block .label {
-  font: 400 11px "DM Sans";
-  color: #8A8A9A;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  margin-top: 4px;
-}
-```
-
----
-
-## 7. Interactive States & Micro-Interactions
-
-### 7.1 Hover Effects
-| Element | Hover Behaviour |
-|---|---|
-| Nav links | Opacity: `0.7`, transition `0.2s` |
-| Service tag pill (inactive) | Background darkens slightly: `rgba(255,255,255,0.30)` |
-| CTA button | Background: `#F0F0F0`, slight scale `transform: scale(1.02)` |
-| Service cards | Scale: `transform: scale(1.03)`, shadow deepens |
-| Doctor mini-cards | `transform: translateY(-4px)`, shadow increases |
-| Arrow buttons (carousel) | Background lightens, scale `1.05` |
-
-### 7.2 Page Load Animations
-- Hero heading: fade-in + slide-up, `0.6s ease-out`, delay `0.2s`
-- Hero subtext: fade-in, delay `0.5s`
-- Doctor profile card: fade-in + slide-left, delay `0.8s`
-- Service tags: staggered fade-in, each 100ms apart, starting at delay `1s`
-- Section headings: fade-in on scroll (IntersectionObserver)
-- Stats numbers: count-up animation on scroll into view
-
-### 7.3 Carousel Behaviour
-- Left arrow scrolls cards left by one card width
-- Cards scroll smoothly: `scroll-behavior: smooth`
-- Active card can have a subtle scale-up: `1.02`
-
----
-
-## 8. Responsive Layout Rules
-
-### 8.1 Mobile (`< 768px`)
-- Navbar: hide centre links → show hamburger menu icon
-- CTA button: stays visible, shrinks to icon-only or short text
-- Hero height: `480px`
-- Hero headline: `40px`
-- Service tags: single row, horizontally scrollable
-- Doctor card: `width: calc(100% - 48px)`, full-width bottom of hero
-- Services section: single column, cards in horizontal scroll
-- About section: stack vertically (image top, text bottom)
-- Stats row: wrap or single column
-
-### 8.2 Tablet (`768px – 1024px`)
-- Nav links: reduce to 4 main links
-- Hero height: `520px`
-- Cards: show 2 cards, partial 3rd
-- About section: maintain 2 columns with reduced gap
-
----
-
-## 9. Placeholder Image Guidance
-
-Since real photos cannot be embedded in code, use these placeholder approaches:
-
-| Image Slot | Description for Placeholder |
-|---|---|
-| Hero background | Full-bleed dental procedure photo, warm amber tones, woman patient, doctor with gloved hands and tool |
-| Doctor avatar (hero card) | Circular headshot, male doctor, white coat, smiling |
-| Teeth Cleaning card | Close-up of teeth, purple/blue gloved hands, dental scaler |
-| Dental Checkups card | Woman smiling wide with bright teeth, mirror tool visible |
-| Dental Veneers card | Dental procedure, teal gloved hands, tooth shade guide |
-| About section image | Male dentist with loupes/magnifiers, patient reclined, warm backlight |
-| Dr. Albert Flores mini-card | Female doctor portrait, smiling, professional |
-| Dr. Theresa Webb mini-card | Male doctor portrait, greying hair, professional |
-| Avatar stack (reviews) | Three small diverse patient headshots |
-
-Use `https://picsum.photos/seed/dental{N}/{width}/{height}` as placeholder or `https://placehold.co/{width}x{height}` with grey backgrounds.
-
----
-
-## 10. CSS Architecture
-
-### 10.1 File Structure
-```
-index.html
-css/
-  ├── reset.css        — Normalise + box-sizing
-  ├── variables.css    — All CSS custom properties
-  ├── typography.css   — Font imports, base type styles
-  ├── layout.css       — Grid, flex helpers, page wrapper
-  ├── navbar.css       — Nav component
-  ├── hero.css         — Hero section
-  ├── services.css     — Services carousel section
-  ├── about.css        — About / stats section
-  └── animations.css   — Keyframes, transitions
-js/
-  ├── carousel.js      — Service cards horizontal scroll
-  ├── stats-counter.js — Count-up animation on scroll
-  └── hero-slider.js   — Progress bar + slide switch
-```
-
-### 10.2 CSS Variables Block
+ 
+## 12. CSS Variables Reference
+ 
 ```css
 :root {
-  --color-bg-page: #EAF4F8;
-  --color-bg-white: #FFFFFF;
-  --color-bg-dark: #1A1A2E;
-  --color-primary: #1E90D6;
-  --color-text-heading: #0D0D0D;
-  --color-text-body: #4A4A5A;
-  --color-text-light: #8A8A9A;
-  --color-text-white: #FFFFFF;
-  --color-border: #E0EAF0;
-  --color-tag-bg: rgba(255,255,255,0.18);
-  --color-tag-active: rgba(255,255,255,0.95);
-  --color-stat-number: #0D0D0D;
-  --color-gold-star: #F5A623;
-  --shadow-card: 0 8px 32px rgba(0,0,0,0.10);
-  --shadow-hero-card: 0 12px 40px rgba(0,0,0,0.25);
-  --space-xs: 4px;
-  --space-sm: 8px;
-  --space-md: 16px;
-  --space-lg: 24px;
-  --space-xl: 40px;
+  /* Colors */
+  --color-primary:        #C9540A;
+  --color-primary-dark:   #A8420A;
+  --color-text-dark:      #1A1A1A;
+  --color-text-gray:      #6B6B6B;
+  --color-text-light:     #9A9A9A;
+  --color-bg:             #FAF8F5;
+  --color-bg-card:        #F4F1ED;
+  --color-bg-dark:        #1C1C1C;
+  --color-border:         #E8E4DF;
+  --color-white:          #FFFFFF;
+ 
+  /* Typography */
+  --font-display:   'Bebas Neue', 'Oswald', sans-serif;
+  --font-heading:   'Playfair Display', Georgia, serif;
+  --font-body:      'DM Sans', 'Nunito', sans-serif;
+ 
+  /* Spacing */
+  --space-xs:  4px;
+  --space-sm:  8px;
+  --space-md:  16px;
+  --space-lg:  24px;
+  --space-xl:  40px;
   --space-2xl: 64px;
   --space-3xl: 96px;
-  --radius-sm: 8px;
-  --radius-md: 16px;
-  --radius-lg: 24px;
+ 
+  /* Borders */
+  --radius-sm:   4px;
+  --radius-md:   8px;
+  --radius-lg:   12px;
+  --radius-xl:   16px;
   --radius-full: 999px;
+ 
+  /* Shadows */
+  --shadow-card: 0 4px 20px rgba(0, 0, 0, 0.08);
+  --shadow-hover: 0 12px 40px rgba(0, 0, 0, 0.14);
+ 
+  /* Transitions */
+  --transition-fast:   200ms ease;
+  --transition-normal: 300ms ease;
+  --transition-slow:   500ms ease-in-out;
 }
 ```
-
+ 
 ---
-
-## 11. HTML Skeleton
-
-```html
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Dental — Modern Dentistry With Gentle Care</title>
-  <link rel="stylesheet" href="css/reset.css" />
-  <link rel="stylesheet" href="css/variables.css" />
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Sora:wght@400;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/main.css" />
-</head>
-<body>
-
-  <!-- PAGE WRAPPER -->
-  <div class="page-wrapper">
-
-    <!-- SECTION 1 + 2: HERO (navbar overlaid) -->
-    <section class="hero" id="home">
-      <img class="hero-bg" src="images/hero-bg.jpg" alt="Dental procedure" />
-      <div class="hero-overlay"></div>
-
-      <!-- NAVBAR (absolute inside hero) -->
-      <nav class="navbar">
-        <div class="nav-logo">
-          <svg class="logo-icon"><!-- snowflake SVG --></svg>
-          <span>Dental</span>
-        </div>
-        <ul class="nav-links">
-          <li><a href="#home">Home</a></li>
-          <li><a href="#services">Services</a></li>
-          <li><a href="#about">About us</a></li>
-          <li><a href="#testimonials">Testimonials</a></li>
-          <li><a href="#blog">Blog</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-        <button class="cta-btn">
-          BOOK A CALL
-          <span class="cta-arrow">→</span>
-        </button>
-      </nav>
-
-      <!-- HERO HEADLINE -->
-      <div class="hero-headline">
-        <h1>MODERN<br>DENTISTRY WITH<br>GENTLE CARE.</h1>
-      </div>
-
-      <!-- HERO SUBTEXT -->
-      <p class="hero-subtext">
-        Expert dental care for healthy, confident smiles at every age—delivered with comfort, precision, and trust.
-      </p>
-
-      <!-- SLIDE PROGRESS -->
-      <div class="slide-progress">
-        <button class="slide-prev">&#8249;</button>
-        <span class="slide-num">01</span>
-        <div class="progress-track">
-          <div class="progress-fill"></div>
-        </div>
-        <span class="slide-num">05</span>
-        <button class="slide-next">&#8250;</button>
-      </div>
-
-      <!-- DOCTOR PROFILE CARD -->
-      <div class="doctor-card">
-        <div class="doctor-card-top">
-          <img class="doctor-avatar" src="images/doctor-avatar.jpg" alt="Dr. Jonas Suherman" />
-          <div>
-            <p class="doctor-name">Dr. Jonas Suherman</p>
-            <p class="doctor-specialty">Pediatric Dentistry</p>
-          </div>
-        </div>
-        <div class="doctor-card-bottom">
-          <span class="doctor-exp">7 year Experience</span>
-          <span class="doctor-rating">(4.5 Rating)</span>
-        </div>
-      </div>
-
-      <!-- SERVICE TAG PILLS -->
-      <div class="service-tags">
-        <div class="tags-row">
-          <button class="service-tag active">Dental Checkups</button>
-          <button class="service-tag ghost">Teeth Cleaning</button>
-        </div>
-        <div class="tags-row">
-          <button class="service-tag ghost">Tooth Filling</button>
-          <button class="service-tag ghost">Gum Treatment</button>
-          <button class="service-tag ghost">Retainers</button>
-        </div>
-      </div>
-
-    </section><!-- /hero -->
-
-    <!-- SECTION 3: SERVICES -->
-    <section class="services-section" id="services">
-      <div class="services-header">
-        <!-- LEFT -->
-        <div class="services-header-left">
-          <div class="section-label-prefix">Our Features /</div>
-          <h2 class="section-heading">DISCOVER OUR SIGNATURE DENTAL SERVICES</h2>
-          <div class="reviews-badge">
-            <div class="avatar-stack">
-              <img class="avatar" src="images/review1.jpg" />
-              <img class="avatar" src="images/review2.jpg" />
-              <img class="avatar" src="images/review3.jpg" />
-            </div>
-            <div class="review-text">
-              <span class="review-count">750+</span>
-              <span class="review-label">Reviews</span>
-            </div>
-          </div>
-        </div>
-        <!-- RIGHT -->
-        <div class="services-header-right">
-          <p>Experience modern dental care delivered with comfort, precision, and attention to detail. Our clinic provides a calm, welcoming environment designed to make every visit stress-free.</p>
-        </div>
-      </div>
-
-      <!-- CARDS ROW -->
-      <div class="services-cards-wrapper">
-        <div class="carousel-sidebar">
-          <p class="carousel-desc">Discover delighted patient reviews about their comforting and satisfying dental care experience.</p>
-          <button class="carousel-arrow left">&#8249;</button>
-        </div>
-        <div class="cards-row" id="cardsRow">
-          <div class="service-card">
-            <img src="images/teeth-cleaning.jpg" alt="Teeth Cleaning" />
-            <div class="card-overlay"></div>
-            <div class="card-info">
-              <span class="card-title">Teeth<br>Cleaning</span>
-              <button class="card-arrow">→</button>
-            </div>
-          </div>
-          <div class="service-card">
-            <img src="images/dental-checkups.jpg" alt="Dental Checkups" />
-            <div class="card-overlay"></div>
-            <div class="card-info">
-              <span class="card-title">Dental<br>Checkups</span>
-              <button class="card-arrow">→</button>
-            </div>
-          </div>
-          <div class="service-card">
-            <img src="images/dental-veneers.jpg" alt="Dental Veneers" />
-            <div class="card-overlay"></div>
-            <div class="card-info">
-              <span class="card-title">Dental<br>Veneers</span>
-              <button class="card-arrow">→</button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section><!-- /services -->
-
-    <!-- SECTION 4: ABOUT -->
-    <section class="about-section" id="about">
-      <div class="about-grid">
-
-        <!-- LEFT: image + stats -->
-        <div class="about-left">
-          <img class="about-image" src="images/about-dentist.jpg" alt="Dentist at work" />
-          <div class="stats-row">
-            <div class="stat-block">
-              <span class="number">98%</span>
-              <span class="label">SATISFACTION RATE</span>
-            </div>
-            <div class="stat-block">
-              <span class="number">50K</span>
-              <span class="label">SMILES TRANSFORMED</span>
-            </div>
-            <div class="stat-block">
-              <span class="number">4.9</span>
-              <span class="label">CUSTOMERS RATING</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- RIGHT: text + doctor cards -->
-        <div class="about-right">
-          <span class="section-label-prefix">About Dental /</span>
-          <h2 class="section-heading">EXCELLENCE IN DENTISTRY WITH COMPASSIONATE CARE</h2>
-          <p class="about-body">Discover delighted patient reviews about their comforting and satisfying dental care experience.</p>
-          <div class="read-more">
-            <span>Read more</span>
-            <span class="arrow-box">↗</span>
-          </div>
-          <div class="doctor-cards-row">
-            <div class="doctor-mini-card">
-              <img src="images/dr-flores.jpg" alt="Dr. Albert Flores" />
-              <div class="info">
-                <p class="name">Dr. Albert Flores</p>
-                <p class="role">Pediatric Dentistry</p>
-              </div>
-            </div>
-            <div class="doctor-mini-card">
-              <img src="images/dr-webb.jpg" alt="Dr. Theresa Webb" />
-              <div class="info">
-                <p class="name">Dr. Theresa Webb</p>
-                <p class="role">Pediatric Dentistry</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </section><!-- /about -->
-
-  </div><!-- /page-wrapper -->
-
-  <script src="js/carousel.js"></script>
-  <script src="js/stats-counter.js"></script>
-  <script src="js/hero-slider.js"></script>
-</body>
-</html>
-```
-
+ 
+## 13. Recommended Tech Stack
+ 
+| Layer | Recommendation |
+|-------|---------------|
+| **Framework** | Next.js 14 (React) or plain HTML/CSS/JS |
+| **Styling** | Tailwind CSS + CSS Custom Properties |
+| **Animations** | Framer Motion (React) or GSAP |
+| **Icons** | Lucide React / Phosphor Icons |
+| **Fonts** | Google Fonts — Playfair Display + DM Sans |
+| **Image Optimization** | Next/Image (lazy loading, WebP) |
+| **Carousel** | Swiper.js or Embla Carousel |
+| **Accordion** | Radix UI Accordion or custom CSS |
+| **CMS (optional)** | Sanity.io / Contentful for project portfolio |
+ 
 ---
-
-## 12. Key CSS Snippets
-
-### Hero
-```css
-.hero {
-  position: relative;
-  border-radius: var(--radius-lg);
-  overflow: hidden;
-  height: 560px;
-}
-.hero-bg {
-  position: absolute; inset: 0;
-  width: 100%; height: 100%;
-  object-fit: cover; object-position: center top;
-}
-.hero-overlay {
-  position: absolute; inset: 0;
-  background: linear-gradient(
-    to right,
-    rgba(10,10,20,0.75) 0%,
-    rgba(10,10,20,0.3) 45%,
-    transparent 70%
-  );
-}
-.hero-headline {
-  position: absolute;
-  bottom: 100px; left: 40px;
-  z-index: 2;
-}
-.hero-headline h1 {
-  font: 800 clamp(40px, 5.5vw, 68px)/1.0 "Sora";
-  color: #fff;
-  text-transform: uppercase;
-  max-width: 480px;
-}
-.hero-subtext {
-  position: absolute;
-  top: 42%; right: 240px;
-  transform: translateY(-50%);
-  color: #fff;
-  font: 400 14px/1.65 "DM Sans";
-  max-width: 220px;
-  z-index: 2;
-}
+ 
+## 14. Page Sections — Order Summary
+ 
 ```
-
-### Doctor Card
-```css
-.doctor-card {
-  position: absolute;
-  bottom: 24px; right: 24px;
-  background: rgba(20,20,35,0.88);
-  backdrop-filter: blur(12px);
-  border: 1px solid rgba(255,255,255,0.12);
-  border-radius: var(--radius-md);
-  padding: 16px 20px;
-  width: 220px;
-  z-index: 3;
-}
-.doctor-card-top {
-  display: flex; gap: 12px; align-items: center;
-  margin-bottom: 12px;
-}
-.doctor-avatar {
-  width: 48px; height: 48px;
-  border-radius: 50%; object-fit: cover;
-}
-.doctor-name { font: 700 14px "DM Sans"; color: #fff; }
-.doctor-specialty { font: 400 12px "DM Sans"; color: rgba(255,255,255,0.6); }
-.doctor-card-bottom {
-  display: flex; gap: 8px; align-items: center;
-}
-.doctor-exp { font: 700 13px "DM Sans"; color: #fff; }
-.doctor-rating { font: 400 12px "DM Sans"; color: rgba(255,255,255,0.6); }
+1.  ── Navbar (Sticky)
+2.  ── Hero Section (Display headline + hero image)
+3.  ── Who We Are (Intro paragraph)
+4.  ── Our Services (4 cards carousel)
+5.  ── Quote + About Us (Split layout)
+6.  ── Featured Projects (Tabbed grid gallery)
+7.  ── Testimonials (Dark carousel section)
+8.  ── Our Working Process (4-step timeline)
+9.  ── FAQ (Accordion + image)
+10. ── CTA Banner (Book a consultation)
+11. ── Footer (Multi-column dark)
 ```
-
-### Service Tags
-```css
-.service-tags {
-  position: absolute;
-  bottom: 24px; left: 40px;
-  display: flex; flex-direction: column; gap: 8px;
-  z-index: 3;
-}
-.tags-row { display: flex; gap: 8px; }
-```
-
-### Slide Progress
-```css
-.slide-progress {
-  position: absolute;
-  bottom: 56px; right: 240px;
-  display: flex; align-items: center; gap: 10px;
-  z-index: 3;
-}
-.slide-prev, .slide-next {
-  background: none; border: none;
-  color: #fff; font-size: 20px; cursor: pointer;
-}
-.slide-num { font: 400 13px "DM Sans"; color: #fff; }
-.progress-track {
-  width: 140px; height: 2px;
-  background: rgba(255,255,255,0.3);
-  border-radius: 1px; overflow: hidden;
-}
-.progress-fill {
-  height: 100%; width: 20%;
-  background: #1E90D6;
-  border-radius: 1px;
-  transition: width 0.4s ease;
-}
-```
-
-### Services Section
-```css
-.services-section {
-  padding: 80px 40px;
-}
-.services-header {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 40px;
-  margin-bottom: 48px;
-}
-.services-cards-wrapper {
-  display: grid;
-  grid-template-columns: 200px 1fr;
-  gap: 24px;
-  align-items: center;
-}
-.cards-row {
-  display: flex;
-  gap: 12px;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  scrollbar-width: none;
-}
-.service-card {
-  min-width: 220px; height: 280px;
-  border-radius: var(--radius-md);
-  overflow: hidden; position: relative;
-  flex-shrink: 0;
-  scroll-snap-align: start;
-  cursor: pointer;
-  transition: transform 0.3s ease;
-}
-.service-card:hover { transform: scale(1.03); }
-.service-card img {
-  width: 100%; height: 100%; object-fit: cover;
-}
-.card-overlay {
-  position: absolute; inset: 0;
-  background: linear-gradient(to top, rgba(0,0,0,0.65) 0%, transparent 55%);
-}
-.card-info {
-  position: absolute; bottom: 16px; left: 16px; right: 16px;
-  display: flex; justify-content: space-between; align-items: flex-end;
-}
-.card-title { font: 600 18px/1.2 "DM Sans"; color: #fff; }
-.card-arrow {
-  width: 32px; height: 32px;
-  background: rgba(255,255,255,0.2);
-  border: 1px solid rgba(255,255,255,0.4);
-  border-radius: 50%;
-  color: #fff; font-size: 14px;
-  display: flex; align-items: center; justify-content: center;
-  cursor: pointer;
-}
-```
-
-### About Section
-```css
-.about-section { padding: 80px 40px; }
-.about-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 56px;
-  align-items: start;
-}
-.about-image {
-  width: 100%; height: 400px;
-  object-fit: cover;
-  border-radius: 20px;
-}
-.stats-row {
-  display: flex; gap: 40px;
-  margin-top: 32px;
-}
-.stat-block .number {
-  font: 800 48px/1 "Sora"; color: #0D0D0D;
-}
-.stat-block .label {
-  font: 400 11px "DM Sans";
-  color: #8A8A9A;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  margin-top: 4px;
-}
-.read-more {
-  display: flex; align-items: center; gap: 10px;
-  justify-content: flex-end;
-  margin: 16px 0;
-}
-.read-more span { font: 600 14px "DM Sans"; color: #0D0D0D; }
-.arrow-box {
-  width: 24px; height: 24px;
-  background: #0D0D0D; color: #fff;
-  border-radius: 6px;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 14px;
-}
-.doctor-cards-row {
-  display: flex; gap: 16px; margin-top: 16px;
-}
-.doctor-mini-card {
-  background: #fff; border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 4px 16px rgba(0,0,0,0.08);
-  width: 160px;
-}
-.doctor-mini-card img {
-  width: 100%; height: 120px; object-fit: cover;
-}
-.doctor-mini-card .info { padding: 10px 12px; }
-.doctor-mini-card .name { font: 600 13px "DM Sans"; color: #0D0D0D; }
-.doctor-mini-card .role { font: 400 11px "DM Sans"; color: #8A8A9A; }
-```
-
+ 
 ---
-
-## 13. JavaScript Logic
-
-### stats-counter.js
-```js
-const stats = document.querySelectorAll('.stat-block .number');
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      const el = entry.target;
-      const target = parseFloat(el.dataset.target);
-      const isPercent = el.dataset.suffix === '%';
-      const isK = el.dataset.suffix === 'K';
-      let current = 0;
-      const step = target / 60;
-      const timer = setInterval(() => {
-        current = Math.min(current + step, target);
-        el.textContent = Math.round(current) + (isPercent ? '%' : isK ? 'K' : '');
-        if (current >= target) clearInterval(timer);
-      }, 16);
-      observer.unobserve(el);
-    }
-  });
-}, { threshold: 0.5 });
-stats.forEach(s => observer.observe(s));
-```
-
-### carousel.js
-```js
-const row = document.getElementById('cardsRow');
-document.querySelector('.carousel-arrow.left').addEventListener('click', () => {
-  row.scrollBy({ left: -232, behavior: 'smooth' });
-});
-```
-
-### hero-slider.js
-```js
-const fill = document.querySelector('.progress-fill');
-let current = 1;
-const total = 5;
-function updateProgress() {
-  fill.style.width = ((current / total) * 100) + '%';
-  document.querySelectorAll('.slide-num')[0].textContent =
-    String(current).padStart(2, '0');
-}
-document.querySelector('.slide-next').addEventListener('click', () => {
-  current = current < total ? current + 1 : 1;
-  updateProgress();
-});
-document.querySelector('.slide-prev').addEventListener('click', () => {
-  current = current > 1 ? current - 1 : total;
-  updateProgress();
-});
-```
-
----
-
-## 14. Accessibility Notes
-
-- All images must have meaningful `alt` text
-- `<nav>` must have `aria-label="Main navigation"`
-- CTA button: `aria-label="Book a call with our dental team"`
-- Carousel: `role="region"`, `aria-label="Dental services"`, arrow buttons `aria-label="Previous/Next service"`
-- Stats: wrap `<dl>` / `<dt>` / `<dd>` semantically
-- Colour contrast: all white text on dark overlay must meet WCAG AA (4.5:1 minimum)
-- Focus styles: visible `:focus-visible` ring on all interactive elements
-
----
-
-## 15. Build Checklist
-
-- [ ] Set up HTML file with correct `<head>` (fonts, CSS links, viewport)
-- [ ] Create CSS variables file with all tokens from Section 1.2
-- [ ] Build Navbar component (transparent, overlaid on hero)
-- [ ] Build Hero section (photo bg + overlay + headline + subtext + progress + doctor card + tags)
-- [ ] Build Services section (header grid + avatar stack + carousel with 3+ cards)
-- [ ] Build About section (2-col grid + about image + heading + doctor mini cards)
-- [ ] Add Stats row with count-up JS
-- [ ] Add carousel JS
-- [ ] Add hero slider progress JS
-- [ ] Add hover transitions on all interactive elements
-- [ ] Add scroll-triggered fade-in for sections
-- [ ] Test responsive layout on mobile and tablet
-- [ ] Verify colour contrast (accessibility)
-- [ ] Replace all placeholder images with real dental photos
-- [ ] Final cross-browser test (Chrome, Firefox, Safari)
+ 
+*Document prepared for the Hutch Interior Design Website Redesign Project.*
+*All design decisions are based on the provided UI/UX reference mockup.*
