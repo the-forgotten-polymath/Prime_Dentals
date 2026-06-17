@@ -95,7 +95,7 @@ export default function About() {
         <div className="about-vision-grid">
           <div className="about-vision-left">
             <span className="about-eyebrow body-lg">About</span>
-            <h2 className="about-title display-md">Denta <i>Care</i></h2>
+            <h2 className="about-title display-md">Prime <i>Dentals & RCT Center</i></h2>
             
             {/* Single Image Layout */}
             <div className="about-single-image-container">
