@@ -48,18 +48,18 @@ export default function Navbar() {
             className="nav-menu-wrapper"
             onMouseLeave={() => setPosition((pv) => ({ ...pv, opacity: 0 }))}
           >
-            <Tab setPosition={setPosition} href="#home">Home</Tab>
-            <Tab setPosition={setPosition} href="#services">Services</Tab>
-            <Tab setPosition={setPosition} href="#about">About us</Tab>
-            <Tab setPosition={setPosition} href="#testimonials">Testimonials</Tab>
-            <Tab setPosition={setPosition} href="#blog">Blog</Tab>
-            <Tab setPosition={setPosition} href="#contact">Contact</Tab>
+            <Tab setPosition={setPosition} href="#home" onClick={() => setIsMobileMenuOpen(false)}>Home</Tab>
+            <Tab setPosition={setPosition} href="#services" onClick={() => setIsMobileMenuOpen(false)}>Services</Tab>
+            <Tab setPosition={setPosition} href="#about" onClick={() => setIsMobileMenuOpen(false)}>About us</Tab>
+            <Tab setPosition={setPosition} href="#testimonials" onClick={() => setIsMobileMenuOpen(false)}>Testimonials</Tab>
+            <Tab setPosition={setPosition} href="#blog" onClick={() => setIsMobileMenuOpen(false)}>Blog</Tab>
+            <Tab setPosition={setPosition} href="#contact" onClick={() => setIsMobileMenuOpen(false)}>Contact</Tab>
 
             <Cursor position={position} />
           </ul>
         </nav>
 
-        <a href="#contact" className="nav-cta-button">
+        <a href="#contact" className="nav-cta-button" onClick={() => setIsMobileMenuOpen(false)}>
           Book Now
           <svg className="cta-arrow-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ width: "16px", height: "16px", transform: "rotate(45deg)" }}>
             <line x1="5" y1="12" x2="19" y2="12"></line>
@@ -74,11 +74,13 @@ export default function Navbar() {
 const Tab = ({
   children,
   setPosition,
-  href
+  href,
+  onClick
 }: {
   children: React.ReactNode;
   setPosition: any;
   href: string;
+  onClick?: () => void;
 }) => {
   const ref = useRef<HTMLLIElement>(null);
   
@@ -94,6 +96,7 @@ const Tab = ({
           left: ref.current.offsetLeft,
         });
       }}
+      onClick={onClick}
       className="nav-tab"
       style={{ listStyle: "none" }}
     >
