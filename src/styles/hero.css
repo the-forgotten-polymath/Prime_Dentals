@@ -341,6 +341,9 @@
   .hero-heading {
     font-size: 48px;
   }
+  .hero-visual-side {
+    display: none;
+  }
   .hero-services-card {
     position: relative;
     bottom: 0;
