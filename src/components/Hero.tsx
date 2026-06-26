@@ -7,13 +7,8 @@ export default function Hero() {
     <section className="hero-section" id="home">
       <div className="section-container hero-container">
         
-        {/* Left Side: Copy and Details */}
         <div className="hero-content">
-          <span className="hero-eyebrow">WELCOME TO PRIME DENTAL</span>
-          <h1 className="hero-heading">
-            Modern Dentistry With <br />
-            <span className="text-brand-light-blue">Expert Precision.</span>
-          </h1>
+          {/* Text content removed per request */}
 
           
 
@@ -43,16 +38,6 @@ export default function Hero() {
         {/* Right Side: Animated Floating Particles & Glow */}
         <div className="hero-visual-side">
           <div className="tooth-glow"></div>
-          <div className="hero-image-wrapper">
-            <Image 
-              src="/images/hero_section.png" 
-              alt="Modern Dentistry" 
-              width={600} 
-              height={600} 
-              className="hero-main-image"
-              priority
-            />
-          </div>
           <div className="glow-particle particle-1"></div>
           <div className="glow-particle particle-2"></div>
           <div className="glow-particle particle-3"></div>
