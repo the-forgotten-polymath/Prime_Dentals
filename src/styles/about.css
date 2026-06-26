@@ -31,7 +31,7 @@
 .about-vision-right {
   display: flex;
   flex-direction: column;
-  padding-top: var(--space-8);
+  padding-top: 140px;
 }
 
 .vision-label {

@@ -95,19 +95,19 @@ export default function About() {
         <div className="about-vision-grid">
           <div className="about-vision-left">
             <span className="about-eyebrow body-lg">About</span>
-            <h2 className="about-title display-md">Prime <i>Dentals & RCT Center</i></h2>
+            <h2 className="about-title display-md">Prime <i>Dentals & Root Canal Treatment Center</i></h2>
             
             {/* Single Image Layout */}
             <div className="about-single-image-container">
               <Image src="/images/attending_patient.png" alt="Dental Care" width={500} height={400} className="about-single-img" />
-              <span className="about-single-chip">DENTURES</span>
+
             </div>
           </div>
           
           <div className="about-vision-right">
             <span className="vision-label label">OUR VISION</span>
             <p className="vision-body">
-              At Prime Dental & RCT Center, our vision goes beyond just treating teeth; we are dedicated to redefining the dental experience. By seamlessly blending state-of-the-art technology with compassionate, patient-first care, we strive to create a sanctuary of comfort and trust. Our ultimate goal is to inspire lifelong confidence and radiant, healthy smiles through precision, innovation, and truly personalized treatment plans.
+              At Prime Dental & Root Canal Treatment Center, our vision goes beyond just treating teeth; we are dedicated to redefining the dental experience. By seamlessly blending state-of-the-art technology with compassionate, patient-first care, we strive to create a sanctuary of comfort and trust. Our ultimate goal is to inspire lifelong confidence and radiant, healthy smiles through precision, innovation, and truly personalized treatment plans.
             </p>
           </div>
         </div>
