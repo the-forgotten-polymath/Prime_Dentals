@@ -30,7 +30,7 @@
 }
 
 .hero-eyebrow {
-  color: var(--color-brand-orange, #FF5C28);
+  color: var(--color-brand-light-blue, #38BDF8);
   margin-bottom: var(--space-3);
   font-weight: 700;
   letter-spacing: 0.1em;
@@ -48,8 +48,8 @@
   text-transform: none;
 }
 
-.hero-heading .text-brand-orange {
-  color: var(--color-brand-orange, #FF5C28);
+.hero-heading .text-brand-light-blue {
+  color: var(--color-brand-light-blue, #38BDF8);
 }
 
 .hero-subtext {
@@ -86,8 +86,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--color-brand-orange, #FF5C28);
-  box-shadow: 0 4px 12px rgba(255, 92, 40, 0.1);
+  color: var(--color-brand-light-blue, #38BDF8);
+  box-shadow: 0 4px 12px rgba(56, 189, 248, 0.1);
 }
 
 .feature-text {
@@ -106,7 +106,7 @@
 }
 
 .btn-primary {
-  background: var(--color-brand-orange, #FF5C28);
+  background: var(--color-brand-light-blue, #38BDF8);
   color: #fff;
   font-family: 'Inter', system-ui, sans-serif;
   font-weight: 600;
@@ -118,12 +118,12 @@
   gap: 10px;
   text-decoration: none;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
-  box-shadow: 0 8px 24px rgba(255, 92, 40, 0.3);
+  box-shadow: 0 8px 24px rgba(56, 189, 248, 0.3);
 }
 
 .btn-primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 12px 30px rgba(255, 92, 40, 0.4);
+  box-shadow: 0 12px 30px rgba(56, 189, 248, 0.4);
 }
 
 .hero-hours {
@@ -230,7 +230,7 @@
 }
 
 .service-icon {
-  color: var(--color-brand-orange, #FF5C28);
+  color: var(--color-brand-light-blue, #38BDF8);
 }
 
 .service-name {
@@ -272,7 +272,7 @@
 .glow-particle {
   position: absolute;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(255,160,80,1) 0%, rgba(255,92,40,0.4) 40%, rgba(255,92,40,0) 80%);
+  background: radial-gradient(circle, rgba(125,211,252,1) 0%, rgba(56,189,248,0.4) 40%, rgba(56,189,248,0) 80%);
   filter: blur(2px);
   animation: floatParticle 6s ease-in-out infinite alternate;
   pointer-events: none;

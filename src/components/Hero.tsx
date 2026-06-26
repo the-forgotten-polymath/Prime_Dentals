@@ -12,7 +12,7 @@ export default function Hero() {
           <span className="hero-eyebrow">WELCOME TO PRIME DENTAL</span>
           <h1 className="hero-heading">
             Modern Dentistry With <br />
-            <span className="text-brand-orange">Expert Precision.</span>
+            <span className="text-brand-light-blue">Expert Precision.</span>
           </h1>
           <p className="hero-subtext">
             Advanced care, gentle touch, and lasting results —<br/>

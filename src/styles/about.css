@@ -35,7 +35,7 @@
 }
 
 .vision-label {
-  color: var(--color-brand-orange, #FF5C28);
+  color: var(--color-brand-light-blue, #38BDF8);
   font-family: 'Syne', system-ui, sans-serif;
   margin-bottom: var(--space-4);
   font-weight: 800;

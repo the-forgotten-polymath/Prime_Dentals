@@ -43,7 +43,7 @@
 }
 
 .logo-highlight {
-  color: var(--color-brand-orange, #FF5C28);
+  color: var(--color-brand-light-blue, #38BDF8);
 }
 
 .logo-sub {
@@ -102,7 +102,7 @@
 
 /* If active is highlighted, text becomes white */
 .nav-menu-wrapper:hover .nav-cursor {
-  background: rgba(201, 84, 10, 0.1);
+  background: rgba(56, 189, 248, 0.1);
   border-color: var(--color-primary);
 }
 
@@ -127,7 +127,7 @@
 .nav-cta-button:hover {
   background: var(--color-primary-dark);
   transform: translateY(-2px);
-  box-shadow: 0 10px 28px rgba(201, 84, 10, 0.40);
+  box-shadow: 0 10px 28px rgba(56, 189, 248, 0.40);
 }
 
 .nav-cta-button:active {

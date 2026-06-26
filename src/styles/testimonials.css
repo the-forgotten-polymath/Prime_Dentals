@@ -90,7 +90,7 @@
 }
 
 .testimonial-stars .star {
-  color: var(--color-accent-orange); /* design.md: deep amber orange */
+  color: var(--color-accent-light-blue); /* design.md: light blue */
   font-size: 16px;
 }
 
