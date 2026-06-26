@@ -43,6 +43,16 @@ export default function Hero() {
         {/* Right Side: Animated Floating Particles & Glow */}
         <div className="hero-visual-side">
           <div className="tooth-glow"></div>
+          <div className="hero-image-wrapper">
+            <Image 
+              src="/images/hero_section.png" 
+              alt="Modern Dentistry" 
+              width={600} 
+              height={600} 
+              className="hero-main-image"
+              priority
+            />
+          </div>
           <div className="glow-particle particle-1"></div>
           <div className="glow-particle particle-2"></div>
           <div className="glow-particle particle-3"></div>

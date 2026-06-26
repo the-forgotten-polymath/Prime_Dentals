@@ -5,10 +5,6 @@
   padding-top: 100px;
   padding-bottom: 80px;
   background-color: #FCF4EB; /* Soft warm beige background from design */
-  background-image: url('/images/hero_section.png');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
   display: flex;
   align-items: center;
 }
