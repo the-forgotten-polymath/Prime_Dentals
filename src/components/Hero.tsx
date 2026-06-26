@@ -14,7 +14,12 @@ export default function Hero() {
 
 
           <div className="hero-cta-wrapper">
-            <a href="#contact" className="btn-primary">
+            <a 
+              href="https://wa.me/919997801777?text=Hello!%20I%20would%20like%20to%20book%20an%20appointment%20at%20Root%20Canal%20Treatment%20Center." 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="btn-primary"
+            >
               Book Appointment
               <svg className="cta-arrow-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ width: "16px", height: "16px", transform: "rotate(45deg)" }}>
                 <line x1="5" y1="12" x2="19" y2="12"></line>
