@@ -12,12 +12,22 @@ export default function Booking() {
     message: ""
   });
   const [submitted, setSubmitted] = useState(false);
+  const [minDate, setMinDate] = useState("");
+  const [maxDate, setMaxDate] = useState("");
+
+  React.useEffect(() => {
+    const today = new Date();
+    const nextWeek = new Date(today);
+    nextWeek.setDate(nextWeek.getDate() + 7);
+    setMinDate(today.toISOString().split('T')[0]);
+    setMaxDate(nextWeek.toISOString().split('T')[0]);
+  }, []);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     
     // Format the message
-    const messageText = `*New Appointment Request*%0A%0A*Name:* ${formData.name}%0A*Phone:* ${formData.phone}%0A*Date:* ${formData.date}%0A*Time:* ${formData.time}%0A*Treatment:* ${formData.treatment}%0A*Message:* ${formData.message || "None"}`;
+    const messageText = `*New Appointment Request*%0A%0A*Name:* ${formData.name}%0A*Phone:* ${formData.phone}%0A*Date:* ${formData.date}%0A*Time:* ${formData.time}%0A*Message:* ${formData.message || "None"}`;
     
     // Clinic WhatsApp number (with country code, without '+' or leading '0')
     const whatsappNumber = "919997801777";
@@ -112,6 +122,8 @@ export default function Booking() {
                       id="date" 
                       required 
                       className="form-input"
+                      min={minDate}
+                      max={maxDate}
                       value={formData.date}
                       onChange={(e) => setFormData({ ...formData, date: e.target.value })}
                     />
@@ -131,25 +143,10 @@ export default function Booking() {
                   </div>
                 </div>
 
-                <div className="form-group">
-                  <label htmlFor="treatment" className="form-label label">Treatment Needed</label>
-                  <select 
-                    id="treatment" 
-                    className="form-select"
-                    value={formData.treatment}
-                    onChange={(e) => setFormData({ ...formData, treatment: e.target.value })}
-                  >
-                    <option value="Dental Cleaning">Dental Cleaning</option>
-                    <option value="Teeth Whitening">Teeth Whitening</option>
-                    <option value="Dental Implants">Dental Implants</option>
-                    <option value="Braces & Aligners">Braces & Aligners</option>
-                    <option value="Root Canal Therapy">Root Canal Therapy</option>
-                    <option value="Dentures">Dentures</option>
-                  </select>
-                </div>
+
 
                 <div className="form-group">
-                  <label htmlFor="message" className="form-label label">Message (Optional)</label>
+                  <label htmlFor="message" className="form-label label">Message</label>
                   <textarea 
                     id="message" 
                     className="form-textarea" 
