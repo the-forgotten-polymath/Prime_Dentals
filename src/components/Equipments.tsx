@@ -25,7 +25,8 @@ const equipments = [
     name: "Soga iLaser I",
     desc: "State-of-the-art surgical and therapeutic diode laser. Utilized for painless soft tissue cutting, sterilization, and gum contouring with minimal bleeding and rapid tissue regeneration.",
     benefit: "Clean Laser Surgery & Faster Healing",
-    image: "/images/soga_ilazer.png"
+    image: "/images/soga_ilazer.png",
+    isFirstTimeInHaridwar: true
   },
   {
     name: "Needle-Free Anesthesia (Injex30)",
@@ -59,6 +60,14 @@ const equipments = [
   }
 ];
 
+interface EquipmentItem {
+  name: string;
+  desc: string;
+  benefit: string;
+  image: string;
+  isFirstTimeInHaridwar?: boolean;
+}
+
 export default function Equipments() {
   return (
     <section className="equipments-section section-padding" id="equipments">
@@ -74,9 +83,12 @@ export default function Equipments() {
 
         {/* GRID */}
         <div className="equipments-grid">
-          {equipments.map((eq, index) => (
+          {(equipments as EquipmentItem[]).map((eq, index) => (
             <div className="equipment-card" key={index}>
               <div className="equipment-img-wrapper">
+                {eq.isFirstTimeInHaridwar && (
+                  <span className="first-time-badge">First Time in Haridwar</span>
+                )}
                 <Image 
                   src={eq.image} 
                   alt={eq.name} 
