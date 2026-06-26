@@ -7,7 +7,7 @@ export default function Booking() {
     name: "",
     phone: "",
     date: "",
-    time: "Morning",
+    time: "",
     treatment: "Dental Cleaning",
     message: ""
   });
@@ -15,13 +15,97 @@ export default function Booking() {
   const [minDate, setMinDate] = useState("");
   const [maxDate, setMaxDate] = useState("");
 
+  const getAvailableTimeSlots = (dateString: string) => {
+    if (!dateString) return [];
+    const date = new Date(dateString);
+    const day = date.getDay(); // 0: Sunday, 4: Thursday, etc.
+    
+    let slots: string[] = [];
+    if (day === 0) { // Sunday: 10:30am - 2pm
+      slots = ["10:30 AM", "11:30 AM", "12:30 PM", "01:30 PM"];
+    } else if (day === 4) { // Thursday: 10am - 8:30pm
+      slots = [
+        "10:00 AM", "11:00 AM", "12:00 PM", "01:00 PM", "02:00 PM", 
+        "03:00 PM", "04:00 PM", "05:00 PM", "06:00 PM", "07:00 PM", "08:00 PM"
+      ];
+    } else { // Mon-Wed, Fri-Sat: 10am - 8pm
+      slots = [
+        "10:00 AM", "11:00 AM", "12:00 PM", "01:00 PM", "02:00 PM", 
+        "03:00 PM", "04:00 PM", "05:00 PM", "06:00 PM", "07:00 PM"
+      ];
+    }
+    
+    // If the selected date is today, filter out past time slots
+    const todayStr = new Date().toISOString().split('T')[0];
+    if (dateString === todayStr) {
+      const now = new Date();
+      const currentHour = now.getHours();
+      const currentMinute = now.getMinutes();
+      
+      slots = slots.filter(slot => {
+        const [time, modifier] = slot.split(' ');
+        let [hours, minutes] = time.split(':').map(Number);
+        if (modifier === 'PM' && hours < 12) hours += 12;
+        if (modifier === 'AM' && hours === 12) hours = 0;
+        
+        // Keep slots that are at least 30 minutes in the future
+        return hours > currentHour || (hours === currentHour && minutes > currentMinute + 30);
+      });
+    }
+    
+    return slots;
+  };
+
   React.useEffect(() => {
     const today = new Date();
     const nextWeek = new Date(today);
     nextWeek.setDate(nextWeek.getDate() + 7);
-    setMinDate(today.toISOString().split('T')[0]);
+    
+    // Check if today is past clinic hours
+    const day = today.getDay();
+    let closeHour = 20;
+    let closeMinute = 0;
+    if (day === 0) {
+      closeHour = 14;
+    } else if (day === 4) {
+      closeHour = 20;
+      closeMinute = 30;
+    }
+    
+    const closeTime = new Date(today);
+    closeTime.setHours(closeHour, closeMinute, 0, 0);
+    
+    let defaultDate = today.toISOString().split('T')[0];
+    let minDateVal = defaultDate;
+    
+    if (today > closeTime) {
+      // Past clinic hours today, so start minimum and default date from tomorrow
+      const tomorrow = new Date(today);
+      tomorrow.setDate(tomorrow.getDate() + 1);
+      defaultDate = tomorrow.toISOString().split('T')[0];
+      minDateVal = defaultDate;
+    }
+    
+    setMinDate(minDateVal);
     setMaxDate(nextWeek.toISOString().split('T')[0]);
+    
+    const initialSlots = getAvailableTimeSlots(defaultDate);
+    setFormData(prev => ({
+      ...prev,
+      date: defaultDate,
+      time: initialSlots[0] || ""
+    }));
   }, []);
+
+  const handleDateChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const selectedDate = e.target.value;
+    const slots = getAvailableTimeSlots(selectedDate);
+    setFormData(prev => ({
+      ...prev,
+      date: selectedDate,
+      time: slots[0] || ""
+    }));
+  };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -29,7 +113,7 @@ export default function Booking() {
     // Format the message
     const messageText = `*New Appointment Request*%0A%0A*Name:* ${formData.name}%0A*Phone:* ${formData.phone}%0A*Date:* ${formData.date}%0A*Time:* ${formData.time}%0A*Message:* ${formData.message || "None"}`;
     
-    // Clinic WhatsApp number (with country code, without '+' or leading '0')
+    // Clinic WhatsApp number
     const whatsappNumber = "919997801777";
     const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${messageText}`;
     
@@ -48,7 +132,7 @@ export default function Booking() {
           <span className="booking-eyebrow label">BOOK A VISIT</span>
           <h2 className="booking-title display-md">Ready for a Healthier <i>Smile</i>?</h2>
           <p className="booking-desc body-md">
-            Schedule your consultation today. Our team will get back to you within 2 hours to confirm your appointment.
+            Schedule your consultation today. Our team will confirm soon.
           </p>
           
           <div className="contact-details">
@@ -80,7 +164,7 @@ export default function Booking() {
                   <polyline points="22 4 12 14.01 9 11.01"></polyline>
                 </svg>
                 <h4 className="heading-md">Appointment Requested!</h4>
-                <p className="body-sm">Thank you. We will contact you within 2 hours to confirm.</p>
+                <p className="body-sm">Thank you. We will confirm soon.</p>
                 <button className="btn-primary" onClick={() => setSubmitted(false)} style={{ marginTop: "16px" }}>
                   Book Another
                 </button>
@@ -125,7 +209,7 @@ export default function Booking() {
                       min={minDate}
                       max={maxDate}
                       value={formData.date}
-                      onChange={(e) => setFormData({ ...formData, date: e.target.value })}
+                      onChange={handleDateChange}
                     />
                   </div>
                   <div className="form-group">
@@ -135,24 +219,26 @@ export default function Booking() {
                       className="form-select"
                       value={formData.time}
                       onChange={(e) => setFormData({ ...formData, time: e.target.value })}
+                      required
                     >
-                      <option value="Morning">Morning</option>
-                      <option value="Afternoon">Afternoon</option>
-                      <option value="Evening">Evening</option>
+                      {getAvailableTimeSlots(formData.date).map(slot => (
+                        <option key={slot} value={slot}>{slot}</option>
+                      ))}
+                      {getAvailableTimeSlots(formData.date).length === 0 && (
+                        <option value="">No slots available</option>
+                      )}
                     </select>
                   </div>
                 </div>
 
-
-
                 <div className="form-group">
                   <label htmlFor="message" className="form-label label">Message</label>
                   <textarea 
-                    id="message" 
-                    className="form-textarea" 
-                    placeholder="Tell us about your dental concerns..."
-                    value={formData.message}
-                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                     id="message" 
+                     className="form-textarea" 
+                     placeholder="Tell us about your dental concerns..."
+                     value={formData.message}
+                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                   ></textarea>
                 </div>
 
