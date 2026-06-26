@@ -1,9 +1,6 @@
-/* hero.css */
 .hero-section {
   position: relative;
   overflow: visible;
-  padding-top: 80px;
-  padding-bottom: 80px;
   min-height: 100vh;
   background-color: #FCF4EB; /* Soft warm beige background from design */
   background-image: url('/images/hero_section.png');
@@ -12,6 +9,17 @@
   background-repeat: no-repeat;
   display: flex;
   align-items: center;
+}
+
+@media (max-width: 768px) {
+  .hero-section {
+    min-height: auto;
+    width: 100%;
+    aspect-ratio: 1672 / 941;
+    background-size: contain;
+    background-position: center;
+    padding: 0;
+  }
 }
 
 .hero-container {
@@ -26,7 +34,7 @@
 
 .hero-content {
   position: absolute;
-  bottom: 10px;
+  bottom:   1px;
   left: 0;
   z-index: 10;
   display: flex;
@@ -45,7 +53,7 @@
 }
 
 .hero-content .btn-primary:hover {
-  background: #1E293B; /* Slightly lighter slate on hover */
+  background: #eef4fd; /* Slightly lighter slate on hover */
   transform: translateY(-2px);
   box-shadow: 0 12px 30px rgba(15, 23, 42, 0.35);
 }
