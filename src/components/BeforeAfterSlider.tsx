@@ -53,24 +53,39 @@ export default function BeforeAfterSlider() {
         </div>
 
         <div className="ba-slider-container">
-          {/* Before Image (bottom) */}
-          <img 
-            src={current.before} 
-            alt="Before Treatment" 
-            className="ba-image ba-image-before"
-            style={{ filter: current.filterBefore }}
-          />
+          {/* Before Container */}
+          <div 
+            className="ba-wrapper ba-wrapper-before"
+            style={{ 
+              clipPath: `polygon(0 0, ${sliderPos}% 0, ${sliderPos}% 100%, 0 100%)`,
+              zIndex: 1
+            }}
+          >
+            <img 
+              src={current.before} 
+              alt="Before Treatment" 
+              className="ba-image ba-image-before"
+              style={{ filter: current.filterBefore }}
+            />
+            <div className="ba-label ba-label-before">BEFORE</div>
+          </div>
           
-          {/* After Image (top, clipped) */}
-          <img 
-            src={current.after} 
-            alt="After Treatment" 
-            className="ba-image ba-image-after"
+          {/* After Container */}
+          <div 
+            className="ba-wrapper ba-wrapper-after"
             style={{ 
               clipPath: `polygon(${sliderPos}% 0, 100% 0, 100% 100%, ${sliderPos}% 100%)`,
-              filter: current.filterAfter
+              zIndex: 2
             }}
-          />
+          >
+            <img 
+              src={current.after} 
+              alt="After Treatment" 
+              className="ba-image ba-image-after"
+              style={{ filter: current.filterAfter }}
+            />
+            <div className="ba-label ba-label-after">AFTER</div>
+          </div>
 
           <input 
             type="range" 
@@ -84,9 +99,6 @@ export default function BeforeAfterSlider() {
           <div className="ba-handle" style={{ left: `${sliderPos}%` }}>
             <div className="ba-handle-button">↔</div>
           </div>
-
-          <div className="ba-label ba-label-before">BEFORE</div>
-          <div className="ba-label ba-label-after">AFTER</div>
         </div>
       </div>
     </section>
