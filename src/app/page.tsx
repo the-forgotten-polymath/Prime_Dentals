@@ -19,8 +19,8 @@ export default function Home() {
       <Marquee />
       <Services />
       <BeforeAfterSlider />
-      <Equipments />
       <About />
+      <Equipments />
       <Testimonials />
       <Booking />
       <Articles />
