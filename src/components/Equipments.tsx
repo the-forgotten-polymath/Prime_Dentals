@@ -25,7 +25,7 @@ const equipments = [
     name: "Soga iLaser I",
     desc: "State-of-the-art surgical and therapeutic diode laser. Utilized for painless soft tissue cutting, sterilization, and gum contouring with minimal bleeding and rapid tissue regeneration.",
     benefit: "Clean Laser Surgery & Faster Healing",
-    image: "/images/soga_ilaser.png"
+    image: "/images/soga_ilazer.png"
   },
   {
     name: "Needle-Free Anesthesia (Injex30)",
