@@ -13,12 +13,7 @@ const testimonials = [
     name: "Praveen Sethi",
     role: "Patient",
   },
-  {
-    text: "I had an excellent experience. The clinic is well-maintained, hygienic, and equipped with the latest technology.",
-    image: "/images/tooth_avatar.png",
-    name: "Tanya Dhingra",
-    role: "Patient",
-  },
+
   {
     text: "Got painless treatment from dr. Sahil dhingra for both of my children. Thank u sir 😊",
     image: "/images/tooth_avatar.png",
