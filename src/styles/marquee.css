@@ -57,3 +57,12 @@
     animation-play-state: paused;
   }
 }
+
+@media (max-width: 768px) {
+  .marquee-section {
+    height: 40px;
+  }
+  .marquee-item {
+    font-size: 14px;
+  }
+}
