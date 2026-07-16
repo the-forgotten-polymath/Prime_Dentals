@@ -198,3 +198,210 @@
     width: 100%;
   }
 }
+
+/* Service Modal Overlay Wrapper */
+.service-modal-overlay-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+.service-modal-backdrop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(15, 23, 42, 0.4);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.service-modal-card {
+  position: relative;
+  width: 90%;
+  max-width: 860px;
+  background: rgba(250, 248, 245, 0.85); /* Glassy warm container */
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(56, 189, 248, 0.2);
+  border-radius: var(--radius-xl);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  overflow: hidden;
+  z-index: 10;
+}
+
+.modal-close-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.5);
+  border: 1px solid var(--color-border);
+  color: var(--color-text-dark);
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 12;
+  transition: all 0.2s ease;
+}
+
+.modal-close-btn:hover {
+  background: #ef4444;
+  color: #ffffff;
+  border-color: #ef4444;
+}
+
+.modal-content-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+}
+
+.modal-graphic-pane {
+  background: linear-gradient(135deg, rgba(252, 244, 235, 0.6) 0%, rgba(244, 241, 237, 0.7) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  border-right: 1px solid rgba(56, 189, 248, 0.1);
+}
+
+.modal-pane-img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 10px 20px rgba(0,0,0,0.05));
+}
+
+.modal-info-pane {
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.modal-header-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.modal-service-title {
+  color: var(--color-text-dark);
+  font-weight: 800;
+  margin: 0;
+  font-size: 32px;
+}
+
+/* Language Toggle Switch */
+.language-toggle-bar {
+  display: flex;
+  padding: 4px;
+  background: rgba(250, 248, 245, 0.6);
+  border: 1px solid var(--color-border);
+  border-radius: 9999px;
+  width: fit-content;
+  position: relative;
+}
+
+.lang-btn {
+  position: relative;
+  background: transparent;
+  border: none;
+  padding: 6px 16px;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 600;
+  font-size: 13px;
+  color: var(--color-text-gray);
+  cursor: pointer;
+  border-radius: 9999px;
+  z-index: 1;
+  transition: color 0.2s ease;
+}
+
+.lang-btn.active {
+  color: var(--color-primary-dark, #0284C7);
+}
+
+.lang-active-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(56, 189, 248, 0.12);
+  border: 1px solid rgba(56, 189, 248, 0.25);
+  border-radius: 9999px;
+  z-index: -1;
+  box-shadow: 0 2px 8px rgba(56, 189, 248, 0.1);
+}
+
+.modal-description-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.modal-section-label {
+  color: var(--color-primary);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  font-weight: 700;
+}
+
+.modal-detailed-desc {
+  color: var(--color-text-gray);
+  line-height: 1.7;
+  margin: 0;
+  font-size: 16px;
+}
+
+.modal-action-footer {
+  margin-top: auto;
+}
+
+.modal-booking-btn {
+  width: 100%;
+  justify-content: center;
+  padding: 14px 28px;
+  font-size: 14px;
+}
+
+/* Responsiveness for Modal */
+@media (max-width: 768px) {
+  .modal-content-grid {
+    grid-template-columns: 1fr;
+  }
+  .modal-graphic-pane {
+    padding: 24px;
+    border-right: none;
+    border-bottom: 1px solid rgba(56, 189, 248, 0.1);
+    height: 180px;
+  }
+  .modal-pane-img {
+    height: 100%;
+    width: auto;
+  }
+  .modal-info-pane {
+    padding: 24px;
+    gap: 20px;
+  }
+  .modal-service-title {
+    font-size: 24px;
+  }
+  .service-modal-card {
+    width: 92%;
+    max-height: 90vh;
+    overflow-y: auto;
+  }
+}
