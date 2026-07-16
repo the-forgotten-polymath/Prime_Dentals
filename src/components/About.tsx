@@ -119,8 +119,7 @@ export default function About() {
             
             {/* Single Image Layout */}
             <div className="about-single-image-container">
-              <Image src="/images/attending_patient.png" alt="Dental Care" width={500} height={400} className="about-single-img" />
-
+              <Image src="/images/home.png" alt="Dental Care" width={500} height={400} className="about-single-img" />
             </div>
           </div>
           
