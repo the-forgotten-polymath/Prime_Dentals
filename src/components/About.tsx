@@ -7,7 +7,7 @@ const doctors = [
     id: 1,
     name: "Dr. Sahil Dhingra",
     prefix: "CLINIC DIRECTOR /",
-    image: "/images/dhingra.png",
+    image: "/images/doctor-main.png",
     layout: "normal-layout",
     desc: "Dr. Sahil Dhingra is a highly skilled Endodontist and associate professor in Conservative Dentistry and Endodontics, bringing 12 years of total clinical experience (10 years running Prime Dental since its establishment on October 6, 2016, and 2 years of prior hospital practice).",
     stats: [
