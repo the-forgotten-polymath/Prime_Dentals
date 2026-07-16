@@ -1,8 +1,8 @@
 .hero-section {
   position: relative;
   overflow: visible;
-  margin-top: 72px;
-  min-height: calc(100vh - 72px);
+  margin-top: 0;
+  min-height: 100vh;
   background-color: #FCF4EB; /* Soft warm beige background from design */
   background-image: url('/images/hero-web.png');
   background-size: cover;
