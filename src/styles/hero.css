@@ -4,7 +4,7 @@
   margin-top: 72px;
   min-height: calc(100vh - 72px);
   background-color: #FCF4EB; /* Soft warm beige background from design */
-  background-image: url('/images/hero_section.png');
+  background-image: url('/images/hero-web.png');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -16,7 +16,8 @@
   .hero-section {
     min-height: auto;
     width: 100%;
-    aspect-ratio: 1672 / 941;
+    aspect-ratio: 941 / 1672;
+    background-image: url('/images/hero-mob.png');
     background-size: contain;
     background-position: center;
     padding: 0;

@@ -1,35 +1,56 @@
 "use client";
 
-import React, { useRef, useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { motion } from "motion/react";
 
+const navItems = [
+  { id: "home", label: "Home", href: "#home" },
+  { id: "services", label: "Services", href: "#services" },
+  { id: "about", label: "About us", href: "#about" },
+  { id: "testimonials", label: "Testimonials", href: "#testimonials" },
+  { id: "blog", label: "Blog", href: "#blog" },
+  { id: "contact", label: "Contact", href: "#contact" }
+];
+
 export default function Navbar() {
-  const [position, setPosition] = useState({
-    left: 0,
-    width: 0,
-    opacity: 0,
-  });
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [activeTab, setActiveTab] = useState("home");
+  const [hoveredTab, setHoveredTab] = useState<string | null>(null);
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 40) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
+      setIsScrolled(window.scrollY > 40);
+      
+      // Detect active section on scroll
+      const scrollPosition = window.scrollY + 150; // offset
+      for (const item of navItems) {
+        const el = document.getElementById(item.id);
+        if (el) {
+          const top = el.offsetTop;
+          const height = el.offsetHeight;
+          if (scrollPosition >= top && scrollPosition < top + height) {
+            setActiveTab(item.id);
+            break;
+          }
+        }
       }
     };
+    
     window.addEventListener("scroll", handleScroll);
+    handleScroll();
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  // Determine which tab should display the indicator
+  const displayTab = hoveredTab !== null ? hoveredTab : activeTab;
 
   return (
     <header className={`navbar-header ${isScrolled ? "scrolled" : ""}`}>
       <div className="navbar-container">
         <a href="#" className="logo">
           <span className="logo-brand">Prime <span className="logo-highlight">Dental</span></span>
-          <span className="logo-sub">& Root Canal Treatment Center</span>
+          <span className="logo-sub">& Root Canal Center</span>
         </a>
 
         {/* Hamburger menu button */}
@@ -46,16 +67,35 @@ export default function Navbar() {
         <nav className={`nav-menu-container ${isMobileMenuOpen ? "mobile-open" : ""}`}>
           <ul
             className="nav-menu-wrapper"
-            onMouseLeave={() => setPosition((pv) => ({ ...pv, opacity: 0 }))}
+            onMouseLeave={() => setHoveredTab(null)}
           >
-            <Tab setPosition={setPosition} href="#home" onClick={() => setIsMobileMenuOpen(false)}>Home</Tab>
-            <Tab setPosition={setPosition} href="#services" onClick={() => setIsMobileMenuOpen(false)}>Services</Tab>
-            <Tab setPosition={setPosition} href="#about" onClick={() => setIsMobileMenuOpen(false)}>About us</Tab>
-            <Tab setPosition={setPosition} href="#testimonials" onClick={() => setIsMobileMenuOpen(false)}>Testimonials</Tab>
-            <Tab setPosition={setPosition} href="#blog" onClick={() => setIsMobileMenuOpen(false)}>Blog</Tab>
-            <Tab setPosition={setPosition} href="#contact" onClick={() => setIsMobileMenuOpen(false)}>Contact</Tab>
-
-            <Cursor position={position} />
+            {navItems.map((item) => {
+              const isSelected = displayTab === item.id;
+              return (
+                <li
+                  key={item.id}
+                  className={`nav-tab ${activeTab === item.id ? "active" : ""}`}
+                  onMouseEnter={() => setHoveredTab(item.id)}
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  style={{ listStyle: "none" }}
+                >
+                  <a href={item.href}>
+                    {item.label}
+                  </a>
+                  {isSelected && (
+                    <motion.div
+                      layoutId="nav-cursor"
+                      className="nav-cursor"
+                      transition={{
+                        type: "spring",
+                        stiffness: 350,
+                        damping: 30
+                      }}
+                    />
+                  )}
+                </li>
+              );
+            })}
           </ul>
         </nav>
 
@@ -70,48 +110,3 @@ export default function Navbar() {
     </header>
   );
 }
-
-const Tab = ({
-  children,
-  setPosition,
-  href,
-  onClick
-}: {
-  children: React.ReactNode;
-  setPosition: any;
-  href: string;
-  onClick?: () => void;
-}) => {
-  const ref = useRef<HTMLLIElement>(null);
-  
-  return (
-    <li
-      ref={ref}
-      onMouseEnter={() => {
-        if (!ref.current) return;
-        const { width } = ref.current.getBoundingClientRect();
-        setPosition({
-          width,
-          opacity: 1,
-          left: ref.current.offsetLeft,
-        });
-      }}
-      onClick={onClick}
-      className="nav-tab"
-      style={{ listStyle: "none" }}
-    >
-      <a href={href} style={{ color: "inherit", textDecoration: "none" }}>{children}</a>
-    </li>
-  );
-};
-
-const Cursor = ({ position }: { position: any }) => {
-  return (
-    <motion.li
-      animate={position}
-      className="nav-cursor"
-      style={{ listStyle: "none" }}
-    />
-  );
-};
-

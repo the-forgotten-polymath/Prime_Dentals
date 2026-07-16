@@ -1,20 +1,77 @@
 "use client";
 
-import React, { useRef } from "react";
+import React, { useRef, useEffect } from "react";
 import Image from "next/image";
+
+const servicesData = [
+  {
+    title: "Root Canal",
+    img: "/images/root_canal_graphic.png",
+    desc: "Painless and precise therapy to save your natural tooth and relieve severe pain instantly."
+  },
+  {
+    title: "Dental Implants",
+    img: "/images/dental_implant_graphic.png",
+    desc: "Permanent, natural-looking replacements for missing teeth that restore full function and confidence."
+  },
+  {
+    title: "Painless Extraction",
+    img: "/images/extraction_graphic.png",
+    desc: "Gentle, safe, and stress-free tooth removal, including complex wisdom teeth extractions."
+  }
+];
+
+// Repeat the array to create a long track for continuous infinite scrolling
+const repeatedServices = [
+  ...servicesData, 
+  ...servicesData, 
+  ...servicesData, 
+  ...servicesData,
+  ...servicesData
+];
 
 export default function Services() {
   const cardsRowRef = useRef<HTMLDivElement>(null);
 
-  const scroll = (direction: "left" | "right") => {
-    if (cardsRowRef.current) {
-      const scrollAmount = 300;
-      cardsRowRef.current.scrollBy({
-        left: direction === "left" ? -scrollAmount : scrollAmount,
-        behavior: "smooth"
-      });
-    }
-  };
+  useEffect(() => {
+    const container = cardsRowRef.current;
+    if (!container) return;
+
+    let timerId: NodeJS.Timeout;
+
+    const startAutoScroll = () => {
+      timerId = setInterval(() => {
+        const card = container.querySelector(".service-card-new");
+        if (!card) return;
+        const cardWidth = card.clientWidth + 24; // Card width + gap (24px)
+        
+        const maxScroll = container.scrollWidth - container.clientWidth;
+        
+        if (container.scrollLeft >= maxScroll - 10) {
+          // Wrap back to beginning smoothly
+          container.scrollTo({ left: 0, behavior: "smooth" });
+        } else {
+          // Scroll by one card width
+          container.scrollBy({ left: cardWidth, behavior: "smooth" });
+        }
+      }, 3000); // Transitions every 3 seconds
+    };
+
+    startAutoScroll();
+
+    // Pause scrolling when user hovers
+    const handleMouseEnter = () => clearInterval(timerId);
+    const handleMouseLeave = () => startAutoScroll();
+
+    container.addEventListener("mouseenter", handleMouseEnter);
+    container.addEventListener("mouseleave", handleMouseLeave);
+
+    return () => {
+      clearInterval(timerId);
+      container.removeEventListener("mouseenter", handleMouseEnter);
+      container.removeEventListener("mouseleave", handleMouseLeave);
+    };
+  }, []);
 
   return (
     <section className="services-section section-padding" id="services">
@@ -24,7 +81,7 @@ export default function Services() {
         <div className="services-header-grid">
           <div className="services-header-left">
             <span className="services-eyebrow label">Our Features /</span>
-            <h2 className="services-title display-md">DISCOVER OUR SIGNATURE <i>SERVICES</i></h2>
+            <h2 className="services-title display-md">DISCOVER OUR <i>SERVICES</i></h2>
             
             <div className="reviews-badge">
               <div className="avatar-stack">
@@ -47,83 +104,30 @@ export default function Services() {
           </div>
         </div>
 
-        {/* Card slider wrapper */}
+        {/* Full-width auto-scrolling cards wrapper */}
         <div className="services-cards-wrapper">
-          <div className="carousel-sidebar">
-            <p className="carousel-desc body-sm">
-              Discover delighted patient reviews about their comforting and satisfying dental care experience.
-            </p>
-            <div className="carousel-arrows-container">
-              <button className="carousel-arrow" onClick={() => scroll("left")} aria-label="Previous service">‹</button>
-              <button className="carousel-arrow" onClick={() => scroll("right")} aria-label="Next service">›</button>
-            </div>
-          </div>
-          
           <div className="cards-row" ref={cardsRowRef}>
-            
-            {/* Card 1 */}
-            <div className="service-card-new">
-              <div className="service-card-img-wrapper">
-                <Image 
-                  src="/images/root_canal_graphic.png" 
-                  alt="Root Canal Treatment" 
-                  width={280} 
-                  height={200} 
-                  className="service-card-img"
-                />
-              </div>
-              <div className="card-info">
-                <h3 className="card-title heading-md">Root Canal</h3>
-                <p className="card-description body-sm">Painless and precise therapy to save your natural tooth and relieve severe pain instantly.</p>
-                <div className="card-action">
-                  <span className="action-text">Learn more</span>
-                  <button className="card-arrow" aria-label="Learn more">→</button>
+            {repeatedServices.map((service, index) => (
+              <div className="service-card-new" key={index}>
+                <div className="service-card-img-wrapper">
+                  <Image 
+                    src={service.img} 
+                    alt={service.title} 
+                    width={280} 
+                    height={200} 
+                    className="service-card-img"
+                  />
+                </div>
+                <div className="card-info">
+                  <h3 className="card-title heading-md">{service.title}</h3>
+                  <p className="card-description body-sm">{service.desc}</p>
+                  <div className="card-action">
+                    <span className="action-text">Learn more</span>
+                    <button className="card-arrow" aria-label="Learn more">→</button>
+                  </div>
                 </div>
               </div>
-            </div>
-            
-            {/* Card 2 */}
-            <div className="service-card-new">
-              <div className="service-card-img-wrapper">
-                <Image 
-                  src="/images/dental_implant_graphic.png" 
-                  alt="Dental Implants" 
-                  width={280} 
-                  height={200} 
-                  className="service-card-img"
-                />
-              </div>
-              <div className="card-info">
-                <h3 className="card-title heading-md">Dental Implants</h3>
-                <p className="card-description body-sm">Permanent, natural-looking replacements for missing teeth that restore full function and confidence.</p>
-                <div className="card-action">
-                  <span className="action-text">Learn more</span>
-                  <button className="card-arrow" aria-label="Learn more">→</button>
-                </div>
-              </div>
-            </div>
-            
-            {/* Card 3 */}
-            <div className="service-card-new">
-              <div className="service-card-img-wrapper">
-                <Image 
-                  src="/images/extraction_graphic.png" 
-                  alt="Painless Extraction" 
-                  width={280} 
-                  height={200} 
-                  className="service-card-img"
-                />
-              </div>
-              <div className="card-info">
-                <h3 className="card-title heading-md">Painless Extraction</h3>
-                <p className="card-description body-sm">Gentle, safe, and stress-free tooth removal, including complex wisdom teeth extractions.</p>
-                <div className="card-action">
-                  <span className="action-text">Learn more</span>
-                  <button className="card-arrow" aria-label="Learn more">→</button>
-                </div>
-              </div>
-            </div>
-
+            ))}
           </div>
         </div>
 

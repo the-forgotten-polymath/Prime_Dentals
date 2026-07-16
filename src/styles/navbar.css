@@ -1,27 +1,34 @@
 /* navbar.css */
 .navbar-header {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 72px;
-  background: var(--color-bg);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  top: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  max-width: var(--container-max);
+  height: 64px;
+  background: rgba(250, 248, 245, 0.7); /* Translucent theme background */
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   z-index: 100;
-  transition: box-shadow 0.2s ease, background 0.2s ease;
-  border-bottom: 1px solid var(--color-border);
+  border-radius: 9999px;
+  border: 1px solid rgba(56, 189, 248, 0.15); /* Soft border matching page theme */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .navbar-header.scrolled {
-  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.06);
+  top: 12px;
+  background: rgba(250, 248, 245, 0.85);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
+  border-color: rgba(56, 189, 248, 0.3);
 }
 
 .navbar-container {
-  max-width: var(--container-max);
+  max-width: 100%;
   height: 100%;
   margin: 0 auto;
-  padding: 0 var(--container-padding);
+  padding: 0 24px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -32,24 +39,24 @@
   text-decoration: none;
   display: flex;
   align-items: baseline;
-  gap: 8px;
+  gap: 6px;
 }
 
 .logo-brand {
   font-weight: 800;
-  font-size: 24px;
+  font-size: 20px;
   color: var(--color-text-primary, #1A1A2E);
   letter-spacing: -0.02em;
 }
 
 .logo-highlight {
-  color: var(--color-brand-light-blue, #38BDF8);
+  color: var(--color-primary, #38BDF8);
 }
 
 .logo-sub {
   font-family: 'Inter', system-ui, sans-serif;
   font-weight: 500;
-  font-size: 13px;
+  font-size: 11px;
   color: var(--color-text-secondary, #4A4A5A);
   letter-spacing: 0.05em;
   text-transform: uppercase;
@@ -64,46 +71,54 @@
   position: relative;
   display: flex;
   list-style: none;
-  padding: 0;
+  padding: 4px;
   margin: 0;
-  gap: 8px;
+  gap: 4px;
+  background: rgba(250, 248, 245, 0.5); /* Glassy capsule */
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(232, 228, 223, 0.6);
+  border-radius: 9999px;
+  box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.8), 0 2px 10px rgba(0, 0, 0, 0.02);
 }
 
 .nav-tab {
   position: relative;
-  z-index: 10;
+  list-style: none;
 }
 
 .nav-tab a {
   display: block;
   padding: 8px 16px;
   font-family: 'DM Sans', sans-serif;
-  font-weight: 500;
-  font-size: 14px;
+  font-weight: 600;
+  font-size: 13px;
   color: var(--color-text-gray);
   text-decoration: none;
-  transition: color 0.2s ease;
+  transition: color 0.3s ease;
+  position: relative;
+  z-index: 2;
 }
 
-.nav-tab:hover a {
-  color: var(--color-primary);
+.nav-tab:hover a, 
+.nav-tab.active a {
+  color: var(--color-primary-dark, #0284C7);
 }
 
-/* Cursor represents active tab capsule pill highlight */
+/* Glassy liquid sliding cursor */
 .nav-cursor {
   position: absolute;
-  z-index: 0;
-  height: 100%;
-  border-radius: var(--radius-pill);
-  background: var(--color-primary);
-  border: 1px solid var(--color-primary);
-  box-shadow: var(--shadow-card);
-}
-
-/* If active is highlighted, text becomes white */
-.nav-menu-wrapper:hover .nav-cursor {
-  background: rgba(56, 189, 248, 0.1);
-  border-color: var(--color-primary);
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+  border-radius: 9999px;
+  background: rgba(56, 189, 248, 0.12); /* Glassy theme-matched color */
+  border: 1px solid rgba(56, 189, 248, 0.3);
+  box-shadow: 0 4px 12px rgba(56, 189, 248, 0.15);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
 }
 
 .nav-cta-button {
@@ -111,14 +126,14 @@
   color: var(--color-white);
   font-family: 'DM Sans', sans-serif;
   font-weight: 600;
-  font-size: 14px;
-  padding: 12px 24px;
-  border-radius: var(--radius-md); /* design.md: 8px buttons */
+  font-size: 13px;
+  padding: 10px 20px;
+  border-radius: 9999px; /* Pill-shaped button to match header layout */
   box-shadow: var(--shadow-cta);
   text-decoration: none;
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
   transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
   border: none;
   cursor: pointer;
@@ -126,8 +141,8 @@
 
 .nav-cta-button:hover {
   background: var(--color-primary-dark);
-  transform: translateY(-2px);
-  box-shadow: 0 10px 28px rgba(56, 189, 248, 0.40);
+  transform: translateY(-1px);
+  box-shadow: 0 8px 24px rgba(56, 189, 248, 0.35);
 }
 
 .nav-cta-button:active {
@@ -139,7 +154,7 @@
 }
 
 .nav-cta-button:hover .cta-arrow-svg {
-  transform: rotate(45deg) translate(2px, -2px);
+  transform: rotate(45deg) translate(1px, -1px);
 }
 
 /* Hamburger menu button */
@@ -148,7 +163,7 @@
   flex-direction: column;
   justify-content: space-between;
   width: 24px;
-  height: 18px;
+  height: 16px;
   background: transparent;
   border: none;
   cursor: pointer;
@@ -165,7 +180,7 @@
 
 /* Hamburger animation */
 .hamburger.active span:nth-child(1) {
-  transform: translateY(8px) rotate(45deg);
+  transform: translateY(7px) rotate(45deg);
 }
 
 .hamburger.active span:nth-child(2) {
@@ -173,37 +188,37 @@
 }
 
 .hamburger.active span:nth-child(3) {
-  transform: translateY(-8px) rotate(-45deg);
+  transform: translateY(-7px) rotate(-45deg);
 }
 
 /* Responsiveness */
 @media (max-width: 1024px) {
   .navbar-container {
-    padding: 0 40px;
+    padding: 0 16px;
+  }
+  .logo-sub {
+    display: none;
   }
 }
 
 @media (max-width: 768px) {
-  .navbar-container {
-    padding: 0 20px;
+  .navbar-header {
+    width: 92%;
+    top: 12px;
   }
-  
+
   .hamburger {
     display: flex;
   }
 
   .logo {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 2px;
+    flex-direction: row;
+    align-items: center;
+    gap: 4px;
   }
   
   .logo-brand {
-    font-size: 20px;
-  }
-  
-  .logo-sub {
-    font-size: 10px;
+    font-size: 18px;
   }
 
   .nav-menu-container {
@@ -211,12 +226,14 @@
     top: 0;
     right: -100%;
     width: 80%;
-    max-width: 300px;
+    max-width: 280px;
     height: 100vh;
-    background: var(--color-bg);
+    background: rgba(250, 248, 245, 0.95);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
     box-shadow: -10px 0 30px rgba(0, 0, 0, 0.05);
-    padding: 100px 30px 30px;
-    transition: right 0.3s ease;
+    padding: 80px 24px 24px;
+    transition: right 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     z-index: 105;
     flex-direction: column;
     align-items: flex-start;
@@ -229,17 +246,27 @@
   .nav-menu-wrapper {
     flex-direction: column;
     width: 100%;
-    gap: 16px;
+    gap: 8px;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    padding: 0;
+    backdrop-filter: none;
+  }
+
+  .nav-tab {
+    width: 100%;
   }
 
   .nav-tab a {
-    font-size: 18px;
-    padding: 10px 0;
-    border-bottom: 1px solid var(--color-border);
+    font-size: 16px;
+    padding: 12px 16px;
+    border-radius: 8px;
   }
 
+  /* Make cursor cover the list item on mobile as a block highlight */
   .nav-cursor {
-    display: none;
+    z-index: 1;
   }
 
   .nav-cta-button {
