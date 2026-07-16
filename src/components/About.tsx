@@ -126,10 +126,10 @@ export default function About() {
           <div className="about-vision-right">
             <span className="vision-label label">OUR VISION</span>
             <p className="vision-body">
-              Our vision goes beyond treating teeth—we redefine the entire dental experience. By blending state-of-the-art technology with compassionate, patient-first care, we create a sanctuary of comfort and trust to inspire lifelong, radiant smiles.
+              Our vision goes beyond treating teeth—we redefine the entire dental experience. By blending state-of-the-art technology with compassionate, patient-first care, we create a sanctuary of comfort and trust. Our goal is to inspire lifelong confidence and radiant, healthy smiles through precision and personalized treatment plans.
             </p>
             <p className="vision-body" style={{ marginTop: "20px" }}>
-              Our modern three-chair clinic is fully integrated with advanced digital tools, therapeutic lasers, and high-precision scanners. We deliver comfortable, transparent, and family-focused care across all major specialties.
+              Experience the future of oral healthcare at our modern clinic. Featuring a three-chair setup designed to minimize wait times, our facility is fully integrated with advanced digital tools, therapeutic lasers, and high-precision scanners. We deliver comfortable, transparent, and family-focused care across all major disciplines.
             </p>
           </div>
         </div>
