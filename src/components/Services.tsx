@@ -49,7 +49,7 @@ const servicesData: ServiceItem[] = [
   {
     id: "digital-dentistry",
     title: "Digital Dentistry",
-    img: "/images/tooth_splash.png",
+    img: "/images/digital_dentistry_graphic.png",
     desc: "State-of-the-art computerized design and modeling for ultra-accurate and fast dental restorations.",
     descDetail: {
       en: "Modern dentistry using computerized design and manufacturing to restore teeth with high accuracy, speed, and comfort. This eliminates messy manual processes and guarantees exact-fitting dental restorations.",
@@ -59,7 +59,7 @@ const servicesData: ServiceItem[] = [
   {
     id: "digital-xray",
     title: "Digital X-Ray",
-    img: "/images/orikam_xray.png",
+    img: "/images/digital_xray_graphic.png",
     desc: "Advanced high-definition digital imaging capturing teeth details instantly with up to 90% less radiation.",
     descDetail: {
       en: "Advanced high-definition dental imaging that captures detailed views of your teeth and bones instantly. It emits up to 90% less radiation compared to traditional film-based dental X-rays.",
@@ -69,7 +69,7 @@ const servicesData: ServiceItem[] = [
   {
     id: "dental-laser",
     title: "Dental Laser",
-    img: "/images/soga_ilazer.png",
+    img: "/images/dental_laser_graphic.png",
     desc: "Painless soft tissue treatments, sterilization, and gum contouring with rapid healing.",
     descDetail: {
       en: "State-of-the-art soft tissue diode laser technology used for painless surgeries, deep cleaning, sterilization, and cosmetic gum contouring with virtually no bleeding, swelling, or needles.",
@@ -79,7 +79,7 @@ const servicesData: ServiceItem[] = [
   {
     id: "intraoral-scanner",
     title: "3D Intraoral Scanner",
-    img: "/images/helios_scanner.png",
+    img: "/images/scanner_graphic.png",
     desc: "Ultra-precise full-color 3D impressions of your teeth in under two minutes with zero gag reflex.",
     descDetail: {
       en: "A digital scanner that captures highly accurate 3D color images of your teeth in under two minutes. Eliminates the discomfort, gagging, and bad taste associated with traditional putty-based molds.",
@@ -89,7 +89,7 @@ const servicesData: ServiceItem[] = [
   {
     id: "wisdom-tooth",
     title: "Wisdom Tooth Surgery",
-    img: "/images/painless_extraction.png",
+    img: "/images/wisdom_tooth_graphic.png",
     desc: "Expert and safe extraction of complex or impacted wisdom teeth with high comfort.",
     descDetail: {
       en: "Safe and comfortable extraction of impacted or problematic wisdom teeth. Utilizing advanced surgical guidelines, high-torque motors, and expert care to prevent pain, swelling, and infection.",
