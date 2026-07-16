@@ -83,6 +83,26 @@ const doctors = [
       "Successfully treated thousands of patients, restoring both function and aesthetics in complex facial trauma and jaw disorders",
       "Maintains the highest standards of ethical and professional conduct in patient care"
     ]
+  },
+  {
+    id: 5,
+    name: "Dr. Ratika Sachdeva",
+    prefix: "GENERAL DENTIST /",
+    image: "/images/doctor-5.png",
+    layout: "normal-layout",
+    desc: "Dr. Ratika Sachdeva is a dedicated dental surgeon who graduated with a Bachelor of Dental Surgery (BDS) in 2015 from IDST Kadrabad which is affiliated to CCS University. She is government certificate holder of management of dental emergencies. She believes that quality dental care begins with understanding each patient's needs and providing treatment with compassion, precision, and honesty.",
+    stats: [
+      { value: "9+", label: "YEARS OF CLINICAL EXP" },
+      { value: "BDS", label: "GENERAL DENTIST" },
+      { value: "GOVT", label: "EMERGENCY CERTIFICATE" }
+    ],
+    points: [
+      "Graduated with Bachelor of Dental Surgery (BDS) in 2015 from IDST Kadrabad (affiliated to CCS University)",
+      "Government certificate holder of Management of Dental Emergencies",
+      "Believes in understanding each patient's needs and providing treatment with compassion, precision, and honesty",
+      "Regularly updates her knowledge with the latest advancements in modern dentistry",
+      "Follows evidence-based treatment protocols to deliver safe, effective, and long-lasting results"
+    ]
   }
 ];
 
