@@ -80,7 +80,6 @@ export default function Services() {
         {/* Header */}
         <div className="services-header-grid">
           <div className="services-header-left">
-            <span className="services-eyebrow label">Our Features /</span>
             <h2 className="services-title display-md">DISCOVER OUR <i>SERVICES</i></h2>
             
             <div className="reviews-badge">
