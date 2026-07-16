@@ -126,10 +126,10 @@ export default function About() {
           <div className="about-vision-right">
             <span className="vision-label label">OUR VISION</span>
             <p className="vision-body">
-              At Prime Dental & Root Canal Treatment Center, our vision goes beyond just treating teeth—we are dedicated to redefining the entire dental experience. By seamlessly blending state-of-the-art technology with compassionate, patient-first care, we strive to create a sanctuary of comfort and trust. Our ultimate goal is to inspire lifelong confidence and radiant, healthy smiles through precision, innovation, and truly personalized treatment plans.
+              Our vision goes beyond treating teeth—we redefine the entire dental experience. By blending state-of-the-art technology with compassionate, patient-first care, we create a sanctuary of comfort and trust to inspire lifelong, radiant smiles.
             </p>
-            <p className="vision-body" style={{ marginTop: "24px" }}>
-              Experience the future of oral healthcare at our modern clinic. Featuring a three-chair setup designed to minimize wait times, our facility is fully integrated with advanced digital dentistry tools, high-end dental lasers, and high-precision scanners for quick and accurate diagnostics. From advanced implants and painless root canals to smile-enhancing cosmetics and gentle pediatric care, we deliver top-tier, transparent, and family-focused dentistry.
+            <p className="vision-body" style={{ marginTop: "20px" }}>
+              Our modern three-chair clinic is fully integrated with advanced digital tools, therapeutic lasers, and high-precision scanners. We deliver comfortable, transparent, and family-focused care across all major specialties.
             </p>
           </div>
         </div>
