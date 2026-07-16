@@ -8,7 +8,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: var(--space-8);
-  align-items: start;
+  align-items: end;
   margin-bottom: 120px;
 }
 
@@ -31,7 +31,7 @@
 .about-vision-right {
   display: flex;
   flex-direction: column;
-  padding-top: 40px;
+  padding-top: 0;
 }
 
 .vision-label {
