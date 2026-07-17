@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from "motion/react";
 
 const heroSlides = [
   {
-    heading: "Haridwar's First Dedicated Root Canal Center",
+    heading: <>Haridwar's 1<sup>st</sup> Dedicated Root Canal Treatment Centre</>,
     sub: "Specialised root canal treatment performed with precision, safety and care.",
   },
   {
