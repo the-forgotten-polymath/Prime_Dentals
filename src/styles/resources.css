@@ -139,16 +139,16 @@
   -webkit-backdrop-filter: blur(8px);
   z-index: 9999;
   display: flex;
-  align-items: flex-start; /* Start from top so tall images can scroll */
+  align-items: center; /* Center vertically */
   justify-content: center;
-  overflow-y: auto; /* Allow vertical scroll for long infographics */
-  padding: 0;
+  overflow: hidden; /* Prevent scrolling */
+  padding: 40px;
 }
 
 .lightbox-close-btn {
-  position: fixed; /* Keep it fixed on screen while scrolling */
+  position: fixed; 
   top: 24px;
-  left: 24px; /* Move to top left */
+  left: 24px; 
   background: rgba(0,0,0,0.6);
   border-radius: 50%;
   width: 44px;
@@ -173,15 +173,16 @@
   position: relative;
   width: 100%;
   max-width: 900px;
-  height: auto;
-  margin: auto; /* This centers the content perfectly vertically and horizontally while still allowing scrolling if it overflows */
+  height: 100%;
+  max-height: 85vh; /* Bound it to the screen height */
+  margin: 0;
   background: transparent;
   display: flex;
   flex-direction: column;
 }
 
 .lightbox-full-img {
-  display: block;
+  object-fit: contain; /* Scale image down to fit perfectly without cropping or scrolling */
 }
 
 /* Hide floating actions globally when lightbox is open */
