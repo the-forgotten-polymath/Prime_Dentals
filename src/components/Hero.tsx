@@ -46,11 +46,16 @@ export default function Hero() {
 
   return (
     <section className="hero-section" id="home">
-      <div className="hero-overlay"></div>
+      <div className="hero-overlay-gradient"></div>
       
       <div className="section-container hero-inner-container">
-        <div className="hero-content-glass">
+        <div className="hero-content-block">
           
+          <div className="hero-eyebrow">
+            <span className="eyebrow-line"></span>
+            WELCOME TO PRIME DENTAL
+          </div>
+
           <div className="hero-slider-wrapper">
             <AnimatePresence mode="wait">
               <motion.div
@@ -58,7 +63,7 @@ export default function Hero() {
                 initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -15 }}
-                transition={{ duration: 0.5, ease: "easeOut" }}
+                transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
                 className="hero-slide"
               >
                 <h1 className="hero-dynamic-heading">
@@ -72,13 +77,13 @@ export default function Hero() {
           </div>
 
           <div className="hero-static-footer">
-            <div className="hero-divider"></div>
             <p className="hero-static-line">
               <strong>Prime Dental & Root Canal Treatment Center</strong> — delivering advanced, precise and comfortable dental care in Haridwar.
             </p>
             <div className="hero-cta-group">
               <a href="#contact" className="btn-primary hero-btn">
                 Book Appointment Now
+                <span className="btn-arrow">→</span>
               </a>
               <a href="#services" className="btn-secondary hero-btn">
                 Explore Services
