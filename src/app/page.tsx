@@ -2,6 +2,7 @@ import Navbar from "../components/Navbar";
 import Hero from "../components/Hero";
 import Marquee from "../components/Marquee";
 import Services from "../components/Services";
+import PatientResources from "../components/PatientResources";
 import BeforeAfterSlider from "../components/BeforeAfterSlider";
 import Equipments from "../components/Equipments";
 import About from "../components/About";
@@ -18,6 +19,7 @@ export default function Home() {
       <Hero />
       <Marquee />
       <Services />
+      <PatientResources />
       <BeforeAfterSlider />
       <About />
       <Equipments />
