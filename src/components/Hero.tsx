@@ -5,12 +5,12 @@ import { motion, AnimatePresence } from "motion/react";
 
 const heroSlides = [
   {
-    heading: "Your Most Trusted Dentist in Haridwar",
-    sub: "Advanced, comfortable dental care for healthy and confident smiles.",
+    heading: "Haridwar's First Dedicated Root Canal Center",
+    sub: "Specialised root canal treatment performed with precision, safety and care.",
   },
   {
-    heading: "Haridwar’s First Dedicated Root Canal Centre",
-    sub: "Specialised root canal treatment performed with precision, safety and care.",
+    heading: "Your Most Trusted Dentist in Haridwar",
+    sub: "Advanced, comfortable dental care for healthy and confident smiles.",
   },
   {
     heading: "Painless Root Canal Treatment in Just 1 Hour",

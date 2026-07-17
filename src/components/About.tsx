@@ -4,11 +4,31 @@ import Image from "next/image";
 
 const doctors = [
   {
+    id: 5,
+    name: "Dr. Ratika Sachdeva",
+    prefix: "GENERAL DENTIST /",
+    image: "/images/doctor-5.png",
+    layout: "normal-layout",
+    desc: "Dr. Ratika Sachdeva is a dedicated dental surgeon who graduated with a Bachelor of Dental Surgery (BDS) in 2015 from IDST Kadrabad which is affiliated to CCS University. She is government certificate holder of management of dental emergencies. She believes that quality dental care begins with understanding each patient's needs and providing treatment with compassion, precision, and honesty.",
+    stats: [
+      { value: "9+", label: "YEARS OF CLINICAL EXP" },
+      { value: "BDS", label: "GENERAL DENTIST" },
+      { value: "GOVT", label: "EMERGENCY CERTIFICATE" }
+    ],
+    points: [
+      "Graduated with Bachelor of Dental Surgery (BDS) in 2015 from IDST Kadrabad (affiliated to CCS University)",
+      "Government certificate holder of Management of Dental Emergencies",
+      "Believes in understanding each patient's needs and providing treatment with compassion, precision, and honesty",
+      "Regularly updates her knowledge with the latest advancements in modern dentistry",
+      "Follows evidence-based treatment protocols to deliver safe, effective, and long-lasting results"
+    ]
+  },
+  {
     id: 1,
     name: "Dr. Sahil Dhingra",
     prefix: "CLINIC DIRECTOR /",
     image: "/images/doctor-main.png",
-    layout: "normal-layout",
+    layout: "reverse-layout",
     desc: "Dr. Sahil Dhingra is a highly skilled Endodontist and associate professor in Conservative Dentistry and Endodontics, bringing 12 years of total clinical experience (10 years running Prime Dental since its establishment on October 6, 2016, and 2 years of prior hospital practice).",
     stats: [
       { value: "12 Yrs", label: "CLINICAL EXPERIENCE" },
@@ -22,26 +42,6 @@ const doctors = [
       "Specializes in painless 1-hour root canals, complex surgeries, and cosmetic operations",
       "Lifetime Member of the Indian Dental Association (IDA) & Indian Association of Conservative Dentistry and Endodontics (IACDE)",
       "Presently working as Associate Professor in Kalka Dental College, Meerut"
-    ]
-  },
-  {
-    id: 2,
-    name: "Dr. Ila Sharma",
-    prefix: "VISITING CONSULTANT - PERIODONTICS /",
-    image: "/images/doctor-2.jpeg",
-    layout: "reverse-layout",
-    desc: "Dr. Ila Sharma is a dedicated and accomplished Periodontist and Gold Medalist, recognized nationally for her outstanding academic record, clinical skill, and research contributions.",
-    stats: [
-      { value: "GOLD", label: "MEDALIST (PERIODONTICS)" },
-      { value: "2021", label: "STUDENT OF THE YEAR" },
-      { value: "BEST", label: "PAPER AWARD (NAT. CONF)" }
-    ],
-    points: [
-      "Completed Bachelor of Dental Surgery (BDS) in 2018",
-      "MDS in Periodontics (2022) from the prestigious Seema Dental College & Hospital, Rishikesh",
-      "Honored with the Student of the Year Award by Cynodent in 2021",
-      "Received the Best Paper Award at the National Conference in 2022",
-      "Specializes in periodontal therapy, regenerative surgery, and gum health management"
     ]
   },
   {
@@ -85,23 +85,23 @@ const doctors = [
     ]
   },
   {
-    id: 5,
-    name: "Dr. Ratika Sachdeva",
-    prefix: "GENERAL DENTIST /",
-    image: "/images/doctor-5.png",
+    id: 2,
+    name: "Dr. Ila Sharma",
+    prefix: "VISITING CONSULTANT - PERIODONTICS /",
+    image: "/images/doctor-2.jpeg",
     layout: "normal-layout",
-    desc: "Dr. Ratika Sachdeva is a dedicated dental surgeon who graduated with a Bachelor of Dental Surgery (BDS) in 2015 from IDST Kadrabad which is affiliated to CCS University. She is government certificate holder of management of dental emergencies. She believes that quality dental care begins with understanding each patient's needs and providing treatment with compassion, precision, and honesty.",
+    desc: "Dr. Ila Sharma is a dedicated and accomplished Periodontist and Gold Medalist, recognized nationally for her outstanding academic record, clinical skill, and research contributions.",
     stats: [
-      { value: "9+", label: "YEARS OF CLINICAL EXP" },
-      { value: "BDS", label: "GENERAL DENTIST" },
-      { value: "GOVT", label: "EMERGENCY CERTIFICATE" }
+      { value: "GOLD", label: "MEDALIST (PERIODONTICS)" },
+      { value: "2021", label: "STUDENT OF THE YEAR" },
+      { value: "BEST", label: "PAPER AWARD (NAT. CONF)" }
     ],
     points: [
-      "Graduated with Bachelor of Dental Surgery (BDS) in 2015 from IDST Kadrabad (affiliated to CCS University)",
-      "Government certificate holder of Management of Dental Emergencies",
-      "Believes in understanding each patient's needs and providing treatment with compassion, precision, and honesty",
-      "Regularly updates her knowledge with the latest advancements in modern dentistry",
-      "Follows evidence-based treatment protocols to deliver safe, effective, and long-lasting results"
+      "Completed Bachelor of Dental Surgery (BDS) in 2018",
+      "MDS in Periodontics (2022) from the prestigious Seema Dental College & Hospital, Rishikesh",
+      "Honored with the Student of the Year Award by Cynodent in 2021",
+      "Received the Best Paper Award at the National Conference in 2022",
+      "Specializes in periodontal therapy, regenerative surgery, and gum health management"
     ]
   }
 ];
