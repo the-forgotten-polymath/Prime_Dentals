@@ -78,7 +78,8 @@ export default function Hero() {
 
           <div className="hero-static-footer">
             <p className="hero-static-line">
-              <strong>Prime Dental & Root Canal Treatment Center</strong> — delivering advanced, precise and comfortable dental care in Haridwar.
+              <strong>Prime Dental & Root Canal Treatment Center</strong> — <br />
+              delivering advanced, precise and comfortable dental care in Haridwar.
             </p>
             <div className="hero-cta-group">
               <a href="#contact" className="btn-primary hero-btn">
