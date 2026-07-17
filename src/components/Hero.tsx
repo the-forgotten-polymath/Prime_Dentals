@@ -32,6 +32,10 @@ const heroSlides = [
     heading: "Comfortable Care You Can Trust",
     sub: "Ethical treatment, a hygienic environment and personalised attention for every patient.",
   },
+  {
+    heading: "Continuously Evolving with the Latest Dental Technology",
+    sub: "We regularly upgrade our equipment and treatment techniques to provide safer, faster and more comfortable dental care.",
+  },
 ];
 
 export default function Hero() {
