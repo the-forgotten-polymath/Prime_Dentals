@@ -10,7 +10,7 @@ export default function LaserSpecialty() {
         <div className="laser-grid">
           
           <div className="laser-content">
-            <span className="label laser-eyebrow">FIRST TIME IN HARIDWAR</span>
+            <span className="laser-eyebrow">FIRST TIME IN HARIDWAR</span>
             <h2 className="display-md laser-title">
               Triple Wavelength <i>SOGA Laser</i>
             </h2>

@@ -51,7 +51,7 @@ export default function Navbar() {
       <div className="navbar-container">
         <a href="#" className="logo">
           <span className="logo-brand">Prime <span className="logo-highlight">Dental</span></span>
-          <span className="logo-sub">& Root Canal Center</span>
+          <span className="logo-sub">& ROOT CANAL TREATMENT CENTER</span>
         </a>
 
         {/* Hamburger menu button */}

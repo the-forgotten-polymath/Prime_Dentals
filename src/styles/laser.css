@@ -17,8 +17,19 @@
 }
 
 .laser-eyebrow {
-  margin-bottom: 12px;
-  color: var(--color-primary);
+  display: inline-flex;
+  align-items: center;
+  background: linear-gradient(135deg, #FF6B6B 0%, #FF4757 100%);
+  color: white;
+  padding: 8px 16px;
+  border-radius: 30px;
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-bottom: 24px;
+  box-shadow: 0 4px 15px rgba(255, 71, 87, 0.4);
+  align-self: flex-start;
 }
 
 .laser-title {
