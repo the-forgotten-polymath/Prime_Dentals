@@ -141,6 +141,24 @@ export default function Services() {
   const [activeService, setActiveService] = useState<ServiceItem | null>(null);
   const [lang, setLang] = useState<"en" | "hi">("en");
 
+  const scrollLeft = () => {
+    if (cardsRowRef.current) {
+      const card = cardsRowRef.current.querySelector(".service-card-new");
+      if (card) {
+        cardsRowRef.current.scrollBy({ left: -(card.clientWidth + 24), behavior: "smooth" });
+      }
+    }
+  };
+
+  const scrollRight = () => {
+    if (cardsRowRef.current) {
+      const card = cardsRowRef.current.querySelector(".service-card-new");
+      if (card) {
+        cardsRowRef.current.scrollBy({ left: (card.clientWidth + 24), behavior: "smooth" });
+      }
+    }
+  };
+
   useEffect(() => {
     const container = cardsRowRef.current;
     if (!container || activeService) return; // Stop auto-scrolling when modal is open
@@ -209,6 +227,13 @@ export default function Services() {
 
         {/* Cards wrapper */}
         <div className="services-cards-wrapper">
+          <button className="slider-nav-btn prev-btn" onClick={scrollLeft} aria-label="Previous">
+            <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" strokeWidth="2.5" fill="none" strokeLinecap="round" strokeLinejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+          </button>
+          
+          <button className="slider-nav-btn next-btn" onClick={scrollRight} aria-label="Next">
+            <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" strokeWidth="2.5" fill="none" strokeLinecap="round" strokeLinejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+          </button>
           <div className="cards-row" ref={cardsRowRef}>
             {repeatedServices.map((service, index) => (
               <div 
