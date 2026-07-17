@@ -83,11 +83,11 @@ export default function Hero() {
             </p>
             <div className="hero-cta-group">
               <a href="#contact" className="btn-primary hero-btn">
-                Book Appointment Now
+                Book Now
                 <span className="btn-arrow">→</span>
               </a>
               <a href="#services" className="btn-secondary hero-btn">
-                Explore Services
+                Services
               </a>
             </div>
           </div>

@@ -175,13 +175,13 @@
   }
 
   .hero-inner-container {
-    padding-top: 110px; /* Perfectly positioned below navbar */
+    padding-top: 80px; /* Pulled much higher to give the image space */
     padding-bottom: 20px;
   }
 
   .hero-content-block {
-    padding: 0 24px; /* Clean breathing room on edges */
-    gap: 12px;
+    padding: 0 16px; 
+    gap: 10px;
   }
 
   .hero-eyebrow {
@@ -190,42 +190,44 @@
   }
 
   .hero-slider-wrapper {
-    min-height: 130px;
+    min-height: 110px; /* Reduced since font sizes are smaller */
   }
 
   .hero-dynamic-heading {
-    font-size: 34px; /* Perfectly balanced for mobile wrapping */
+    font-size: 30px; /* Scaled down slightly to fit cleanly */
     line-height: 1.15;
-    margin-bottom: 8px;
+    margin-bottom: 6px;
     letter-spacing: -0.02em;
   }
 
   .hero-dynamic-subtext {
-    font-size: 15px;
-    line-height: 1.5;
+    font-size: 14px; /* Scaled down */
+    line-height: 1.4;
     color: #475569; 
   }
 
   .hero-static-footer {
-    margin-top: 16px; 
-    gap: 20px;
+    margin-top: 12px; 
+    gap: 16px;
   }
   
   .hero-static-line {
-    font-size: 14px;
-    padding-left: 12px;
+    font-size: 13px; /* Scaled down */
+    padding-left: 10px;
   }
 
   .hero-cta-group {
-    flex-direction: column;
-    gap: 12px;
+    flex-direction: row; /* Horizontal alignment */
+    gap: 10px;
     width: 100%;
-    margin-top: 8px;
+    margin-top: 6px;
   }
 
   .hero-btn {
-    width: 100%;
-    padding: 14px 24px;
-    font-size: 15px;
+    width: auto;
+    flex: 1; /* Both buttons take 50% width */
+    padding: 12px 12px;
+    font-size: 14px;
+    justify-content: center;
   }
 }
