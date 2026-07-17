@@ -16,44 +16,10 @@ export default function Booking() {
   const [maxDate, setMaxDate] = useState("");
 
   const getAvailableTimeSlots = (dateString: string) => {
-    if (!dateString) return [];
-    const date = new Date(dateString);
-    const day = date.getDay(); // 0: Sunday, 4: Thursday, etc.
-    
-    let slots: string[] = [];
-    if (day === 0) { // Sunday: 10:30am - 2pm
-      slots = ["10:30 AM", "11:30 AM", "12:30 PM", "01:30 PM"];
-    } else if (day === 4) { // Thursday: 10am - 8:30pm
-      slots = [
-        "10:00 AM", "11:00 AM", "12:00 PM", "01:00 PM", "02:00 PM", 
-        "03:00 PM", "04:00 PM", "05:00 PM", "06:00 PM", "07:00 PM", "08:00 PM"
-      ];
-    } else { // Mon-Wed, Fri-Sat: 10am - 8pm
-      slots = [
-        "10:00 AM", "11:00 AM", "12:00 PM", "01:00 PM", "02:00 PM", 
-        "03:00 PM", "04:00 PM", "05:00 PM", "06:00 PM", "07:00 PM"
-      ];
-    }
-    
-    // If the selected date is today, filter out past time slots
-    const todayStr = new Date().toISOString().split('T')[0];
-    if (dateString === todayStr) {
-      const now = new Date();
-      const currentHour = now.getHours();
-      const currentMinute = now.getMinutes();
-      
-      slots = slots.filter(slot => {
-        const [time, modifier] = slot.split(' ');
-        let [hours, minutes] = time.split(':').map(Number);
-        if (modifier === 'PM' && hours < 12) hours += 12;
-        if (modifier === 'AM' && hours === 12) hours = 0;
-        
-        // Keep slots that are at least 30 minutes in the future
-        return hours > currentHour || (hours === currentHour && minutes > currentMinute + 30);
-      });
-    }
-    
-    return slots;
+    return [
+      "Morning (10:00 AM - 2:00 PM)",
+      "Evening (5:00 PM - 8:00 PM)"
+    ];
   };
 
   React.useEffect(() => {
