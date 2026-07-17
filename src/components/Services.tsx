@@ -18,7 +18,7 @@ interface ServiceItem {
 const servicesData: ServiceItem[] = [
   {
     id: "root-canal",
-    title: "Root Canal",
+    title: "Root Canal Treatment",
     img: "/images/root_canal_graphic.png",
     desc: "Painless and precise therapy to save your natural tooth and relieve severe pain instantly.",
     descDetail: {

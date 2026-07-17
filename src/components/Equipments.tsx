@@ -4,6 +4,13 @@ import Image from "next/image";
 
 const equipments = [
   {
+    name: "Soga iLaser I (Triple Wavelength Laser)",
+    desc: "Triple wavelength laser SOGA that works on the principle of biomodulation. It speeds up healing of ulcer trauma, precancerous healing, and ulcers on the tongue. It cures the clicking sound of TMJ (Temporomandibular Joint) and aids in TMJ healing. Advantages include laser gum surgery and laser tooth whitening requiring less time—it is bloodless, bladeless, and requires no stitches.",
+    benefit: "Bloodless, Bladeless, No Stitches & Faster TMJ Healing",
+    image: "/images/soga_ilazer.png",
+    isFirstTimeInHaridwar: true
+  },
+  {
     name: "Orikam Hyper Light X-Ray",
     desc: "A portable, handheld high-frequency diagnostic X-ray system. Allows the specialist to capture crystal-clear intraoral radiographs right from the comfort of your dental chair with ultra-low radiation.",
     benefit: "Chairside & Ultra-Low Radiation",
@@ -20,13 +27,6 @@ const equipments = [
     desc: "Advanced Radiovisiography (RVG) sensor that captures high-definition dental images instantly. Emits up to 90% less radiation compared to conventional dental film systems.",
     benefit: "Instant HD Scans & 90% Less Radiation",
     image: "/images/rvg_vatech.png"
-  },
-  {
-    name: "Soga iLaser I",
-    desc: "State-of-the-art surgical and therapeutic diode laser. Utilized for painless soft tissue cutting, sterilization, and gum contouring with minimal bleeding and rapid tissue regeneration.",
-    benefit: "Clean Laser Surgery & Faster Healing",
-    image: "/images/soga_ilazer.png",
-    isFirstTimeInHaridwar: true
   },
   {
     name: "Needle-Free Anesthesia (Injex30)",

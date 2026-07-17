@@ -30,7 +30,6 @@
   font-size: 24px;
   color: var(--color-white);
   margin-bottom: var(--space-4);
-  text-transform: lowercase; /* design.md: lowercase logo */
 }
 
 .footer-logo span {
