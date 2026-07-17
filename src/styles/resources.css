@@ -178,15 +178,26 @@
 
 @media (max-width: 768px) {
   .lightbox-backdrop {
-    padding: 16px;
+    padding: 0; /* Remove all padding so image can stretch to edges */
   }
   .lightbox-close-btn {
     top: 16px;
     right: 16px;
-    font-size: 40px;
+    font-size: 32px;
+    background: rgba(0,0,0,0.6); /* Ensure button is visible over white images */
+    border-radius: 50%;
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
   .lightbox-content-wrapper {
-    max-height: 90vh;
+    max-width: 100vw;
+    max-height: 100vh; /* Use 100% of the viewport */
+    width: 100vw;
+    height: 100vh;
+    border-radius: 0;
   }
 }
 
