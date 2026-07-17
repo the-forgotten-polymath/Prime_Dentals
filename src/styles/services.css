@@ -71,7 +71,6 @@
 /* Full width Cards row layout */
 .services-cards-wrapper {
   width: 100%;
-  overflow: hidden;
   position: relative;
 }
 
@@ -434,9 +433,9 @@
 }
 
 .prev-btn {
-  left: 10px;
+  left: -20px;
 }
 
 .next-btn {
-  right: 10px;
+  right: -20px;
 }
