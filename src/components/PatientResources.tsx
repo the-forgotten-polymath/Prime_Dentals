@@ -112,9 +112,10 @@ export default function PatientResources() {
               <Image
                 src={selectedImage}
                 alt="Full size resource"
-                fill
+                width={1200}
+                height={2400}
+                style={{ width: "100%", height: "auto" }}
                 className="lightbox-full-img"
-                sizes="100vw"
                 priority
               />
             </motion.div>

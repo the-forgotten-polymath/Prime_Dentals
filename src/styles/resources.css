@@ -132,72 +132,60 @@
   left: 0;
   width: 100vw;
   height: 100vh;
-  background: rgba(0, 0, 0, 0.85);
+  background: rgba(0, 0, 0, 0.95);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   z-index: 9999;
   display: flex;
-  align-items: center;
+  align-items: flex-start; /* Start from top so tall images can scroll */
   justify-content: center;
-  padding: 40px;
+  overflow-y: auto; /* Allow vertical scroll for long infographics */
+  padding: 0;
 }
 
 .lightbox-close-btn {
-  position: absolute;
+  position: fixed; /* Keep it fixed on screen while scrolling */
   top: 24px;
-  right: 32px;
-  background: none;
+  left: 24px; /* Move to top left */
+  background: rgba(0,0,0,0.6);
+  border-radius: 50%;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   border: none;
   color: white;
-  font-size: 48px;
+  font-size: 32px;
   cursor: pointer;
-  line-height: 1;
   z-index: 10000;
-  transition: transform 0.2s ease, color 0.2s ease;
+  transition: transform 0.2s ease, background 0.2s ease;
 }
 
 .lightbox-close-btn:hover {
   transform: scale(1.1);
-  color: var(--color-brand-light-blue, #38BDF8);
+  background: rgba(0,0,0,0.8);
 }
 
 .lightbox-content-wrapper {
   position: relative;
   width: 100%;
   max-width: 900px;
-  height: 100%;
-  max-height: 85vh;
+  height: auto;
+  min-height: 100vh;
   background: transparent;
-  border-radius: 8px;
-  overflow: hidden;
+  display: flex;
+  flex-direction: column;
 }
 
 .lightbox-full-img {
-  object-fit: contain;
+  display: block;
 }
 
 @media (max-width: 768px) {
-  .lightbox-backdrop {
-    padding: 0; /* Remove all padding so image can stretch to edges */
-  }
   .lightbox-close-btn {
     top: 16px;
-    right: 16px;
-    font-size: 32px;
-    background: rgba(0,0,0,0.6); /* Ensure button is visible over white images */
-    border-radius: 50%;
-    width: 44px;
-    height: 44px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  .lightbox-content-wrapper {
-    max-width: 100vw;
-    max-height: 100vh; /* Use 100% of the viewport */
-    width: 100vw;
-    height: 100vh;
-    border-radius: 0;
+    left: 16px; /* Top left on mobile too */
   }
 }
 
