@@ -210,8 +210,8 @@
   }
 
   .hero-static-footer {
-    margin-top: auto; 
-    margin-bottom: 38vh; /* Adjusted for optimal layout with text removed */
+    margin-top: 24px; /* Sits naturally right below the text block */
+    margin-bottom: 0;
     gap: 16px;
   }
   
