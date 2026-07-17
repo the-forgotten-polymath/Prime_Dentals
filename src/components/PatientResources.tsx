@@ -62,6 +62,14 @@ export default function PatientResources() {
               key={resource.id} 
               className="resource-card hover-lift"
               onClick={() => setSelectedImage(resource.image)}
+              role="button"
+              tabIndex={0}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                  e.preventDefault();
+                  setSelectedImage(resource.image);
+                }
+              }}
             >
               <div className="resource-img-container">
                 <Image

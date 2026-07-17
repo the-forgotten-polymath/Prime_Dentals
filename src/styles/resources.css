@@ -117,12 +117,14 @@
   transition: transform 0.3s ease;
 }
 
-.resource-card:hover .resource-img-overlay {
-  opacity: 1;
-}
+@media (hover: hover) {
+  .resource-card:hover .resource-img-overlay {
+    opacity: 1;
+  }
 
-.resource-card:hover .resource-img-overlay span {
-  transform: translateY(0);
+  .resource-card:hover .resource-img-overlay span {
+    transform: translateY(0);
+  }
 }
 
 /* Lightbox Styles */
