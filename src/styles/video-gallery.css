@@ -1,0 +1,129 @@
+/* video-gallery.css */
+.video-gallery-section {
+  position: relative;
+  background: var(--color-white);
+}
+
+.video-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  margin-top: 40px;
+}
+
+.video-card {
+  background: var(--color-white);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+}
+
+.video-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+}
+
+.video-thumbnail-container {
+  position: relative;
+  width: 100%;
+  height: 400px; /* Fixed height to ensure uniform grid, particularly for portrait videos */
+  overflow: hidden;
+  background: #000;
+}
+
+.video-thumbnail {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
+}
+
+@media (hover: hover) {
+  .video-card:hover .video-thumbnail {
+    opacity: 0.6;
+  }
+}
+
+.video-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.play-button {
+  width: 64px;
+  height: 64px;
+  background: rgba(255,255,255,0.2);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border: 2px solid rgba(255,255,255,0.5);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 24px;
+  padding-left: 4px; /* Optical alignment for triangle */
+  transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+}
+
+@media (hover: hover) {
+  .video-card:hover .play-button {
+    transform: scale(1.1);
+    background: var(--color-primary);
+    border-color: var(--color-primary);
+  }
+}
+
+/* Lightbox video specific styles */
+.video-lightbox-content {
+  position: relative;
+  width: 100%;
+  max-width: 800px; /* Keep it constrained for better viewing */
+  height: 100%;
+  max-height: 90vh; /* Allow it to be taller if vertical video */
+  margin: 0;
+  background: transparent;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.lightbox-video-player {
+  width: 100%;
+  height: 100%;
+  max-height: 90vh;
+  object-fit: contain; /* Scale video down to fit without cropping */
+  outline: none;
+  border-radius: var(--radius-lg);
+  background: black; /* Black background for any letterboxing */
+  box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+}
+
+@media (max-width: 992px) {
+  .video-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .video-thumbnail-container {
+    height: 350px;
+  }
+}
+
+@media (max-width: 768px) {
+  .video-grid {
+    grid-template-columns: 1fr;
+  }
+  .video-thumbnail-container {
+    height: 300px;
+  }
+}
