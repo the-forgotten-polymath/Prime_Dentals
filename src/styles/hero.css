@@ -211,7 +211,7 @@
 
   .hero-static-footer {
     margin-top: auto; /* This pushes the footer down */
-    margin-bottom: 12vh; /* Just a little medium above the bottom */
+    margin-bottom: 48vh; /* 4x the original 12vh distance from the bottom */
     gap: 16px;
   }
   
