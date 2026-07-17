@@ -36,12 +36,15 @@ export default function PatientResources() {
     if (selectedImage) {
       window.addEventListener("keydown", handleKeyDown);
       document.body.style.overflow = "hidden"; // Prevent background scrolling
+      document.body.classList.add("lightbox-open");
     } else {
       document.body.style.overflow = "auto";
+      document.body.classList.remove("lightbox-open");
     }
     return () => {
       window.removeEventListener("keydown", handleKeyDown);
       document.body.style.overflow = "auto";
+      document.body.classList.remove("lightbox-open");
     };
   }, [selectedImage]);
 
