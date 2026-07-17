@@ -130,7 +130,7 @@ export default function Booking() {
                   <polyline points="22 4 12 14.01 9 11.01"></polyline>
                 </svg>
                 <h4 className="heading-md">Appointment Requested!</h4>
-                <p className="body-sm">Thank you. We will confirm soon.</p>
+                <p className="body-sm">Thank you for trusting us. We will confirm your slot and appointment soon on WhatsApp.</p>
                 <button className="btn-primary" onClick={() => setSubmitted(false)} style={{ marginTop: "16px" }}>
                   Book Another
                 </button>
