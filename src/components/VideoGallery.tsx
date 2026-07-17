@@ -37,10 +37,10 @@ export default function VideoGallery() {
       <div className="section-container">
         
         <div className="resources-header">
-          <span className="label">CLINICAL VIDEOS</span>
-          <h2 className="display-md">Dental Care <i>in Action</i></h2>
+          <span className="label">CLINIC TOUR</span>
+          <h2 className="display-md">Take a look at <i>Prime Dental</i></h2>
           <p className="body-md">
-            Watch our state-of-the-art procedures and patient experiences in these short clips.
+            Explore our state-of-the-art facility, advanced treatment rooms, and welcoming environment in these short clinic walkthroughs.
           </p>
         </div>
 
