@@ -210,14 +210,13 @@
   }
 
   .hero-static-footer {
-    margin-top: auto; /* This pushes the footer down */
-    margin-bottom: 48vh; /* 4x the original 12vh distance from the bottom */
+    margin-top: auto; 
+    margin-bottom: 38vh; /* Adjusted for optimal layout with text removed */
     gap: 16px;
   }
   
   .hero-static-line {
-    font-size: 13px; 
-    padding-left: 10px;
+    display: none; /* Hide static text on mobile */
   }
 
   .hero-cta-group {

@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from "motion/react";
 
 const heroSlides = [
   {
-    heading: "Your Trusted Dentist in Haridwar",
+    heading: "Your Most Trusted Dentist in Haridwar",
     sub: "Advanced, comfortable dental care for healthy and confident smiles.",
   },
   {
