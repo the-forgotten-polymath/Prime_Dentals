@@ -4,9 +4,9 @@ import Image from "next/image";
 
 const equipments = [
   {
-    name: "Soga iLaser I (Triple Wavelength Laser)",
-    desc: "Triple wavelength laser SOGA that works on the principle of biomodulation. It speeds up healing of ulcer trauma, precancerous healing, and ulcers on the tongue. It cures the clicking sound of TMJ (Temporomandibular Joint) and aids in TMJ healing. Advantages include laser gum surgery and laser tooth whitening requiring less time—it is bloodless, bladeless, and requires no stitches.",
-    benefit: "Bloodless, Bladeless, No Stitches & Faster TMJ Healing",
+    name: "Soga iLaser I",
+    desc: "State-of-the-art surgical and therapeutic diode laser. Utilized for painless soft tissue cutting, sterilization, and gum contouring with minimal bleeding and rapid tissue regeneration.",
+    benefit: "Clean Laser Surgery & Faster Healing",
     image: "/images/soga_ilazer.png",
     isFirstTimeInHaridwar: true
   },

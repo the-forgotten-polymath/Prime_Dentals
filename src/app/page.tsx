@@ -5,6 +5,7 @@ import Services from "../components/Services";
 import PatientResources from "../components/PatientResources";
 import BeforeAfterSlider from "../components/BeforeAfterSlider";
 import Equipments from "../components/Equipments";
+import LaserSpecialty from "../components/LaserSpecialty";
 import About from "../components/About";
 import Testimonials from "../components/Testimonials";
 import Booking from "../components/Booking";
@@ -23,6 +24,7 @@ export default function Home() {
       <BeforeAfterSlider />
       <About />
       <Equipments />
+      <LaserSpecialty />
       <Testimonials />
       <Booking />
       <Articles />

@@ -9,7 +9,7 @@ export default function Footer() {
           {/* COLUMN 1: Brand Info */}
           <div className="footer-col brand-col">
             <div className="footer-logo">
-              <span>Prime Dental</span>
+              <span>Prime Dental.</span>
             </div>
             <p className="footer-desc">
               Expert dental care for healthy, confident smiles at every age—delivered with comfort, precision, and trust.

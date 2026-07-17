@@ -1,0 +1,108 @@
+/* laser.css */
+.laser-section {
+  background: linear-gradient(180deg, var(--color-bg-light) 0%, var(--color-white) 100%);
+  border-top: 1px solid var(--color-border);
+}
+
+.laser-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.laser-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.laser-eyebrow {
+  margin-bottom: 12px;
+  color: var(--color-primary);
+}
+
+.laser-title {
+  margin-bottom: 24px;
+}
+
+.laser-desc {
+  margin-bottom: 40px;
+  color: var(--color-text-body);
+}
+
+.laser-benefits-list {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.laser-benefit-item {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.laser-icon-wrapper {
+  background: var(--color-bg-card);
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  flex-shrink: 0;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.laser-benefit-text h4 {
+  font-family: var(--font-heading);
+  font-size: 18px;
+  color: var(--color-text-dark);
+  margin-bottom: 6px;
+}
+
+.laser-benefit-text p {
+  font-family: var(--font-body);
+  font-size: 15px;
+  color: var(--color-text-body);
+  line-height: 1.5;
+}
+
+.laser-image-wrapper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+}
+
+.laser-image-glow {
+  position: absolute;
+  width: 80%;
+  height: 80%;
+  background: radial-gradient(circle, rgba(56, 189, 248, 0.15) 0%, rgba(255, 255, 255, 0) 70%);
+  border-radius: 50%;
+  z-index: 0;
+}
+
+.laser-main-img {
+  position: relative;
+  z-index: 1;
+  max-width: 100%;
+  height: auto;
+  border-radius: var(--radius-xl);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+}
+
+@media (max-width: 992px) {
+  .laser-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  
+  .laser-image-wrapper {
+    order: -1; /* Move image to top on mobile */
+    padding: 20px;
+  }
+}
