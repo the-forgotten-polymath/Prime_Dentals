@@ -20,11 +20,11 @@ export default function Home() {
       <Hero />
       <Marquee />
       <Services />
-      <PatientResources />
       <BeforeAfterSlider />
       <About />
       <Equipments />
       <LaserSpecialty />
+      <PatientResources />
       <Testimonials />
       <Booking />
       <Articles />
