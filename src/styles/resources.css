@@ -34,12 +34,13 @@
   position: relative;
   width: 100%;
   aspect-ratio: 1 / 1.1; /* Standard portrait ratio to fit infographics nicely */
-  background: #f4f4f5;
+  background: #ffffff;
   overflow: hidden;
 }
 
 .resource-img {
-  object-fit: cover;
+  object-fit: contain;
+  padding: 16px;
   transition: transform 0.5s ease;
 }
 
