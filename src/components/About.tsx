@@ -25,23 +25,36 @@ const doctors = [
   },
   {
     id: 1,
-    name: "Dr. Sahil Dhingra",
+    name: "Dr. Sahil Dhingra, BDS, MDS",
     prefix: "CLINIC DIRECTOR /",
     image: "/images/doctor-main.png",
     layout: "reverse-layout",
-    desc: "Dr. Sahil Dhingra is a highly skilled Endodontist with 15 years running Prime Dental since its establishment on October 6, 2016, and Ex - Associate Professor Kalka Dental College with a teaching experience of 9 years teaching BDS and MDS students (2 years of prior hospital practice).",
+    desc: (
+      <>
+        Dr. Sahil Dhingra is a distinguished Endodontist with over <strong>15 years of clinical experience</strong> and the Founder & Clinical Director of <strong>Prime Dental & RCT Center</strong>, established on <strong>October 6, 2016</strong>. Renowned for his expertise in painless single-visit root canal treatments, complex endodontic procedures, cosmetic dentistry, and advanced dental surgeries, he is committed to delivering exceptional patient care using the latest techniques and technology.
+        <br /><br />
+        In addition to his successful clinical practice, Dr. Dhingra has an impressive academic background, having served as an <strong>Associate Professor at Kalka Dental College, Meerut</strong>, where he taught both <strong>BDS and MDS students</strong> for <strong>9 years</strong>. Prior to his academic career, he also gained valuable experience through <strong>2 years of hospital-based clinical practice</strong>.
+        <br /><br />
+        Dr. Dhingra has authored <strong>multiple research publications in reputed national and international dental journals</strong>, reflecting his dedication to advancing the field of dentistry through academic research and evidence-based practice.
+      </>
+    ),
     stats: [
       { value: "15+ Yrs", label: "CLINICAL EXPERIENCE" },
       { value: "10K+", label: "SUCCESSFUL ROOT CANALS" },
       { value: "1 Hr", label: "PAINLESS ROOT CANAL" }
     ],
     points: [
-      "BDS from Teerthankar Mahaveer Dental College",
-      "MDS in Conservative Dentistry & Endodontics from Teerthankar Mahaveer Dental College",
-      "Established Prime Dental & RCT Center on October 6, 2016",
-      "Specializes in painless 1-hour root canals, complex surgeries, and cosmetic operations",
-      "Lifetime Member of the Indian Dental Association (IDA) & Indian Association of Conservative Dentistry and Endodontics (IACDE)",
-      "Ex-Associate Professor in Kalka Dental College, Meerut with 9 years of teaching experience"
+      "BDS – Teerthanker Mahaveer Dental College",
+      "MDS (Conservative Dentistry & Endodontics) – Teerthanker Mahaveer Dental College",
+      "Founder & Clinical Director of Prime Dental & RCT Center (Established October 6, 2016)",
+      "Over 15 years of clinical experience in dentistry",
+      "Specialist in painless single-visit root canals, complex endodontics, cosmetic dentistry, and advanced dental procedures",
+      "Former Associate Professor, Kalka Dental College, Meerut",
+      "9 years of teaching experience for BDS & MDS students",
+      "2 years of prior hospital clinical experience",
+      "Author of multiple publications in reputed dental journals",
+      "Lifetime Member of the Indian Dental Association (IDA)",
+      "Lifetime Member of the Indian Association of Conservative Dentistry & Endodontics (IACDE)"
     ]
   },
   {
