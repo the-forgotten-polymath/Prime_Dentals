@@ -67,9 +67,12 @@ export default function Footer() {
                   <path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zm3.3 14.3L11 12.9V7h1.5v5.15l3.5 2.1-.7 1.05z" />
                 </svg>
                 <div className="contact-hours">
-                  <strong>Mon-Wed, Fri-Sat:</strong> 10:00 AM – 8:00 PM<br />
-                  <strong>Thursday:</strong> 10:00 AM – 8:30 PM<br />
-                  <strong>Sunday:</strong> 10:30 AM – 2:00 PM
+                  <strong>Mon - Sat:</strong> 10:00 AM – 8:00 PM<br />
+                  <span className="lunch-break" style={{ display: 'block', fontSize: '0.85em', opacity: 0.8, marginBottom: '6px' }}>(Lunch Break: 3:00 PM – 5:00 PM)</span>
+                  <strong>Sunday:</strong> By Appointment Only<br />
+                  <span className="appointment-note" style={{ display: 'block', fontSize: '0.85em', opacity: 0.8, marginTop: '8px', fontStyle: 'italic' }}>
+                    *We prefer prior appointments to ensure our time goes into the right engagements.
+                  </span>
                 </div>
               </div>
 
