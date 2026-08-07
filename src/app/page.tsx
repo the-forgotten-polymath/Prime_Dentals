@@ -22,8 +22,8 @@ export default function Home() {
       <Services />
       <BeforeAfterSlider />
       <About />
-      <Equipments />
       <LaserSpecialty />
+      <Equipments />
       <PatientResources />
       <Testimonials />
       <Booking />
