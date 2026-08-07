@@ -104,7 +104,14 @@ export default function Booking() {
           <div className="contact-details">
             <div className="contact-item">
               <span className="contact-label label">HOURS</span>
-              <span className="contact-value body-md">Mon-Wed, Fri-Sat: 10am - 8pm<br/>Thu: 10am - 8:30pm<br/>Sun: 10:30am - 2pm</span>
+              <span className="contact-value body-md">
+                Mon - Sat: 10:00 AM – 8:00 PM<br/>
+                <span style={{ fontSize: '0.85em', opacity: 0.8, display: 'block', marginBottom: '4px' }}>(Lunch Break: 3:00 PM – 5:00 PM)</span>
+                Sun: By Appointment Only<br/>
+                <span style={{ fontSize: '0.85em', opacity: 0.8, display: 'block', marginTop: '6px', fontStyle: 'italic', lineHeight: 1.4 }}>
+                  *We prefer prior appointments to ensure our time goes into the right engagements.
+                </span>
+              </span>
             </div>
             <div className="contact-item">
               <span className="contact-label label">PHONE</span>
