@@ -57,6 +57,12 @@ const equipments = [
     desc: "A cordless endodontic handpiece with an integrated apex locator. Tracks file depth inside the canal in real time, preventing over-instrumentation and maximizing safety.",
     benefit: "Real-Time Apex Locator Integration",
     image: "/images/orikam_eighteeth.png"
+  },
+  {
+    name: "Woodpecker PTA Scaler & Air Polisher",
+    desc: "Advanced ultrasonic scaling and subgingival air polishing system by Woodpecker. Delivers painless plaque, calculus, and deep stain removal with comfortable temperature-controlled water therapy.",
+    benefit: "Gentle Ultrasonic Scaling & Air Polishing",
+    image: "/images/pta_scaler.png"
   }
 ];
 
