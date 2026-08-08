@@ -88,44 +88,50 @@ export default function AiAssistant() {
   };
 
   const renderFormattedText = (text: string) => {
-    // Clean up raw markdown headings, dividers (---), and table bars (|) into clean normal chat bubble text
-    const lines = text.split("\n");
-    return lines
-      .filter((line) => !line.trim().startsWith("---") && !line.trim().startsWith("***") && !line.trim().startsWith("|---"))
-      .map((line, lineIdx) => {
-        let cleanLine = line.trim();
+    if (!text) return null;
 
-        // Convert table rows | col | col | into bullet points
-        if (cleanLine.startsWith("|") && cleanLine.endsWith("|")) {
-          const cells = cleanLine.split("|").map((c) => c.trim()).filter(Boolean);
-          if (cells.length >= 2 && !cells[0].includes("---")) {
-            cleanLine = `• ${cells[0]}: ${cells.slice(1).join(" - ")}`;
-          } else {
-            return null; // Skip table header dividers
-          }
+    // Pre-clean text: strip raw markdown dividers (---, ***, ___)
+    let cleaned = text
+      .replace(/^[-\*_]{3,}$/gm, "")
+      .replace(/\|---*\|/g, "");
+
+    const lines = cleaned.split("\n");
+
+    return lines.map((line, lineIdx) => {
+      let trimmed = line.trim();
+      if (!trimmed) return null;
+
+      // Convert table rows | col | col | into bullet points
+      if (trimmed.startsWith("|") && trimmed.endsWith("|")) {
+        const cells = trimmed.split("|").map((c) => c.trim()).filter(Boolean);
+        if (cells.length >= 2 && !cells[0].includes("-")) {
+          trimmed = `• ${cells[0]}: ${cells.slice(1).join(" - ")}`;
+        } else {
+          return null;
         }
+      }
 
-        // Convert # Headings into bold text
-        if (cleanLine.startsWith("#")) {
-          cleanLine = `**${cleanLine.replace(/^#+\s*/, "")}**`;
+      // Strip headings (#, ##, ###) and make text bold
+      if (trimmed.startsWith("#")) {
+        trimmed = `**${trimmed.replace(/^#+\s*/, "")}**`;
+      }
+
+      // Handle bold tags **text**
+      const boldParts = trimmed.split(/(\*\*.*?\*\*)/g);
+      const content = boldParts.map((part, pIdx) => {
+        if (part.startsWith("**") && part.endsWith("**")) {
+          return <strong key={pIdx}>{part.slice(2, -2)}</strong>;
         }
-
-        // Handle bold tags **text**
-        const boldParts = cleanLine.split(/(\*\*.*?\*\*)/g);
-        const content = boldParts.map((part, pIdx) => {
-          if (part.startsWith("**") && part.endsWith("**")) {
-            return <strong key={pIdx}>{part.slice(2, -2)}</strong>;
-          }
-          return part;
-        });
-
-        return (
-          <React.Fragment key={lineIdx}>
-            {content}
-            {lineIdx < lines.length - 1 && <br />}
-          </React.Fragment>
-        );
+        return part;
       });
+
+      return (
+        <React.Fragment key={lineIdx}>
+          {content}
+          {lineIdx < lines.length - 1 && <br />}
+        </React.Fragment>
+      );
+    });
   };
 
   return (
@@ -145,7 +151,7 @@ export default function AiAssistant() {
         ) : (
           <div className="ai-btn-icon-wrapper">
             <svg viewBox="0 0 24 24" width="26" height="26" fill="currentColor">
-              <path d="M12 2a2 2 0 0 1 2 2v1.05A7.002 7.002 0 0 1 19 12v3a3 3 0 0 1-3 3h-1v2a1 1 0 0 1-1.707.707L10.586 18H8a3 3 0 0 1-3-3v-3a7.002 7.002 0 0 1 5-6.95V4a2 2 0 0 1 2-2zm0 5a5.002 5.002 0 0 0-5 5v3a1 1 0 0 0 1 1h3a1 1 0 0 1 .707.293L13 17.586V16a1 1 0 0 1 1-1h2a1 1 0 0 0 1-1v-3a5.002 5.002 0 0 0-5-5zm-2 4a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm4 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
+              <path d="M12 2a2 2 0 0 1 2 2v1.05A7.002 7.002 0 0 1 19 12v3a3 3 0 0 1-3 3h-1v2a1 1 0 0 1-1.707.707L10.586 18H8a3 3 0 0 1-3-3v-3a7.002 7.002 0 0 1 5-6.95V4a2 2 0 0 1 2-2zm0 5a5.002 5.002 0 0 0-5 5v3a1 1 0 0 1 1 1h3a1 1 0 0 1 .707.293L13 17.586V16a1 1 0 0 1 1-1h2a1 1 0 0 0 1-1v-3a5.002 5.002 0 0 0-5-5zm-2 4a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm4 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
             </svg>
             <span className="ai-badge">AI</span>
           </div>
@@ -166,8 +172,8 @@ export default function AiAssistant() {
             <div className="ai-chat-header">
               <div className="ai-header-info">
                 <div className="ai-avatar">
-                  <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
-                    <path d="M12 2a2 2 0 0 1 2 2v1.05A7.002 7.002 0 0 1 19 12v3a3 3 0 0 1-3 3h-1v2a1 1 0 0 1-1.707.707L10.586 18H8a3 3 0 0 1-3-3v-3a7.002 7.002 0 0 1 5-6.95V4a2 2 0 0 1 2-2z" />
+                  <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M12 2l2.4 7.4H22l-6 4.6 2.3 7.2-6.3-4.6-6.3 4.6 2.3-7.2-6-4.6h7.6z" />
                   </svg>
                 </div>
                 <div>

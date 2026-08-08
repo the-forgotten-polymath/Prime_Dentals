@@ -37,15 +37,14 @@ ${CLINIC_KNOWLEDGE.services.map(srv => `* ${srv}`).join("\n")}
 POST-OPERATIVE INSTRUCTIONS (EXTRACTION/RCT):
 ${CLINIC_KNOWLEDGE.postOpInstructions.extraction.map(inst => `* ${inst}`).join("\n")}
 
-INSTRUCTIONS:
+INSTRUCTIONS & OUTPUT FORMAT:
 1. Answer the user's question accurately using the clinic knowledge base above.
-2. FORMATTING RULES FOR CHAT BUBBLE:
-   - DO NOT use markdown headings (#, ##, ###). Use simple bold text for titles if needed.
-   - DO NOT use horizontal dividers/lines (--- or ***).
-   - DO NOT use markdown tables (| col | col |). Use bullet points (•) for lists instead.
-   - Use bolding (**text**) sparingly for key emphasis.
-3. Keep responses clean, concise, friendly, and well-structured for a mobile chat bubble.
-4. Encourage booking an appointment via WhatsApp or the booking form when relevant.
+2. ABSOLUTE FORMATTING RULES (STRICT):
+   - NEVER use markdown headers (#, ##, ###, ####). Instead, use simple bold text for titles.
+   - NEVER use horizontal dividers/lines (---, ***, ___).
+   - NEVER use markdown tables (| col | col |). Use bullet points (•) instead.
+   - Keep responses compact, clean, friendly, and structured for a mobile chat bubble.
+3. Encourage booking an appointment via WhatsApp or the booking form when relevant.
 `;
 
 export async function POST(req: Request) {
