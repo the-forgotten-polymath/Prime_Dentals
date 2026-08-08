@@ -123,5 +123,13 @@ export const CLINIC_KNOWLEDGE = {
       "Apply an ice pack externally on the cheek for 10-15 minutes intervals if swelling occurs.",
       "Avoid hot, spicy, or crunchy foods for 2-3 days."
     ]
-  }
+  },
+
+  communityInitiatives: [
+    {
+      title: "Health Checkup Camp at Guru Nanak Academy, Sector 2, BHEL",
+      date: "July 2026",
+      details: "Comprehensive health checkup camp screening over 200 school students for general well-being and oral health. Recognized with a Trophy of Appreciation by Guru Nanak Academy management."
+    }
+  ]
 };

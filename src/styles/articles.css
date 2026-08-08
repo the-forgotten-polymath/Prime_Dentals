@@ -18,6 +18,194 @@
   color: var(--color-text-dark);
 }
 
+/* Featured Camp Event Card */
+.camp-featured-card {
+  background: #fafafb;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 32px;
+  margin-bottom: var(--space-8);
+  box-shadow: var(--shadow-card);
+}
+
+.camp-tag-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.camp-badge {
+  background: var(--color-primary);
+  color: #ffffff;
+  padding: 4px 12px;
+  border-radius: 99px;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.camp-date {
+  color: var(--color-text-gray);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.camp-title {
+  color: var(--color-text-dark);
+  font-size: 26px;
+  margin-bottom: 24px;
+}
+
+.camp-content-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 32px;
+}
+
+.camp-text-side {
+  display: flex;
+  flex-direction: column;
+}
+
+.camp-paragraph {
+  color: var(--color-text-gray);
+  line-height: 1.6;
+  margin-bottom: 16px;
+}
+
+.camp-paragraph strong {
+  color: var(--color-text-dark);
+}
+
+/* Trophy Spotlight Box */
+.trophy-spotlight {
+  margin-top: 16px;
+  padding: 16px;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: var(--radius-lg);
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.trophy-spotlight:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+.trophy-img-wrapper {
+  position: relative;
+  width: 100px;
+  height: 120px;
+  flex-shrink: 0;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #f8fafc;
+  border: 1px solid #cbd5e1;
+}
+
+.trophy-img {
+  object-fit: contain;
+  padding: 6px;
+}
+
+.trophy-overlay {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0, 0, 0, 0.4);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  font-weight: 700;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.trophy-img-wrapper:hover .trophy-overlay {
+  opacity: 1;
+}
+
+.trophy-info {
+  flex-grow: 1;
+}
+
+.trophy-title {
+  color: var(--color-text-dark);
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.trophy-sub {
+  color: var(--color-text-gray);
+  font-size: 13px;
+  line-height: 1.4;
+  margin: 0;
+}
+
+/* Event Photo Gallery Grid */
+.camp-gallery-side {
+  display: flex;
+  flex-direction: column;
+}
+
+.gallery-title {
+  color: var(--color-primary);
+  margin-bottom: 16px;
+  font-size: 12px;
+  letter-spacing: 0.05em;
+}
+
+.camp-photos-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.camp-photo-item {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  cursor: pointer;
+  background: #e2e8f0;
+}
+
+.camp-photo {
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.camp-photo-item:hover .camp-photo {
+  transform: scale(1.05);
+}
+
+.photo-overlay {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0, 0, 0, 0.35);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 600;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.camp-photo-item:hover .photo-overlay {
+  opacity: 1;
+}
+
+/* Clippings Grid */
 .articles-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -25,8 +213,8 @@
 }
 
 .article-card {
-  background: var(--color-bg-card); /* design.md: Light Warm Gray card background */
-  border-radius: var(--radius-lg); /* design.md: 12px cards */
+  background: var(--color-bg-card);
+  border-radius: var(--radius-lg);
   overflow: hidden;
   border: 1px solid var(--color-border);
   box-shadow: var(--shadow-card);
@@ -68,7 +256,6 @@
   flex-grow: 1;
 }
 
-/* Secondary Action / Link style */
 .article-link {
   color: var(--color-primary);
   font-family: 'DM Sans', sans-serif;
@@ -85,9 +272,24 @@
   color: var(--color-primary-dark);
 }
 
+@media (max-width: 1024px) {
+  .camp-content-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 @media (max-width: 768px) {
   .articles-grid {
     grid-template-columns: 1fr;
     gap: var(--space-5);
+  }
+
+  .camp-featured-card {
+    padding: 20px;
+  }
+
+  .trophy-spotlight {
+    flex-direction: column;
+    align-items: flex-start;
   }
 }
