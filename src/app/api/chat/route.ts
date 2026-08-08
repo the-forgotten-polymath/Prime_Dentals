@@ -39,8 +39,12 @@ ${CLINIC_KNOWLEDGE.postOpInstructions.extraction.map(inst => `* ${inst}`).join("
 
 INSTRUCTIONS:
 1. Answer the user's question accurately using the clinic knowledge base above.
-2. Use markdown formatting (bolding, bullet points) for clarity and readability.
-3. Keep responses concise, friendly, and helpful.
+2. FORMATTING RULES FOR CHAT BUBBLE:
+   - DO NOT use markdown headings (#, ##, ###). Use simple bold text for titles if needed.
+   - DO NOT use horizontal dividers/lines (--- or ***).
+   - DO NOT use markdown tables (| col | col |). Use bullet points (•) for lists instead.
+   - Use bolding (**text**) sparingly for key emphasis.
+3. Keep responses clean, concise, friendly, and well-structured for a mobile chat bubble.
 4. Encourage booking an appointment via WhatsApp or the booking form when relevant.
 `;
 

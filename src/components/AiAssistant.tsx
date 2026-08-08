@@ -88,27 +88,44 @@ export default function AiAssistant() {
   };
 
   const renderFormattedText = (text: string) => {
-    // Simple markdown-style renderer for bold (**text**), bullet points, and links
+    // Clean up raw markdown headings, dividers (---), and table bars (|) into clean normal chat bubble text
     const lines = text.split("\n");
-    return lines.map((line, lineIdx) => {
-      let content: React.ReactNode = line;
+    return lines
+      .filter((line) => !line.trim().startsWith("---") && !line.trim().startsWith("***") && !line.trim().startsWith("|---"))
+      .map((line, lineIdx) => {
+        let cleanLine = line.trim();
 
-      // Handle bold tags **text**
-      const boldParts = line.split(/(\*\*.*?\*\*)/g);
-      content = boldParts.map((part, pIdx) => {
-        if (part.startsWith("**") && part.endsWith("**")) {
-          return <strong key={pIdx}>{part.slice(2, -2)}</strong>;
+        // Convert table rows | col | col | into bullet points
+        if (cleanLine.startsWith("|") && cleanLine.endsWith("|")) {
+          const cells = cleanLine.split("|").map((c) => c.trim()).filter(Boolean);
+          if (cells.length >= 2 && !cells[0].includes("---")) {
+            cleanLine = `• ${cells[0]}: ${cells.slice(1).join(" - ")}`;
+          } else {
+            return null; // Skip table header dividers
+          }
         }
-        return part;
-      });
 
-      return (
-        <React.Fragment key={lineIdx}>
-          {content}
-          {lineIdx < lines.length - 1 && <br />}
-        </React.Fragment>
-      );
-    });
+        // Convert # Headings into bold text
+        if (cleanLine.startsWith("#")) {
+          cleanLine = `**${cleanLine.replace(/^#+\s*/, "")}**`;
+        }
+
+        // Handle bold tags **text**
+        const boldParts = cleanLine.split(/(\*\*.*?\*\*)/g);
+        const content = boldParts.map((part, pIdx) => {
+          if (part.startsWith("**") && part.endsWith("**")) {
+            return <strong key={pIdx}>{part.slice(2, -2)}</strong>;
+          }
+          return part;
+        });
+
+        return (
+          <React.Fragment key={lineIdx}>
+            {content}
+            {lineIdx < lines.length - 1 && <br />}
+          </React.Fragment>
+        );
+      });
   };
 
   return (
