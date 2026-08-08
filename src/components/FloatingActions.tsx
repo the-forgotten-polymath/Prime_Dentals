@@ -1,10 +1,14 @@
 "use client";
 
 import React from "react";
+import AiAssistant from "./AiAssistant";
 
 export default function FloatingActions() {
   return (
     <div className="floating-actions-container">
+      {/* AI Assistant Button & Modal */}
+      <AiAssistant />
+
       {/* WhatsApp Button */}
       <a 
         href="https://wa.me/919997801777" 
