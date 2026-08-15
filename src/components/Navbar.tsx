@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import { motion } from "motion/react";
+import { triggerKiviBooking } from "./KiviBookingModal";
 
 const navItems = [
   { id: "home", label: "Home", href: "#home" },
@@ -100,13 +101,20 @@ export default function Navbar() {
           </ul>
         </nav>
 
-        <a href="#contact" className="nav-cta-button" onClick={() => setIsMobileMenuOpen(false)}>
+        <button 
+          className="nav-cta-button" 
+          onClick={() => {
+            setIsMobileMenuOpen(false);
+            triggerKiviBooking();
+          }}
+          type="button"
+        >
           Book Now
           <svg className="cta-arrow-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ width: "16px", height: "16px", transform: "rotate(45deg)" }}>
             <line x1="5" y1="12" x2="19" y2="12"></line>
             <polyline points="12 5 19 12 12 19"></polyline>
           </svg>
-        </a>
+        </button>
       </div>
     </header>
   );

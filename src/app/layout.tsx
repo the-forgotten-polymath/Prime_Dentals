@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import "./globals.css";
+import KiviBookingModal from "@/components/KiviBookingModal";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://primedentalharidwar.in"),
@@ -59,6 +61,46 @@ const jsonLd = {
   "medicalSpecialty": ["Dentistry"]
 };
 
+const kiviJsonLd = {
+  "@context": "http://schema.org/",
+  "@type": "MedicalOrganization",
+  "image": "https://files.kivihealth.com/cache/profile_pic/20260726052605_27920.jpg",
+  "@id": "https://kivihealth.com/clinic/-prime-dental-&-root-canal-treatment-",
+  "name": "Prime Dental & Root Canal Treatment",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "G-3 & 5 super complex, behind Aastha Medical Store, Near City Hospital, Ranipur More , Haridwar",
+    "addressLocality": "Ranipur More",
+    "addressRegion": "Haridwar",
+    "postalCode": "249401",
+    "addressCountry": "IN"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": "29.933698125268",
+    "longitude": "78.1341248605"
+  },
+  "telephone": "9997801777",
+  "potentialAction": {
+    "@type": "ReserveAction",
+    "target": {
+      "@type": "EntryPoint",
+      "urlTemplate": "https://kivihealth.com/iam/.sahil.dhingra.gi2m0b0qphio/bookslot",
+      "inLanguage": "en-US",
+      "actionPlatform": [
+        "http://schema.org/DesktopWebPlatform",
+        "http://schema.org/IOSPlatform",
+        "http://schema.org/AndroidPlatform"
+      ]
+    },
+    "result": {
+      "@type": "Reservation",
+      "name": "Book an Appointment"
+    }
+  },
+  "priceRange": "$"
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -66,14 +108,32 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        {/* KiviHealth Widget CSS */}
+        <link rel="stylesheet" href="https://files.kivihealth.com/assets/css/widget.css" />
+        
+        {/* KiviHealth MedicalOrganization JSON-LD Schema */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(kiviJsonLd) }}
+        />
+      </head>
       <body>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
+
+        {/* KiviHealth Required jQuery & Bootstrap JS */}
+        <Script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js" strategy="beforeInteractive" />
+        <Script src="https://cdn.kivihealth.com/twitter-bootstrap/3.3.6/js/bootstrap.min.js" strategy="lazyOnload" />
+
         <div className="page-wrapper">
           {children}
         </div>
+
+        {/* Global KiviHealth Booking Modal */}
+        <KiviBookingModal />
       </body>
     </html>
   );

@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import { triggerKiviBooking } from "./KiviBookingModal";
 
 export default function Booking() {
   const [formData, setFormData] = useState({
@@ -120,6 +121,50 @@ export default function Booking() {
             <div className="contact-item">
               <span className="contact-label label">ADDRESS</span>
               <span className="contact-value body-md">Ranipur More, G3-6 super complex, Haridwar, Uttarakhand 249401</span>
+            </div>
+
+            <div className="contact-item" style={{ marginTop: "24px" }}>
+              <span className="contact-label label">INSTANT SLOT BOOKING</span>
+              <div style={{ marginTop: "8px" }}>
+                <span>
+                  <button 
+                    type="button" 
+                    className="btn kivi_bookappt_btn kivi_bookappt_btn-labeled btn-primary" 
+                    data-toggle="modal" 
+                    data-target="#bookappointment"
+                    onClick={triggerKiviBooking}
+                    style={{
+                      background: "linear-gradient(135deg, #0ea5e9, #0284c7)",
+                      color: "#ffffff",
+                      border: "none",
+                      padding: "12px 24px",
+                      borderRadius: "99px",
+                      fontWeight: "700",
+                      fontSize: "14px",
+                      cursor: "pointer",
+                      display: "inline-flex",
+                      alignItems: "center",
+                      gap: "8px",
+                      boxShadow: "0 4px 14px rgba(14, 165, 233, 0.35)"
+                    }}
+                  >
+                    📅 Book Appointment (KiviHealth)
+                  </button>
+                  <a 
+                    href="https://kivihealth.com/" 
+                    className="_kivi_powered_container" 
+                    target="_blank" 
+                    rel="noreferrer"
+                    title="Search and Book Appointment with Dentist in Haridwar"
+                    style={{ display: "block", marginTop: "8px", textDecoration: "none" }}
+                  >
+                    <span style={{ color: "#424748" }}>
+                      <span style={{ fontSize: "11px", marginRight: "4px" }}>Powered By</span>
+                      <span style={{ fontSize: "11px", fontWeight: "700", color: "#0284c7" }}>kivihealth.com</span>
+                    </span>
+                  </a>
+                </span>
+              </div>
             </div>
           </div>
         </div>

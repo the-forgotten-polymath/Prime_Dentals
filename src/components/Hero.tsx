@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
+import { triggerKiviBooking } from "./KiviBookingModal";
 
 const heroSlides = [
   {
@@ -86,10 +87,10 @@ export default function Hero() {
               delivering advanced, precise and comfortable dental care in Haridwar.
             </p>
             <div className="hero-cta-group">
-              <a href="#contact" className="btn-primary hero-btn">
+              <button type="button" onClick={triggerKiviBooking} className="btn-primary hero-btn">
                 Book Now
                 <span className="btn-arrow">→</span>
-              </a>
+              </button>
               <a href="#services" className="btn-secondary hero-btn">
                 Services
               </a>
