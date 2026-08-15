@@ -3,18 +3,12 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
 
+export const KIVI_BOOKING_URL = "https://kivihealth.com/iam/.sahil.dhingra.gi2m0b0qphio/bookslot";
+
 export const triggerKiviBooking = () => {
   if (typeof window !== "undefined") {
-    window.dispatchEvent(new CustomEvent("open-kivi-modal"));
-    // Also trigger bootstrap modal if present
-    const $ = (window as unknown as { $: any }).$;
-    if ($ && typeof $('#bookappointment').modal === "function") {
-      try {
-        $('#bookappointment').modal('show');
-      } catch (err) {
-        console.warn("Bootstrap modal call:", err);
-      }
-    }
+    // 1. Direct window open to bypass frame-ancestors iframe blocking
+    window.open(KIVI_BOOKING_URL, "_blank");
   }
 };
 
@@ -23,16 +17,8 @@ export default function KiviBookingModal() {
 
   useEffect(() => {
     const handleOpen = () => setIsOpen(true);
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === "Escape") setIsOpen(false);
-    };
-
     window.addEventListener("open-kivi-modal", handleOpen);
-    window.addEventListener("keydown", handleKeyDown);
-    return () => {
-      window.removeEventListener("open-kivi-modal", handleOpen);
-      window.removeEventListener("keydown", handleKeyDown);
-    };
+    return () => window.removeEventListener("open-kivi-modal", handleOpen);
   }, []);
 
   return (
@@ -69,9 +55,7 @@ export default function KiviBookingModal() {
               className="kivi-modal-card"
               style={{
                 width: "100%",
-                maxWidth: "650px",
-                height: "650px",
-                maxHeight: "90vh",
+                maxWidth: "500px",
                 background: "#ffffff",
                 borderRadius: "20px",
                 overflow: "hidden",
@@ -87,19 +71,18 @@ export default function KiviBookingModal() {
                 style={{
                   background: "linear-gradient(135deg, #0ea5e9, #0284c7)",
                   color: "#ffffff",
-                  padding: "16px 24px",
+                  padding: "20px 24px",
                   display: "flex",
                   alignItems: "center",
-                  justifyContent: "space-between",
-                  flexShrink: 0
+                  justifyContent: "space-between"
                 }}
               >
                 <div>
-                  <h4 style={{ margin: 0, fontSize: "17px", fontWeight: "700", color: "#ffffff", lineHeight: 1.2 }}>
+                  <h4 style={{ margin: 0, fontSize: "18px", fontWeight: "700", color: "#ffffff", lineHeight: 1.2 }}>
                     Book Appointment — Prime Dental
                   </h4>
                   <span style={{ fontSize: "12px", opacity: 0.9 }}>
-                    Instant Online Appointment via KiviHealth
+                    KiviHealth Instant Online Slot Booking
                   </span>
                 </div>
                 <button 
@@ -116,8 +99,7 @@ export default function KiviBookingModal() {
                     cursor: "pointer",
                     display: "flex",
                     alignItems: "center",
-                    justifyContent: "center",
-                    transition: "background 0.2s ease"
+                    justifyContent: "center"
                   }}
                   aria-label="Close modal"
                 >
@@ -125,28 +107,70 @@ export default function KiviBookingModal() {
                 </button>
               </div>
 
-              {/* Iframe Body */}
-              <div style={{ flexGrow: 1, width: "100%", height: "100%", background: "#ffffff", overflow: "hidden" }}>
-                <iframe 
-                  id="MainPopupIframe" 
-                  src="https://kivihealth.com/iam/.sahil.dhingra.gi2m0b0qphio/bookslot" 
-                  width="100%" 
-                  height="100%" 
-                  style={{ border: "none", width: "100%", height: "100%" }}
-                  title="KiviHealth Appointment Booking Slot"
-                ></iframe>
+              {/* Body */}
+              <div style={{ padding: "32px 24px", textAlign: "center", background: "#ffffff" }}>
+                <div 
+                  style={{ 
+                    width: "64px", 
+                    height: "64px", 
+                    borderRadius: "50%", 
+                    background: "#e0f2fe", 
+                    color: "#0284c7", 
+                    display: "flex", 
+                    alignItems: "center", 
+                    justifyContent: "center", 
+                    margin: "0 auto 20px auto" 
+                  }}
+                >
+                  <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                    <line x1="16" y1="2" x2="16" y2="6"></line>
+                    <line x1="8" y1="2" x2="8" y2="6"></line>
+                    <line x1="3" y1="10" x2="21" y2="10"></line>
+                  </svg>
+                </div>
+
+                <h3 style={{ margin: "0 0 10px 0", fontSize: "20px", fontWeight: "700", color: "#0f172a" }}>
+                  KiviHealth Slot Booking
+                </h3>
+                <p style={{ margin: "0 0 24px 0", fontSize: "14px", color: "#64748b", lineHeight: 1.5 }}>
+                  Select your appointment date, view available timing slots, and confirm your booking directly on KiviHealth.
+                </p>
+
+                <a
+                  href={KIVI_BOOKING_URL}
+                  target="_blank"
+                  rel="noreferrer"
+                  style={{
+                    display: "inline-flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    gap: "10px",
+                    width: "100%",
+                    padding: "14px 24px",
+                    background: "linear-gradient(135deg, #0ea5e9, #0284c7)",
+                    color: "#ffffff",
+                    borderRadius: "99px",
+                    fontWeight: "700",
+                    fontSize: "15px",
+                    textDecoration: "none",
+                    boxShadow: "0 6px 20px rgba(14, 165, 233, 0.4)"
+                  }}
+                >
+                  <span>Proceed to KiviHealth Booking</span>
+                  <span style={{ fontSize: "18px" }}>→</span>
+                </a>
               </div>
 
               {/* Footer */}
               <div 
                 style={{
-                  padding: "12px 24px",
+                  padding: "14px 24px",
                   background: "#f8fafc",
                   borderTop: "1px solid #e2e8f0",
                   display: "flex",
                   alignItems: "center",
-                  justifyContent: "space-between",
-                  flexShrink: 0
+                  justifyContent: "space-between"
                 }}
               >
                 <a 
@@ -162,7 +186,7 @@ export default function KiviBookingModal() {
                   type="button" 
                   onClick={() => setIsOpen(false)}
                   style={{
-                    padding: "8px 20px",
+                    padding: "6px 16px",
                     borderRadius: "99px",
                     border: "1px solid #cbd5e1",
                     background: "#ffffff",
@@ -175,12 +199,12 @@ export default function KiviBookingModal() {
                   Close
                 </button>
               </div>
+
             </motion.div>
           </motion.div>
         )}
       </AnimatePresence>
 
-      {/* Hidden Bootstrap Modal anchor target for compatibility */}
       <div id="bookappointment" style={{ display: "none" }}></div>
     </>
   );
