@@ -33,7 +33,7 @@ export const CLINIC_KNOWLEDGE = {
       experience: "9+ years of clinical experience",
       qualifications: "BDS (2015) from IDST Kadrabad (CCS University)",
       highlights: [
-        "Government certificate holder in Management of Dental Emergencies",
+        "Government certificate holder in Management of Medical Emergencies",
         "Specializes in compassionate, evidence-based general dental care",
         "Follows modern safety and sterilization protocols"
       ]
