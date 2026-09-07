@@ -119,6 +119,20 @@ export default function RootLayout({
         />
       </head>
       <body>
+        {/* Google Analytics 4 (GA4) Tag */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-W3TMB43CM8"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-W3TMB43CM8');
+          `}
+        </Script>
+
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
