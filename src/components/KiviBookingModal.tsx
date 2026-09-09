@@ -5,9 +5,16 @@ import { motion, AnimatePresence } from "motion/react";
 
 export const KIVI_BOOKING_URL = "https://kivihealth.com/iam/.sahil.dhingra.gi2m0b0qphio/bookslot";
 
+export const trackBookingGAEvent = () => {
+  if (typeof window !== "undefined" && typeof (window as unknown as { gtag: Function }).gtag === "function") {
+    (window as unknown as { gtag: Function }).gtag('event', 'booking');
+  }
+};
+
 export const triggerKiviBooking = () => {
   if (typeof window !== "undefined") {
-    // 1. Direct window open to bypass frame-ancestors iframe blocking
+    trackBookingGAEvent();
+    // Direct window open to bypass frame-ancestors iframe blocking
     window.open(KIVI_BOOKING_URL, "_blank");
   }
 };
@@ -141,6 +148,7 @@ export default function KiviBookingModal() {
                   href={KIVI_BOOKING_URL}
                   target="_blank"
                   rel="noreferrer"
+                  onClick={() => trackBookingGAEvent()}
                   style={{
                     display: "inline-flex",
                     alignItems: "center",

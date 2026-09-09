@@ -28,6 +28,9 @@ export const metadata: Metadata = {
   },
   alternates: {
     canonical: "/",
+  },
+  verification: {
+    google: "1ZD_fKXojkzjGIbcS-2yPTP4Au7JbDZ_vaZctJ-R43k",
   }
 };
 
@@ -109,6 +112,22 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        {/* Google Search Console Verification Meta Tag */}
+        <meta name="google-site-verification" content="1ZD_fKXojkzjGIbcS-2yPTP4Au7JbDZ_vaZctJ-R43k" />
+
+        {/* Google Analytics 4 (GA4) Tag in high <head> */}
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-W3TMB43CM8"></script>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-W3TMB43CM8');
+            `,
+          }}
+        />
+
         {/* KiviHealth Widget CSS */}
         <link rel="stylesheet" href="https://files.kivihealth.com/assets/css/widget.css" />
         
@@ -119,20 +138,6 @@ export default function RootLayout({
         />
       </head>
       <body>
-        {/* Google Analytics 4 (GA4) Tag */}
-        <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-W3TMB43CM8"
-          strategy="afterInteractive"
-        />
-        <Script id="google-analytics" strategy="afterInteractive">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-W3TMB43CM8');
-          `}
-        </Script>
-
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

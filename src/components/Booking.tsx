@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { KIVI_BOOKING_URL } from "./KiviBookingModal";
+import { KIVI_BOOKING_URL, trackBookingGAEvent } from "./KiviBookingModal";
 
 export default function Booking() {
   return (
@@ -87,6 +87,7 @@ export default function Booking() {
               href={KIVI_BOOKING_URL} 
               target="_blank" 
               rel="noreferrer"
+              onClick={() => trackBookingGAEvent()}
               style={{
                 display: "inline-flex",
                 alignItems: "center",
